@@ -1,0 +1,51 @@
+{
+  "fold0": {
+    "A0": {
+      "best_epoch": 45,
+      "macro_f1": 0.7828,
+      "accuracy": 0.8649,
+      "n_classes_private": 100
+    },
+    "A2": {
+      "best_epoch": 34,
+      "macro_f1": 0.7752,
+      "accuracy": 0.8577,
+      "n_classes_private": 100
+    },
+    "B": {
+      "best_epoch": 13,
+      "macro_f1": 0.8589,
+      "accuracy": 0.9153,
+      "n_classes_private": 100
+    }
+  },
+  "config_A": {
+    "lr": 0.001,
+    "wd": 0.01,
+    "batch": 64,
+    "max_epochs": 60,
+    "warmup": 3,
+    "patience": 10,
+    "smoothing": 0.1,
+    "clip": 1.0,
+    "mask_max": 3,
+    "noise": 0.1,
+    "in_drop": 0.1
+  },
+  "config_B": {
+    "lr_cnn": 0.0001,
+    "lr_head": 0.0005,
+    "wd": 0.01,
+    "batch": 8,
+    "max_epochs": 15,
+    "warmup": 1,
+    "patience": 4,
+    "smoothing": 0.1,
+    "clip": 1.0,
+    "freeze_blocks": 3,
+    "crop_min": 0.75
+  },
+  "quick": false,
+  "device": "cuda",
+  "torch": "2.11.0+cu130"
+}
