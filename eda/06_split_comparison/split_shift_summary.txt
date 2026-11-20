@@ -1,0 +1,20 @@
+== Trung vị theo tập (train: video duy nhất)
+              frames    fps   dur  size_kb  motion
+train           30.0  12.38  2.42    80.07    4.00
+public_test     30.0  12.50  2.40    91.03    3.97
+private_test    30.0  12.50  2.40    94.61    4.03
+
+== Kiểm định KS hai mẫu: thống kê D (p-value)
+frames   train vs public_test: D=0.005 (p=1) | train vs private_test: D=0.007 (p=1) | public_test vs private_test: D=0.002 (p=1)
+fps      train vs public_test: D=0.075 (p=1.7e-05) | train vs private_test: D=0.069 (p=2.9e-06) | public_test vs private_test: D=0.094 (p=1.7e-08)
+dur      train vs public_test: D=0.075 (p=1.7e-05) | train vs private_test: D=0.068 (p=4.5e-06) | public_test vs private_test: D=0.094 (p=1.7e-08)
+size_kb  train vs public_test: D=0.230 (p=1.9e-48) | train vs private_test: D=0.237 (p=4e-70) | public_test vs private_test: D=0.059 (p=0.0013)
+motion   train vs public_test: D=0.059 (p=0.0015) | train vs private_test: D=0.079 (p=4.8e-08) | public_test vs private_test: D=0.035 (p=0.15)
+
+== Tỷ lệ video có >=1 khung đơn sắc theo tập (%)
+{'train': 20.14, 'public_test': 0.06, 'private_test': 0.03}
+
+== Trùng nội dung giữa các tập (đếm MD5 khác nhau; số video trùng có thể lớn hơn vì tập test tự trùng lặp)
+train ∩ public_test: 156 MD5 chung | 157 video của public_test trùng với train
+train ∩ private_test: 0 MD5 chung | 0 video của private_test trùng với train
+public_test ∩ private_test: 887 MD5 chung | 896 video của private_test trùng với public_test

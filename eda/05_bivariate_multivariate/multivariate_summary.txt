@@ -1,0 +1,25 @@
+== Tương quan Pearson (train, video duy nhất)
+             frames   fps  size_kb  solid_ratio  motion
+frames         1.00 -0.24     0.13         0.01    0.12
+fps           -0.24  1.00    -0.17         0.03   -0.34
+size_kb        0.13 -0.17     1.00        -0.45    0.28
+solid_ratio    0.01  0.03    -0.45         1.00    0.32
+motion         0.12 -0.34     0.28         0.32    1.00
+
+== Tương quan Spearman (train, video duy nhất)
+             frames   fps  size_kb  solid_ratio  motion
+frames         1.00 -0.16     0.14         0.03    0.15
+fps           -0.16  1.00    -0.17        -0.02   -0.30
+size_kb        0.14 -0.17     1.00        -0.51    0.38
+solid_ratio    0.03 -0.02    -0.51         1.00    0.35
+motion         0.15 -0.30     0.38         0.35    1.00
+
+== Dung lượng theo có/không khung đơn sắc (train)
+median size_kb có / không khung đơn sắc: 49.0 / 87.6
+
+== Quan hệ thuộc tính – nhãn lớp (Kruskal–Wallis, eta^2)
+fps: eta2=0.279  KW H=630  p=3.2e-78
+size_kb: eta2=0.147  KW H=409  p=2.7e-39
+frames: eta2=0.080  KW H=218  p=6.9e-11
+trung vị FPS theo lớp: {'count': 100.0, 'mean': 12.89, 'std': 2.21, 'min': 9.41, '25%': 11.66, '50%': 12.25, '75%': 13.39, 'max': 19.15}
+thấp nhất: {'Ngón tay': 9.4, 'San sẻ': 10.0, 'Xuất viện': 10.1} | cao nhất: {'Ho': 19.2, 'Thích': 19.0, 'Giúp': 18.7}

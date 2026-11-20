@@ -1,0 +1,15 @@
+Biết/214576.mp4 | gần như rỗng | md5=00db7124c8 | 2 KB | 16 khung | 16 khung đơn sắc
+Khai báo/885339.mp4 | gần như rỗng | md5=9197901a3d | 2 KB | 23 khung | 23 khung đơn sắc
+Nôn ói/915809.mp4 | gần như rỗng | md5=42ff893f56 | 23 KB | 30 khung | 21 khung đơn sắc
+Thất lạc/708519.mp4 | gần như rỗng | md5=942602cbb8 | 20 KB | 30 khung | 21 khung đơn sắc
+Chân/984642.mp4 | gần như rỗng | md5=a194ee9904 | 36 KB | 30 khung | 20 khung đơn sắc
+Khai báo/362529.mp4 | gần như rỗng | md5=3c597343b7 | 27 KB | 30 khung | 20 khung đơn sắc
+Chào/792094.mp4 | xung đột nhãn | md5=6ed595951e | 63 KB | 30 khung | 0 khung đơn sắc
+Chậm lại/254739.mp4 | xung đột nhãn | md5=6ed595951e | 63 KB | 30 khung | 0 khung đơn sắc
+Chào/392683.mp4 | xung đột nhãn | md5=f766c09351 | 56 KB | 30 khung | 0 khung đơn sắc
+Chào/468203.mp4 | xung đột nhãn | md5=f766c09351 | 56 KB | 30 khung | 0 khung đơn sắc
+Chậm lại/284430.mp4 | xung đột nhãn | md5=f766c09351 | 56 KB | 30 khung | 0 khung đơn sắc
+An ủi/133326.mp4 | dạng "chỉ đầu"
+Ban ngày/363626.mp4 | dạng "chỉ cuối"
+Ban ngày/725380.mp4 | dạng "có ở giữa"
+Ban ngày/855731.mp4 | dạng "đầu + cuối"

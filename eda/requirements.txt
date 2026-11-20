@@ -1,0 +1,11 @@
+# Thư viện cho các script trong EDA_output (Python 3.10+)
+# Cài đặt:  pip install -r requirements.txt
+#
+# Phiên bản ghi bên cạnh là bản đã chạy thử các script (Python 3.10.12).
+# Các cận dưới (>=) là ước lượng, chưa thử trên bản cũ hơn.
+
+opencv-python-headless>=4.8   # đọc video: 01_overview, 02_data_quality, 07_visual    (đã thử 5.0.0)
+pandas>=2.0                   # bảng metadata, groupby, đọc/ghi CSV                    (đã thử 2.3.3)
+numpy>=1.24                   # tính toán khung hình, thống kê                         (đã thử 2.2.6)
+matplotlib>=3.7               # vẽ biểu đồ (backend Agg, không cần màn hình)           (đã thử 3.10.9)
+scipy>=1.10                   # Kruskal-Wallis (05), Kolmogorov-Smirnov (06)           (đã thử 1.15.3)

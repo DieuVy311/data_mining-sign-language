@@ -1,0 +1,136 @@
+% =====================================================================
+%  BÁO CÁO BÀI TẬP LỚN – KHAI PHÁ DỮ LIỆU (HK261)
+%  Template: hcmut-report (https://github.com/hoang-himself/hcmut-report)
+%
+%  Biên dịch: pdfLaTeX (mặc định của Overleaf).
+%  Gói codespace dùng minted nên cần --shell-escape (Overleaf bật sẵn).
+%
+%  Cấu trúc thư mục:
+%    main.tex, hcmut-report.cls, codespace.sty, refs.bib
+%    graphics/hcmut.png         logo trường
+%    chapters/*.tex             nội dung từng chương
+%    image/eda/*.png            hình phần EDA
+%    image/                     hình các phần khác (tạo thư mục con tuỳ ý)
+% =====================================================================
+\documentclass{hcmut-report}
+\usepackage{codespace}
+
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}[block]
+  {\normalfont\normalsize\bfseries}
+  {\theparagraph}
+  {1em}
+  {}
+\titlespacing*{\paragraph}
+  {0pt}{1.5ex}{1ex}
+
+% Encodings
+\usepackage{gensymb,textcomp}
+
+% Better tables
+\usepackage{array,longtable,multicol,multirow,siunitx,tabularx}
+
+% Better enum
+\usepackage{enumitem}
+
+% Graphics
+\usepackage{caption,float}
+\usepackage{pdflscape}
+\usepackage{needspace}
+\usepackage[export]{adjustbox}
+\graphicspath{{image/eda/}{image/}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{3em}
+
+% Configurations
+\newcounter{memberrowno}
+\setcounter{memberrowno}{0}
+\reportlayout%
+
+% ---------- Thông tin trang bìa ----------
+\odeptname{Khoa Khoa học và Kỹ thuật Máy tính}
+\ocoursename{KHAI PHÁ DỮ LIỆU}
+\oreporttype{BÁO CÁO BÀI TẬP LỚN}
+\title{\LARGE NHẬN DIỆN NGÔN NGỮ KÝ HIỆU\\CHO NGƯỜI KHIẾM THÍNH TỪ VIDEO}
+\oadvisor{TODO}                      % TODO: tên giảng viên hướng dẫn
+\oreportplace{TP. Hồ Chí Minh}
+\oreporttime{tháng 11/2026}
+
+% ---------- Nhãn tiếng Việt ----------
+% (lớp hcmut-report nạp babel với [english]; đổi tên các nhãn sang tiếng Việt)
+\addto\captionsenglish{%
+  \renewcommand{\figurename}{Hình}%
+  \renewcommand{\tablename}{Bảng}%
+  \renewcommand{\contentsname}{Mục lục}%
+  \renewcommand{\listfigurename}{Danh sách hình vẽ}%
+  \renewcommand{\listtablename}{Danh sách bảng}%
+  \renewcommand{\refname}{Tài liệu tham khảo}%
+}
+
+% ---------- Danh sách ----------
+\setlist[itemize,1]{leftmargin=1.5em,itemsep=2pt,topsep=4pt,parsep=0pt,label={--}}
+\setlist[itemize,2]{leftmargin=1.4em,itemsep=1pt,topsep=2pt,parsep=0pt,label={+}}
+\setlist[itemize,3]{leftmargin=1.3em,itemsep=1pt,topsep=1pt,parsep=0pt,label={*}}
+
+\begin{document}
+\coverpage%
+
+\section*{Danh sách thành viên \& Phân công công việc}
+\begin{center}
+  \begin{tabular}{>{\stepcounter{memberrowno}\thememberrowno}llcc}
+    \toprule
+    \multicolumn{1}{c}{\textbf{STT}} & \textbf{Họ và tên} & \textbf{MSSV} & \textbf{Mức độ hoàn thành} \\
+    \midrule
+        & Trần Duy Phước Nghĩa & 2412275 & 100\% \\
+        & Ngô Diệu Vy          & 2414045 & 100\% \\  
+        & Đinh Quốc Thịnh      & TODO    & 100\% \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\vspace{1em}
+\begin{center}
+  \begin{tabular}{p{0.52\textwidth}lc}
+    \toprule
+    \textbf{Công việc} & \textbf{Thành viên} & \textbf{Hạn} \\
+    \midrule
+    Giới thiệu, tổng quan dữ liệu, kết luận           & Thịnh     & 3/11, 23/11 \\
+    Cơ sở lý thuyết                                   & Thịnh     & 6/11 \\
+    Phân tích dữ liệu (EDA)                           & Nghĩa     & 8/11 \\
+    Tiền xử lý dữ liệu                                & Vy        & 15/11 \\
+    Mô hình SVM, CNN-LSTM                             & Vy        & 22/11 \\
+    Mô hình Vision Transformer                        & Thịnh     & 22/11 \\
+    Demo Streamlit (giao diện; suy luận, load model)  & Vy, Nghĩa & 27/11 \\
+    Dựng báo cáo LaTeX                                & Nghĩa     & 30/11 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\listoftables
+\newpage
+
+\input{chapters/01_gioi_thieu}
+\newpage
+\input{chapters/02_co_so_ly_thuyet}
+\newpage
+\input{chapters/03_du_lieu}
+\newpage
+\input{chapters/04_mo_hinh}
+\newpage
+\input{chapters/05_thuc_nghiem}
+\newpage
+\input{chapters/06_demo}
+\newpage
+\input{chapters/07_ket_luan}
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\nocite{*}
+
+\end{document}

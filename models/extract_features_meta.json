@@ -1,0 +1,21 @@
+{
+  "backbone": "efficientnet_b0",
+  "weights": "IMAGENET1K_V1",
+  "feat_dim": 1280,
+  "T": 16,
+  "n_aug": 5,
+  "seed": 42,
+  "dtype": "float16",
+  "limit": 0,
+  "n_train": 2772,
+  "n_public": 1630,
+  "n_private": 2859,
+  "seconds": {
+    "train": 89,
+    "public": 116,
+    "private": 198,
+    "train_aug": 674
+  },
+  "device": "cuda",
+  "torch": "2.11.0+cu130"
+}

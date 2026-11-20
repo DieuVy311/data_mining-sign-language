@@ -1,0 +1,11 @@
+files with _N suffix by split: {'private_test': 0, 'public_test': 0, 'train': 1069}
+train unique md5: 2776 of 3875 -> duplicates 1099
+train files with suffix: 1069
+md5 groups spanning >1 class: 2
+public_test md5 also in train: 157 unique md5 1622 of 1630
+private_test md5 also in train: 0 unique md5 2782 of 2859
+public∩private md5: 896
+train unique base ids 2806
+test base ids in train base ids: {'public_test': 0, 'private_test': 2806}
+['127824_1.mp4', '127824_2.mp4', '127824_3.mp4', '133326_1.mp4', '198246_1.mp4', '198246_2.mp4']
+examples test name overlap: []

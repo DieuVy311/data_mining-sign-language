@@ -1,0 +1,40 @@
+== Giá trị thiếu (NaN) theo cột, tách theo tập (cls trống ở tập test là bình thường)
+              split   cls  file  size_kb  frames  fps  w  h  dur
+split                                                           
+private_test      0  2859     0        0       0    0  0  0    0
+public_test       0  1630     0        0       0    0  0  0    0
+train             0     0     0        0       0    0  0  0    0
+
+== Tệp không đọc được hoặc metadata vô nghĩa
+frames == 0: {'train': 0, 'public_test': 0, 'private_test': 0}
+fps <= 0: {'train': 0, 'public_test': 0, 'private_test': 0}
+w/h == 0: {'train': 0, 'public_test': 0, 'private_test': 0}
+dur không xác định: {'train': 0, 'public_test': 0, 'private_test': 0}
+
+== Giá trị bất thường (tự phát hiện bằng ngưỡng tuyệt đối đơn giản)
+frames < 16: {'train': 0, 'public_test': 0, 'private_test': 0}
+dur > 5s   : {'train': 10, 'public_test': 1, 'private_test': 3}
+fps < 5    : {'train': 9, 'public_test': 0, 'private_test': 2}
+size < 10KB: {'train': 4, 'public_test': 0, 'private_test': 0}
+
+các tệp có size < 10KB hoặc frames < 16 hoặc fps < 5 (ứng viên cần xem lại):
+       split      cls         file  frames    fps    size_kb
+       train     Biết   214576.mp4      16 19.974   2.468750
+       train Khai báo   885339.mp4      23 30.000   2.699219
+       train Khai báo 885339_1.mp4      23 30.000   2.699219
+       train Khai báo 885339_2.mp4      23 30.000   2.699219
+       train     Khóc   429795.mp4      30  1.490  95.882812
+       train     Khóc   533321.mp4      30  0.850 119.316406
+       train     Khóc 533321_1.mp4      30  0.850 119.316406
+       train     Khóc 533321_2.mp4      30  0.850 119.316406
+       train     Khóc   668950.mp4      30  1.627  90.500000
+       train     Khóc   789606.mp4      30  0.921  95.096680
+       train     Khóc 789606_1.mp4      30  0.921  95.096680
+       train     Khóc   910075.mp4      30  1.345  96.805664
+       train Phục hồi   250210.mp4      30  4.584  65.482422
+private_test      NaN   296694.mp4      30  1.786  91.427734
+private_test      NaN   584417.mp4      30  1.066 146.024414
+... tổng 15 tệp
+
+== Quy ước đặt tên
+tệp có hậu tố _N theo tập: {'private_test': 0, 'public_test': 0, 'train': 1069}

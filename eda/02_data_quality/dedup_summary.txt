@@ -1,0 +1,10 @@
+          cls        file  frames    size_kb
+681  Chậm lại  254739.mp4      30  63.893555
+682  Chậm lại  284430.mp4      30  56.990234
+498      Chào  392683.mp4      30  56.990234
+502      Chào  468203.mp4      30  56.990234
+511      Chào  792094.mp4      30  63.893555
+unique train videos 2776 min 5 max 51 mean 27.76 ratio 10.2
+{'Lo lắng': 5, 'Ngón tay': 5, 'Nhầm': 5, 'Phục hồi': 5, 'Sốt': 5, 'Thương': 5, 'Virus': 5, 'Vâng lời': 5, 'Xe máy': 5, 'Ủng hộ': 5}
+{'Chạy': 51, 'Nhà': 50, 'Nói xấu': 50, 'Thức dậy': 50, 'Áp dụng': 50}
+most duplicated classes {'Chậm lại': 25, 'Trường học': 25, 'Rau': 23, 'Nhìn': 23, 'Khóc': 22, 'Áp dụng': 21, 'Nhà': 21, 'Nghe': 21}

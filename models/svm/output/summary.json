@@ -1,0 +1,15 @@
+{
+  "best": "F2, PCA=0.95, linear, C=0.01",
+  "feature": "F2",
+  "kernel": "linear",
+  "pca": "0.95",
+  "C": 0.01,
+  "gamma": "-",
+  "cv_f1_mean": 0.6792,
+  "cv_f1_std": 0.0078,
+  "fold0_accuracy": 0.809,
+  "fold0_macro_f1": 0.6823,
+  "pca_components_final": 597,
+  "n_configs": 36,
+  "quick": false
+}

@@ -1,0 +1,33 @@
+# Dữ liệu và file lớn (không đưa lên GitHub)
+dataset/
+dataset.zip
+*.pth
+*.npy
+*.joblib
+*.zip
+reference/
+
+# Hệ thống / môi trường
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
+venv/
+.venv/
+
+# LaTeX build
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.lof
+report/*.lot
+report/*.bbl
+report/*.blg
+report/*.fls
+report/*.fdb_latexmk
+report/_minted*/
+report/*.synctex.gz
+report/*.xdv
+
+# Log wandb offline
+wandb/

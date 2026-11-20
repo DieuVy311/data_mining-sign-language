@@ -1,0 +1,8 @@
+Bước,Số video còn lại,Ghi chú
+Ban đầu,3875,"3,875 tệp train"
+Bước 1 – toàn vẹn,3875,tệp đọc được
+Bước 2 – khử trùng lặp MD5,2776,loại 1099 bản sao
+Bước 3 – xung đột nhãn,2774,loại 2 video (2 nội dung)
+Bước 4 – video rỗng,2772,loại 2 video
+Bước 5 – khung đơn sắc,2772,563 video có khung bị bỏ qua
+Bước 8 – train / validation,2772,2217 / 555

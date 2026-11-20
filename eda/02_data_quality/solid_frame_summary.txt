@@ -1,0 +1,27 @@
+== Toàn vẹn khi giải mã
+video không đọc được khung nào (n_read = 0): 0
+video có số khung đọc được khác metadata: 0
+
+== Số video có khung đơn sắc theo tập
+train tổng 3875 | >=1 khung đơn sắc 758 | đơn sắc toàn bộ 4 | bắt đầu bằng khung đơn sắc 509 | chuyển động<0.5 4
+public_test tổng 1630 | >=1 khung đơn sắc 1 | đơn sắc toàn bộ 0 | bắt đầu bằng khung đơn sắc 0 | chuyển động<0.5 0
+private_test tổng 2859 | >=1 khung đơn sắc 1 | đơn sắc toàn bộ 0 | bắt đầu bằng khung đơn sắc 0 | chuyển động<0.5 0
+
+== Train, video gốc (đã bỏ bản sao _N): bị ảnh hưởng 565 | đơn sắc toàn bộ 2
+số khung đơn sắc/video: {'count': 565.0, 'mean': 12.18, 'std': 5.29, 'min': 1.0, '25%': 8.0, '50%': 12.0, '75%': 17.0, 'max': 23.0}
+số lớp bị ảnh hưởng: 78
+dạng xuất hiện: {'chỉ đầu': 231, 'chỉ cuối': 161, 'có ở giữa': 55, 'đầu + cuối': 116, 'toàn bộ': 2}
+số khung theo màu: {'đỏ': 863, 'xanh lục lam': 782, 'xám/xanh lam nhạt': 756, 'xanh lục': 694, 'cam': 694, 'đen': 675, 'trắng': 625, 'tím': 619, 'xanh lam': 608, 'vàng': 566}
+T=16 (linspace): trung bình khung đơn sắc/16 = 6.42 | trung vị 6.0 | video có >=8/16: 224 | có >=1: 565 | max 16
+
+== Lớp có tỷ lệ video bị ảnh hưởng cao nhất
+          n_all  n_unique  n_dup  flag  ratio
+cls                                          
+Có thể       22        15      7   6.0  0.400
+Xin lỗi      19        14      5   5.0  0.357
+Thất lạc     24        20      4   7.0  0.350
+Mua          35        26      9   9.0  0.346
+Rẽ phải      15        12      3   4.0  0.333
+Ban ngày     23        15      8   5.0  0.333
+Xin phép     38        28     10   9.0  0.321
+Họ           48        35     13  11.0  0.314
