@@ -1,4 +1,4 @@
-# Nhận diện ngôn ngữ ký hiệu tiếng Việt từ video – BTL Khai phá dữ liệu (CO3029, HK261)
+# Nhận diện ngôn ngữ ký hiệu tiếng Việt từ video – BTL Khai phá dữ liệu HK261
 
 Phân loại video ngôn ngữ ký hiệu tiếng Việt vào 100 lớp từ vựng. Dữ liệu là đề vòng sơ loại Olympic Trí tuệ Nhân tạo Sinh viên 2025 (PTIT); kết quả được chấm bằng Macro-F1 trên tập private test của nền tảng AIChallenge.
 
