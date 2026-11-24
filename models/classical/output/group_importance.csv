@@ -1,0 +1,5 @@
+Bộ đặc trưng,Thuật toán,Nhóm đặc trưng bị xáo trộn,Macro F1 giảm,Độ lệch chuẩn
+Đóng băng,SVM tuyến tính,Trung bình (hình dáng),0.30681846098855914,0.01195467154188524
+Đóng băng,SVM tuyến tính,Độ lệch chuẩn (chuyển động),0.514533726930795,0.011306492129028428
+Tinh chỉnh,Logistic Regression,Trung bình (hình dáng),0.40591485205013,0.026422112247872942
+Tinh chỉnh,Logistic Regression,Độ lệch chuẩn (chuyển động),0.5165317527825469,0.020370899468914783

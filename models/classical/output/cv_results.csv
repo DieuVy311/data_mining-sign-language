@@ -1,0 +1,67 @@
+feature,model,params,cv_f1_mean,cv_f1_std,fit_seconds
+Tinh chỉnh,Logistic Regression,C=1,0.8441068027259977,0.019388277513360162,2.27542644739151
+Tinh chỉnh,Logistic Regression,C=0.1,0.8334332417668331,0.0178270574504607,3.9900615215301514
+Tinh chỉnh,Logistic Regression,C=0.01,0.8218907452626493,0.027652544041310716,4.123904228210449
+Tinh chỉnh,Random Forest,"n_estimators=600, min_samples_leaf=2, max_features=sqrt, max_depth=30",0.7225099826363793,0.02236193022766851,80.14548498392105
+Tinh chỉnh,Random Forest,"n_estimators=300, min_samples_leaf=2, max_features=0.05, max_depth=30",0.7150207943650702,0.01789812457126568,49.237064480781555
+Tinh chỉnh,Random Forest,"n_estimators=600, min_samples_leaf=1, max_features=sqrt, max_depth=30",0.7113604668838887,0.022135256880105224,70.83475881814957
+Tinh chỉnh,Random Forest,"n_estimators=600, min_samples_leaf=1, max_features=0.05, max_depth=30",0.7101420474900082,0.022587020181863152,99.75911164283752
+Tinh chỉnh,Random Forest,"n_estimators=600, min_samples_leaf=1, max_features=0.05, max_depth=None",0.7091119800186803,0.01865220157281797,113.0385827422142
+Tinh chỉnh,Random Forest,"n_estimators=300, min_samples_leaf=1, max_features=sqrt, max_depth=30",0.7053541744016741,0.021346848937808156,41.73222953081131
+Tinh chỉnh,Random Forest,"n_estimators=600, min_samples_leaf=1, max_features=sqrt, max_depth=None",0.7041728476889467,0.014119533774206782,99.56346869468689
+Tinh chỉnh,Random Forest,"n_estimators=300, min_samples_leaf=1, max_features=sqrt, max_depth=None",0.6944446810944145,0.011262687357003531,51.08354693651199
+Tinh chỉnh,SVM tuyến tính,C=0.01,0.8406592188985764,0.029922413270804315,45.99720758199692
+Tinh chỉnh,SVM tuyến tính,C=0.001,0.8180417857220927,0.02490140053179942,36.93709200620651
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=1, weights=uniform",0.6901192663853772,0.015300321594868627,0.09985953569412231
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=1, weights=distance",0.6901192663853772,0.015300321594868627,0.12117153406143188
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=1, weights=uniform",0.6812056654505588,0.0090440220170654,3.132693886756897
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=1, weights=distance",0.6812056654505588,0.0090440220170654,3.550662577152252
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=3, weights=distance",0.6761416962681281,0.002140384397284031,0.0871240496635437
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=5, weights=distance",0.6624776562680301,0.014710537628533877,0.09043747186660767
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=20, weights=distance",0.6624210150115959,0.024378993807497702,0.08628201484680176
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=10, weights=distance",0.6621005882593747,0.02409840084345889,0.08885478973388672
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=3, weights=distance",0.628955848285477,0.012826290467201592,0.08916020393371582
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=5, weights=distance",0.601509672890562,0.016794811072299496,0.0896262526512146
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=10, weights=distance",0.5647164900268514,0.0145723566836579,0.10656672716140747
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=20, weights=distance",0.5594586552134841,0.009742141505654469,0.11213833093643188
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=3, weights=uniform",0.5146656966344065,0.010949511282222739,0.10722804069519043
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=3, weights=uniform",0.5056611597968023,0.010893824898237031,2.145445704460144
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=5, weights=uniform",0.454908732411604,0.01768505019329257,0.10343730449676514
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=5, weights=uniform",0.45043773441179064,0.016508514648522488,0.1058497428894043
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=20, weights=uniform",0.4409823949488958,0.01239188224252583,0.09278243780136108
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=20, weights=uniform",0.4395100461665298,0.012020264401087255,0.08487343788146973
+Tinh chỉnh,kNN,"metric=cosine, n_neighbors=10, weights=uniform",0.42585404798785775,0.018831660279570502,0.09086257219314575
+Tinh chỉnh,kNN,"metric=euclidean, n_neighbors=10, weights=uniform",0.41281531882788436,0.008977114686268193,0.09717011451721191
+Đóng băng,Logistic Regression,C=1,0.662390362138385,0.01752108437788573,1.585720717906952
+Đóng băng,Logistic Regression,C=0.1,0.6590968959922386,0.01401320537609737,3.2225102186203003
+Đóng băng,Logistic Regression,C=0.01,0.641069591004298,0.01559692844324098,3.3227667808532715
+Đóng băng,Random Forest,"n_estimators=600, min_samples_leaf=1, max_features=sqrt, max_depth=None",0.5564872853180292,0.01778419373165993,87.39144134521484
+Đóng băng,Random Forest,"n_estimators=600, min_samples_leaf=1, max_features=0.05, max_depth=None",0.5559985703061903,0.016425906212006874,102.76633954048157
+Đóng băng,Random Forest,"n_estimators=300, min_samples_leaf=1, max_features=sqrt, max_depth=None",0.5346606854149836,0.01637201715720917,44.82624298334122
+Đóng băng,Random Forest,"n_estimators=600, min_samples_leaf=2, max_features=sqrt, max_depth=30",0.5334069412042857,0.020056470122001645,80.75016993284225
+Đóng băng,Random Forest,"n_estimators=600, min_samples_leaf=1, max_features=0.05, max_depth=30",0.5236376309416142,0.014685171619751483,93.12081760168076
+Đóng băng,Random Forest,"n_estimators=600, min_samples_leaf=1, max_features=sqrt, max_depth=30",0.51576706383373,0.011415161031163617,71.91937386989594
+Đóng băng,Random Forest,"n_estimators=300, min_samples_leaf=2, max_features=0.05, max_depth=30",0.5048879397363282,0.005512690506658301,38.660955011844635
+Đóng băng,Random Forest,"n_estimators=300, min_samples_leaf=1, max_features=sqrt, max_depth=30",0.5034380367816398,0.012961679883825352,41.88531619310379
+Đóng băng,SVM tuyến tính,C=0.01,0.6791909855542074,0.007824529399034217,42.921557545661926
+Đóng băng,SVM tuyến tính,C=0.001,0.6346946736604582,0.015174642421613977,35.150056421756744
+Đóng băng,kNN,"metric=cosine, n_neighbors=1, weights=uniform",0.6164970002505757,0.009865644305898128,0.06261879205703735
+Đóng băng,kNN,"metric=cosine, n_neighbors=1, weights=distance",0.6164970002505757,0.009865644305898128,0.06563150882720947
+Đóng băng,kNN,"metric=euclidean, n_neighbors=1, weights=uniform",0.6089217063552204,0.01954936779019497,2.511823296546936
+Đóng băng,kNN,"metric=euclidean, n_neighbors=1, weights=distance",0.6089217063552204,0.01954936779019497,2.7147019505500793
+Đóng băng,kNN,"metric=cosine, n_neighbors=3, weights=distance",0.592982196507072,0.017298977731746993,0.0627930760383606
+Đóng băng,kNN,"metric=cosine, n_neighbors=5, weights=distance",0.5588227704690503,0.02817048321653171,0.05712461471557617
+Đóng băng,kNN,"metric=euclidean, n_neighbors=3, weights=distance",0.5455228527505533,0.03144326153226145,0.08540916442871094
+Đóng băng,kNN,"metric=cosine, n_neighbors=10, weights=distance",0.5144169808445783,0.015249794429211896,0.054643452167510986
+Đóng băng,kNN,"metric=cosine, n_neighbors=20, weights=distance",0.4721148276338891,0.01835254371097182,0.061463892459869385
+Đóng băng,kNN,"metric=euclidean, n_neighbors=5, weights=distance",0.4521654685205951,0.021605743858857464,0.07793581485748291
+Đóng băng,kNN,"metric=euclidean, n_neighbors=3, weights=uniform",0.3924604873816868,0.010792586549789521,1.3484910726547241
+Đóng băng,kNN,"metric=cosine, n_neighbors=3, weights=uniform",0.3881712723253608,0.013134934096252772,0.0715177059173584
+Đóng băng,kNN,"metric=euclidean, n_neighbors=10, weights=distance",0.3641432979221916,0.013897619420649118,0.07338076829910278
+Đóng băng,kNN,"metric=euclidean, n_neighbors=20, weights=distance",0.3141883214561575,0.01199497339139309,0.06058776378631592
+Đóng băng,kNN,"metric=cosine, n_neighbors=5, weights=uniform",0.2886745137792588,0.01965305849761353,0.06113231182098389
+Đóng băng,kNN,"metric=euclidean, n_neighbors=5, weights=uniform",0.28769155157542636,0.01501186403677233,0.07932054996490479
+Đóng băng,kNN,"metric=cosine, n_neighbors=10, weights=uniform",0.17671680837227244,0.013379964881422002,0.06293982267379761
+Đóng băng,kNN,"metric=euclidean, n_neighbors=10, weights=uniform",0.17350671977439025,0.012069235024894362,0.07062369585037231
+Đóng băng,kNN,"metric=euclidean, n_neighbors=20, weights=uniform",0.11909437424272838,0.0048785557890863385,0.06447690725326538
+Đóng băng,kNN,"metric=cosine, n_neighbors=20, weights=uniform",0.1122755184230982,0.009842152770478667,0.05881023406982422

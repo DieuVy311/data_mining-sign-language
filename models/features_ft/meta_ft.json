@@ -1,0 +1,19 @@
+{
+  "source": "cnn_lstm_B.pth",
+  "checkpoint_epoch": 13,
+  "feat_dim": 1280,
+  "emb_dim": 512,
+  "T": 16,
+  "dtype_feat": "float16",
+  "limit": 0,
+  "n_train": 2772,
+  "n_public": 1630,
+  "n_private": 2859,
+  "seconds": {
+    "train": 198,
+    "public": 161,
+    "private": 308
+  },
+  "device": "mps",
+  "torch": "2.15.0"
+}
