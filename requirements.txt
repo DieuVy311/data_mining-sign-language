@@ -19,4 +19,4 @@ torchvision>=0.16
 # Theo dõi thí nghiệm, notebook, demo
 wandb>=0.16
 ipykernel
-streamlit>=1.30
+streamlit>=1.50

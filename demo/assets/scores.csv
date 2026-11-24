@@ -1,0 +1,12 @@
+Đặc trưng,Mô hình,Macro-F1 fold 0,Macro-F1 private
+Đóng băng,Logistic Regression,0.680,0.3404
+Đóng băng,kNN,0.635,0.1949
+Đóng băng,Random Forest,0.597,0.1530
+Đóng băng,SVM tuyến tính,0.682,0.2969
+Đóng băng,CNN-LSTM A0,0.783,0.4149
+Đóng băng,CNN-LSTM A2,0.775,0.4400
+Tinh chỉnh,Logistic Regression,0.824,0.6619
+Tinh chỉnh,kNN,0.717,0.5094
+Tinh chỉnh,Random Forest,0.664,0.4392
+Tinh chỉnh,SVM tuyến tính,0.821,0.6414
+Tinh chỉnh,CNN-LSTM B,0.859,0.6871

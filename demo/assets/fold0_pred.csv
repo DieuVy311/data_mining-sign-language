@@ -1,0 +1,556 @@
+cls,file,pred,prob,top5
+An ủi,131244.mp4,An ủi,0.8091,An ủi|Hâm mộ|Phục hồi|Ủng hộ|Chấp nhận
+An ủi,216739.mp4,An ủi,0.8959,An ủi|Bệnh nhân|Chấp nhận|Ho|Cách ly
+An ủi,334053.mp4,Hâm mộ,0.6853,Hâm mộ|An ủi|Giúp|Học sinh|Lo lắng
+An ủi,388389.mp4,An ủi,0.8855,An ủi|Bệnh nhân|Hâm mộ|Chấp nhận|Ủng hộ
+An ủi,542417.mp4,An ủi,0.8844,An ủi|Phục hồi|Bệnh nhân|Sốt|Hâm mộ
+Áp dụng,106814.mp4,Áp dụng,0.715,Áp dụng|Sốt|Phục hồi|Lo lắng|Xe máy
+Áp dụng,230889.mp4,Áp dụng,0.7467,Áp dụng|Virus|Lo lắng|Sốt|Chấp nhận
+Áp dụng,301629.mp4,Áp dụng,0.7924,Áp dụng|Virus|Lo lắng|Bàn tay|Ban đêm
+Áp dụng,325772.mp4,Áp dụng,0.7269,Áp dụng|Ủng hộ|Cách ly|Virus|Bệnh nhân
+Áp dụng,479201.mp4,Áp dụng,0.6864,Áp dụng|Virus|Cách ly|Cảm ơn|Bệnh nhân
+Áp dụng,571029.mp4,Áp dụng,0.8213,Áp dụng|Lo lắng|Ban đêm|Virus|Xe máy
+Áp dụng,733052.mp4,Áp dụng,0.6522,Áp dụng|Biết|Ban đêm|Ngón tay|Virus
+Áp dụng,759176.mp4,Áp dụng,0.6517,Áp dụng|Cảm ơn|Cách ly|Virus|Xe máy
+Áp dụng,832052.mp4,Áp dụng,0.7589,Áp dụng|Lo lắng|Ủng hộ|Bàn tay|Virus
+Áp dụng,838797.mp4,Áp dụng,0.5317,Áp dụng|Cảm ơn|Cách ly|Virus|Chấp nhận
+Ăn,174870.mp4,Ăn,0.8236,Ăn|Ban đêm|Ngón tay|Xe máy|Phục hồi
+Ăn,183667.mp4,Sử dụng,0.144,Sử dụng|Tôi|Xúc động|Thức ăn|Mua
+Ăn,205907.mp4,Ăn,0.8452,Ăn|Sốt|Xe máy|Ban đêm|Ho
+Ăn,270555.mp4,Khóc,0.5908,Khóc|Ăn|Virus|Thương|Sốt
+Ăn,356702.mp4,Ăn,0.7497,Ăn|Khóc|Ban đêm|Sốt|Bàn tay
+Ăn,482554.mp4,Ăn,0.8279,Ăn|Ban đêm|Ho|Sốt|Xe máy
+Ăn,488162.mp4,Khóc,0.6422,Khóc|Ăn|Ủng hộ|Thương|Virus
+Ăn,835911.mp4,Ăn,0.7622,Ăn|Bàn tay|Ngón tay|Xe máy|Sốt
+Ăn mừng,169403.mp4,Ăn mừng,0.7573,Ăn mừng|Bàn tay|Nhầm|Sốt|Bệnh nhân
+Ăn mừng,195325.mp4,Ăn mừng,0.772,Ăn mừng|Bàn tay|Nhầm|Phục hồi|Lo lắng
+Ăn mừng,340174.mp4,Ăn mừng,0.7393,Ăn mừng|Nhầm|Phục hồi|Cơ thể|Sốt
+Ăn mừng,380746.mp4,Ăn mừng,0.7415,Ăn mừng|Nhầm|Phục hồi|Bàn tay|Lo lắng
+Ăn mừng,665158.mp4,Ăn mừng,0.7448,Ăn mừng|Nhầm|Phục hồi|Bàn tay|Lo lắng
+Ăn mừng,688637.mp4,Ăn mừng,0.7456,Ăn mừng|Sốt|Nhầm|Phục hồi|Thương
+Ăn mừng,694731.mp4,Ăn mừng,0.7273,Ăn mừng|Bàn tay|Bệnh nhân|Nhầm|Cách ly
+Ăn mừng,905635.mp4,Ăn mừng,0.2521,Ăn mừng|Nhầm|Xin phép|Bệnh nhân|Cách ly
+Ăn mừng,913694.mp4,Ăn mừng,0.508,Ăn mừng|Nhầm|Bệnh nhân|Cách ly|Cảm ơn
+Ăn mừng,930555.mp4,Ăn mừng,0.7558,Ăn mừng|Bàn tay|Nhầm|Bệnh nhân|Phục hồi
+Ban ngày,112038.mp4,Ban ngày,0.9376,Ban ngày|Chiều|Phục hồi|Ngón tay|Học sinh
+Ban ngày,166613.mp4,Ban ngày,0.8071,Ban ngày|Chiều|Cách ly|Bàn tay|Phục hồi
+Ban ngày,542666.mp4,Chiều,0.3916,Chiều|Ban ngày|Cách ly|Vâng lời|Ban đêm
+Ban đêm,905934.mp4,Ban đêm,0.8684,Ban đêm|Ngón tay|Cơ thể|Nhà|Thương
+Bàn tay,216970.mp4,Bàn tay,0.9285,Bàn tay|Ngón tay|Lo lắng|Cách ly|Vâng lời
+Băn khoăn,265840.mp4,Băn khoăn,0.8263,Băn khoăn|Bàn tay|Nhầm|Ho|Ban đêm
+Băn khoăn,308573.mp4,Băn khoăn,0.7179,Băn khoăn|Bàn tay|Ho|Phục hồi|Nhầm
+Băn khoăn,351083.mp4,Băn khoăn,0.7655,Băn khoăn|Phục hồi|Bàn tay|Cách ly|Ủng hộ
+Băn khoăn,352572.mp4,Băn khoăn,0.8066,Băn khoăn|Bàn tay|Ủng hộ|Cách ly|Phục hồi
+Băn khoăn,492077.mp4,Áp dụng,0.1227,Áp dụng|Nói xấu|Nôn ói|Khai báo|Ban đêm
+Băn khoăn,694916.mp4,Băn khoăn,0.7972,Băn khoăn|Nhầm|Ban đêm|Ủng hộ|Ho
+Băn khoăn,738551.mp4,Băn khoăn,0.7481,Băn khoăn|Biết|Lo lắng|Ủng hộ|Ban đêm
+Băn khoăn,755674.mp4,Băn khoăn,0.7727,Băn khoăn|Bàn tay|Lo lắng|Nhầm|Phục hồi
+Bạn thân,234628.mp4,Bệnh viện,0.2666,Bệnh viện|Bạn thân|Nhầm|Lo lắng|Ủng hộ
+Bạn thân,658582.mp4,Bạn thân,0.7919,Bạn thân|Chân|Nhầm|Vâng lời|Bệnh nhân
+Bạn thân,903035.mp4,Bạn thân,0.8679,Bạn thân|Xin lỗi|Ho|Bệnh nhân|Nhầm
+Bế mạc,226882.mp4,Bế mạc,0.8978,Bế mạc|Chấp nhận|Bệnh nhân|Virus|Xe máy
+Bế mạc,335612.mp4,Bế mạc,0.9072,Bế mạc|Bệnh nhân|Xe máy|Virus|Chấp nhận
+Bế mạc,359947.mp4,Bế mạc,0.8943,Bế mạc|Ủng hộ|Virus|Phục hồi|Bệnh nhân
+Bế mạc,454508.mp4,Bế mạc,0.8918,Bế mạc|Chấp nhận|Xe máy|Phục hồi|Ủng hộ
+Bế mạc,781446.mp4,Bế mạc,0.8722,Bế mạc|Nhầm|Phục hồi|Chấp nhận|Xe máy
+Bệnh nhân,842225.mp4,Virus,0.19,Virus|An ủi|Bệnh nhân|Cách ly|Hy sinh
+Bệnh viện,198907.mp4,Bệnh viện,0.8289,Bệnh viện|Lo lắng|Bệnh nhân|Phục hồi|Ban đêm
+Bệnh viện,324643.mp4,Bệnh viện,0.8253,Bệnh viện|Lo lắng|Nhầm|Ban đêm|Phục hồi
+Bệnh viện,531071.mp4,Bệnh viện,0.8241,Bệnh viện|Phục hồi|Bệnh nhân|Lo lắng|Chấp nhận
+Bệnh viện,544154.mp4,Bệnh viện,0.7578,Bệnh viện|Chấp nhận|Phục hồi|Bệnh nhân|Bàn tay
+Bệnh viện,608993.mp4,Bệnh viện,0.8147,Bệnh viện|Cách ly|Ban đêm|Nhầm|Bệnh nhân
+Bệnh viện,806073.mp4,Nhà,0.7166,Nhà|Xe đạp|Thương|Ủng hộ|Xe máy
+Bệnh viện,946721.mp4,Bệnh viện,0.7497,Bệnh viện|Chấp nhận|Bệnh nhân|Cơ thể|Bàn tay
+Biết,197793.mp4,Biết,0.7589,Biết|Vâng lời|Xe máy|Sốt|Bệnh nhân
+Biết,299448.mp4,Biết,0.791,Biết|Sốt|Thương|Vâng lời|Xe máy
+Biết,360735.mp4,Biết,0.7281,Biết|Sốt|Lo lắng|Xe máy|Vâng lời
+Biết,361941.mp4,Biết,0.7631,Biết|Sốt|Chấp nhận|Vâng lời|Bệnh nhân
+Biết,509386.mp4,Biết,0.757,Biết|Thương|Vâng lời|Xe máy|Bệnh nhân
+Biết,666847.mp4,Biết,0.7664,Biết|Vâng lời|Sốt|Thương|Ngón tay
+Biết,677057.mp4,Biết,0.746,Biết|Sốt|Chấp nhận|Học sinh|Virus
+Biết,783823.mp4,Biết,0.7567,Biết|Ngón tay|Chấp nhận|Virus|Vâng lời
+Biết,947272.mp4,Giúp,0.1619,Giúp|Đâu|Nghỉ ngơi|Ghét|Biết
+Biếu tặng,159642.mp4,Biếu tặng,0.7567,Biếu tặng|Cách ly|Ngón tay|Ban đêm|Ho
+Biếu tặng,159942.mp4,Biếu tặng,0.8396,Biếu tặng|Sốt|Xe máy|Cách ly|Bàn tay
+Biếu tặng,163918.mp4,Biếu tặng,0.797,Biếu tặng|Sốt|Cách ly|Ngón tay|Cơ thể
+Biếu tặng,543555.mp4,Biếu tặng,0.8069,Biếu tặng|Thương|Cách ly|Ho|Sốt
+Biếu tặng,627276.mp4,Biếu tặng,0.8461,Biếu tặng|Sốt|Cách ly|Thương|Xe máy
+Biếu tặng,707314.mp4,Biếu tặng,0.803,Biếu tặng|Cách ly|Ban đêm|Sốt|Ngón tay
+Biếu tặng,712554.mp4,Biếu tặng,0.8409,Biếu tặng|Sốt|Xe máy|Cách ly|Ngón tay
+Biếu tặng,994141.mp4,Biếu tặng,0.8184,Biếu tặng|Ho|Thương|Phục hồi|Sốt
+Bộ y tế,697347.mp4,Bộ y tế,0.9251,Bộ y tế|Sốt|Virus|Lo lắng|Nhầm
+Bộ y tế,789305.mp4,Bộ y tế,0.8777,Bộ y tế|Nhầm|Sốt|Lo lắng|Chấp nhận
+Bộ y tế,808011.mp4,Bộ y tế,0.9139,Bộ y tế|Lo lắng|Sốt|Bệnh nhân|Xe máy
+Cá,204837.mp4,Cá,0.8066,Cá|Ban đêm|Ngón tay|Nhầm|Bệnh nhân
+Cá,314181.mp4,Cá,0.7966,Cá|Cách ly|Ngón tay|Nhầm|Bệnh nhân
+Cá,323508.mp4,Cá,0.8177,Cá|Cách ly|Nhầm|Ngón tay|Học sinh
+Cá,398830.mp4,Cá,0.6424,Cá|Xúc động|Virus|Lo lắng|Nhầm
+Cá,414569.mp4,Cá,0.7611,Cá|Nhầm|Sốt|Chấp nhận|Cách ly
+Cá,417212.mp4,Cá,0.8188,Cá|Ngón tay|Virus|Nhầm|Ban đêm
+Cá,431737.mp4,Cá,0.8086,Cá|Cách ly|Nhầm|Sốt|Học sinh
+Cá,776856.mp4,Cá,0.7955,Cá|Cách ly|Ngón tay|Học sinh|Sốt
+Cách ly,654634.mp4,Cách ly,0.9764,Cách ly|Phục hồi|Bệnh nhân|Bàn tay|Thương
+Cám dỗ,146228.mp4,Cám dỗ,0.7616,Cám dỗ|Virus|Ho|Vâng lời|Học sinh
+Cám dỗ,208618.mp4,Cám dỗ,0.7001,Cám dỗ|Ho|Học sinh|Virus|Bàn tay
+Cám dỗ,212235.mp4,Cám dỗ,0.749,Cám dỗ|Virus|Thương|Lo lắng|Sốt
+Cám dỗ,262998.mp4,Cám dỗ,0.7565,Cám dỗ|Thương|Virus|Phục hồi|Vâng lời
+Cám dỗ,269430.mp4,Cám dỗ,0.7492,Cám dỗ|Virus|Thương|Vâng lời|Phục hồi
+Cám dỗ,363319.mp4,Giúp,0.3522,Giúp|Kết hôn|Cho|San sẻ|Cần
+Cám dỗ,629959.mp4,Cám dỗ,0.7549,Cám dỗ|Virus|Thương|Vâng lời|Ủng hộ
+Cám dỗ,688153.mp4,Cám dỗ,0.7637,Cám dỗ|Virus|Thương|Vâng lời|Lo lắng
+Cám dỗ,820892.mp4,Cám dỗ,0.7576,Cám dỗ|Virus|Thương|Vâng lời|Ủng hộ
+Cám dỗ,852470.mp4,Cám dỗ,0.7517,Cám dỗ|Thương|Vâng lời|Virus|Phục hồi
+Cần,137778.mp4,Cần,0.9204,Cần|Giúp|Cơ thể|Lo lắng|Bàn tay
+Cảm ơn,207786.mp4,Cảm ơn,0.761,Cảm ơn|Bệnh nhân|Ho|Chấp nhận|Vâng lời
+Cảm ơn,233636.mp4,Cảm ơn,0.7661,Cảm ơn|Ho|Lo lắng|Vâng lời|Chấp nhận
+Cảm ơn,288073.mp4,Cảm ơn,0.7752,Cảm ơn|Ho|Bệnh nhân|Học sinh|Ủng hộ
+Cảm ơn,526117.mp4,Cảm ơn,0.781,Cảm ơn|Ngón tay|Nhầm|Bệnh nhân|Ủng hộ
+Cảm ơn,550664.mp4,Cảm ơn,0.7671,Cảm ơn|Ho|Lo lắng|Học sinh|Ủng hộ
+Cảm ơn,925622.mp4,Cảm ơn,0.7227,Cảm ơn|Bệnh nhân|Chấp nhận|Ủng hộ|Vâng lời
+Cảm ơn,950132.mp4,Cảm ơn,0.7548,Cảm ơn|Ho|Học sinh|Ủng hộ|Sốt
+Cảm ơn,950155.mp4,Cảm ơn,0.7347,Cảm ơn|Ho|Ủng hộ|Ban đêm|Cơ thể
+Cảm ơn,975136.mp4,Cảm ơn,0.777,Cảm ơn|Ho|Lo lắng|Vâng lời|Bệnh nhân
+Chào,172792.mp4,Đầu,0.3996,Đầu|Nhầm|Chào|Chậm lại|Ban đêm
+Chào,333238.mp4,Chào,0.9136,Chào|Chậm lại|Nhầm|Sốt|Lo lắng
+Chào,333752.mp4,Đầu,0.2719,Đầu|Chào|Chậm lại|Nhầm|Cách ly
+Chào,444207.mp4,Họ,0.1745,Họ|Đầu|Chào|Sốt|Thương
+Chào,933980.mp4,Chào,0.5566,Chào|Nhầm|Sốt|Đầu|Uống
+Chân,140115.mp4,Chân,0.7632,Chân|Bàn tay|Vâng lời|Học sinh|Ho
+Chân,146542.mp4,Chân,0.7187,Chân|Ủng hộ|Vâng lời|Bàn tay|Sốt
+Chân,173372.mp4,Chân,0.8351,Chân|Ho|Vâng lời|Nhầm|Ủng hộ
+Chân,213668.mp4,Chân,0.77,Chân|Vâng lời|Ngón tay|Ủng hộ|Học sinh
+Chân,378361.mp4,Chân,0.765,Chân|Bàn tay|Vâng lời|Ho|Học sinh
+Chân,429164.mp4,Chân,0.7485,Chân|Vâng lời|Ủng hộ|Bàn tay|Lo lắng
+Chân,503906.mp4,Chân,0.7733,Chân|Ủng hộ|Vâng lời|Bàn tay|Nhầm
+Chân,557239.mp4,Chân,0.7478,Chân|Bàn tay|Ủng hộ|Sốt|Vâng lời
+Chân,636265.mp4,Chân,0.7727,Chân|Bàn tay|Vâng lời|Cơ thể|Ủng hộ
+Chấp nhận,854717.mp4,Chấp nhận,0.9775,Chấp nhận|Học sinh|Ngón tay|Bệnh nhân|Lo lắng
+Chạy,437902.mp4,Chạy,0.6774,Chạy|Phục hồi|Cơ thể|Học sinh|Ủng hộ
+Chạy,528231.mp4,Chạy,0.7644,Chạy|Xe máy|Lo lắng|Học sinh|Cơ thể
+Chạy,550770.mp4,Chạy,0.7115,Chạy|Ho|Ban đêm|Virus|Sốt
+Chạy,674553.mp4,Chạy,0.7122,Chạy|Bệnh nhân|Chấp nhận|Vâng lời|Ban đêm
+Chạy,708158.mp4,Chạy,0.7216,Chạy|Ban đêm|Ho|Nhầm|Virus
+Chạy,749342.mp4,Chạy,0.7216,Chạy|Bệnh nhân|Xe máy|Học sinh|Sốt
+Chạy,763686.mp4,Chạy,0.7605,Chạy|Ban đêm|Cơ thể|Bệnh nhân|Ho
+Chạy,797229.mp4,Chạy,0.7345,Chạy|Cơ thể|Ủng hộ|Virus|Chấp nhận
+Chạy,810219.mp4,Chạy,0.7238,Chạy|Xe máy|Ho|Bệnh nhân|Vâng lời
+Chạy,831076.mp4,Chạy,0.6611,Chạy|Bệnh nhân|Thương|Ban đêm|Nhầm
+Chậm lại,176365.mp4,Chậm lại,0.3543,Chậm lại|Xin lỗi|Học sinh|Thương|Rau
+Chậm lại,227253.mp4,Chậm lại,0.3332,Chậm lại|Dễ|Mời vào|Bạn thân|Cơ thể
+Chậm lại,254511.mp4,Chậm lại,0.6922,Chậm lại|Ban đêm|Phục hồi|Học sinh|Xe máy
+Chậm lại,308802.mp4,Chậm lại,0.4941,Chậm lại|Chiều|Ban đêm|Phục hồi|Học sinh
+Chậm lại,355836.mp4,Chậm lại,0.6522,Chậm lại|Cơ thể|Xe máy|Ban đêm|Ho
+Chậm lại,534572.mp4,Chậm lại,0.6785,Chậm lại|Phục hồi|Mời vào|Xe máy|Cách ly
+Chậm lại,598216.mp4,Chậm lại,0.6481,Chậm lại|Hôm nay|Xe máy|Bàn tay|Phục hồi
+Chậm lại,703634.mp4,Chậm lại,0.7459,Chậm lại|Mời vào|Cách ly|Cơ thể|Phục hồi
+Chậm lại,943170.mp4,Chậm lại,0.7514,Chậm lại|Thương|Cách ly|Ngón tay|Vâng lời
+Chiều,181247.mp4,Chiều,0.8123,Chiều|Phục hồi|Ngón tay|Cơ thể|Xe máy
+Chiều,239816.mp4,Chiều,0.7382,Chiều|Bệnh nhân|Học sinh|Ngón tay|Phục hồi
+Chiều,350867.mp4,Chiều,0.6502,Chiều|Bạn thân|Học sinh|Bệnh nhân|Lo lắng
+Chiều,359249.mp4,Chiều,0.7999,Chiều|Ban ngày|Bệnh nhân|Ho|Cách ly
+Chiều,597732.mp4,Chiều,0.7557,Chiều|Xe máy|Phục hồi|Ủng hộ|Virus
+Chiều,674485.mp4,Chiều,0.8038,Chiều|Cơ thể|Học sinh|Phục hồi|Ngón tay
+Chiều,742412.mp4,Chiều,0.7848,Chiều|Ngón tay|Phục hồi|Học sinh|Xe máy
+Chiều,800005.mp4,Chiều,0.7507,Chiều|Ngón tay|Thương|Xe máy|Ho
+Chiều,940346.mp4,Chiều,0.7497,Chiều|Bệnh nhân|Học sinh|Phục hồi|Ngón tay
+Cho,184491.mp4,Cho,0.8127,Cho|Cách ly|Chấp nhận|Ho|Học sinh
+Cho,258157.mp4,Cho,0.8106,Cho|Cách ly|Chấp nhận|Ho|Cơ thể
+Cho,413118.mp4,Cho,0.7624,Cho|Cách ly|Học sinh|Chấp nhận|Ho
+Cho,498858.mp4,Cho,0.7538,Cho|Cơ thể|Xe máy|Học sinh|Cách ly
+Cho,829308.mp4,Cho,0.7944,Cho|Cách ly|Ho|Cơ thể|Sốt
+Cho,840734.mp4,Cho,0.805,Cho|Chấp nhận|Cách ly|Ho|Ban đêm
+Cho,907189.mp4,Cho,0.7809,Cho|Cơ thể|Cách ly|Ho|Sốt
+Chúng ta,883826.mp4,Chúng ta,0.2581,Chúng ta|Đi|Phía sau|Cơ thể|Ngón tay
+Chúng ta,938722.mp4,Đầu,0.4337,Đầu|Nhầm|Họ|Cách ly|Sốt
+Con gấu,128276.mp4,Con gấu,0.4126,Con gấu|Xe đạp|Xe máy|Ban đêm|Nặng
+Con gấu,130434.mp4,Con gấu,0.8392,Con gấu|Ban đêm|Xe máy|Chấp nhận|Cơ thể
+Con gấu,443254.mp4,Con gấu,0.8276,Con gấu|Ủng hộ|Xe máy|Ban đêm|Ho
+Con gấu,453894.mp4,Con gấu,0.8533,Con gấu|Có thể|Học sinh|Xe máy|Phục hồi
+Con gấu,497519.mp4,Con gấu,0.5869,Con gấu|Ban đêm|Nhầm|Bệnh nhân|Ủng hộ
+Con gấu,549433.mp4,Con gấu,0.7331,Con gấu|Ho|Ủng hộ|Ban đêm|Sốt
+Con gấu,557007.mp4,Con gấu,0.7239,Con gấu|Ban đêm|Xe đạp|Xe máy|Rẽ phải
+Con gấu,801364.mp4,Con gấu,0.8358,Con gấu|Ủng hộ|Ban đêm|Cơ thể|Chấp nhận
+Có thể,120324.mp4,Có thể,0.7986,Có thể|Con gấu|Học sinh|Virus|Thương
+Có thể,335113.mp4,Có thể,0.2739,Có thể|Hôm nay|Nặng|Vâng lời|Bàn tay
+Có thể,888539.mp4,Có thể,0.7393,Có thể|Con gấu|Thương|Phục hồi|Cơ thể
+Cơ thể,142213.mp4,Chân,0.7393,Chân|Cơ thể|Sốt|Bàn tay|Vâng lời
+Cứu,126925.mp4,Cứu,0.7921,Cứu|Sốt|Xe máy|Bàn tay|Lo lắng
+Cứu,232352.mp4,Cứu,0.8275,Cứu|Ban đêm|Lo lắng|Học sinh|Phục hồi
+Cứu,309044.mp4,Cứu,0.847,Cứu|Học sinh|Ngón tay|Xe máy|Bệnh nhân
+Cứu,368690.mp4,Cứu,0.8473,Cứu|Học sinh|Cách ly|Ủng hộ|Phục hồi
+Cứu,691364.mp4,Cứu,0.8696,Cứu|Ngón tay|Bệnh nhân|Ban đêm|Học sinh
+Cứu,751517.mp4,Cứu,0.7306,Cứu|Trường học|Ban đêm|Học sinh|Ủng hộ
+Cứu,801978.mp4,Cứu,0.8367,Cứu|Xe máy|Thương|Phục hồi|Ủng hộ
+Cứu,915573.mp4,Cứu,0.8551,Cứu|Xe máy|Học sinh|Ngón tay|Sốt
+Dạy dỗ,179688.mp4,Khai báo,0.2899,Khai báo|Biết|Sốt|Lo lắng|Ban đêm
+Dạy dỗ,206851.mp4,Dạy dỗ,0.8753,Dạy dỗ|Virus|Cần|Thương|Nhầm
+Dạy dỗ,226935.mp4,Dạy dỗ,0.8812,Dạy dỗ|Lo lắng|Thương|Ngón tay|Vâng lời
+Dạy dỗ,457806.mp4,Dạy dỗ,0.8627,Dạy dỗ|Ngón tay|Lo lắng|Thương|Bệnh nhân
+Dạy dỗ,729577.mp4,Dạy dỗ,0.876,Dạy dỗ|Vâng lời|Thương|Ngón tay|Cách ly
+Dạy dỗ,824161.mp4,Khai báo,0.1197,Khai báo|Biết|Lo lắng|Sốt|Băn khoăn
+Dễ,284692.mp4,Ngón tay,0.1648,Ngón tay|Dễ|Bàn tay|Ban đêm|Bệnh nhân
+Dễ,392477.mp4,Dễ,0.8567,Dễ|Cơ thể|Thương|Xe máy|Học sinh
+Dễ,554582.mp4,Dễ,0.6732,Dễ|Trường học|Ngón tay|Nhầm|Bàn tay
+Dễ,582071.mp4,Dễ,0.7253,Dễ|Trường học|Bàn tay|Ban đêm|Chấp nhận
+Dễ,587455.mp4,Dễ,0.7732,Dễ|Trường học|Bàn tay|Chấp nhận|Ban đêm
+Dễ,766459.mp4,Dễ,0.7922,Dễ|Ngón tay|Bàn tay|Bệnh nhân|Ban đêm
+Dễ,841666.mp4,Dễ,0.6148,Dễ|Trường học|Bàn tay|Vâng lời|Chấp nhận
+Ghét,290672.mp4,Ghét,0.8753,Ghét|Lo lắng|Sốt|Vâng lời|Học sinh
+Ghét,456871.mp4,Ghét,0.8551,Ghét|Học sinh|Lo lắng|Bàn tay|Phục hồi
+Ghét,697530.mp4,Ghét,0.8072,Ghét|Thương|Lo lắng|Vâng lời|Ban đêm
+Ghét,835244.mp4,Ghét,0.8444,Ghét|Lo lắng|Vâng lời|Thương|Ban đêm
+Giúp,300337.mp4,Giúp,0.7633,Giúp|Cho|Kết hôn|Thương|Phạt
+Giúp,408528.mp4,Giúp,0.8603,Giúp|Bàn tay|Học sinh|Thích|Ban đêm
+Giúp,526170.mp4,Giúp,0.8773,Giúp|Ngón tay|Thương|Ủng hộ|Học sinh
+Giúp,796212.mp4,Giúp,0.895,Giúp|Ngón tay|Thương|Ủng hộ|Học sinh
+Giúp,825391.mp4,Giúp,0.8913,Giúp|Ngón tay|Bàn tay|Học sinh|Thương
+Giúp,931450.mp4,Giúp,0.8896,Giúp|Ngón tay|Thương|Bàn tay|Chấp nhận
+Hâm mộ,301939.mp4,Hâm mộ,0.818,Hâm mộ|Ủng hộ|Virus|Ban đêm|Chấp nhận
+Hâm mộ,384076.mp4,Hâm mộ,0.805,Hâm mộ|Chấp nhận|Lo lắng|Ủng hộ|Virus
+Hâm mộ,446859.mp4,Hâm mộ,0.7913,Hâm mộ|Lo lắng|Sốt|Bàn tay|Ban đêm
+Hâm mộ,575786.mp4,Hâm mộ,0.8161,Hâm mộ|Chấp nhận|Học sinh|Lo lắng|Ủng hộ
+Hâm mộ,607719.mp4,Hâm mộ,0.8214,Hâm mộ|Chấp nhận|Ủng hộ|Lo lắng|Virus
+Hâm mộ,677124.mp4,Hâm mộ,0.3104,Hâm mộ|Bế mạc|Giúp|Ngón tay|Tập luyện
+Hâm mộ,823688.mp4,Hâm mộ,0.8102,Hâm mộ|Chấp nhận|Ủng hộ|Lo lắng|Học sinh
+Hâm mộ,856321.mp4,Hâm mộ,0.8149,Hâm mộ|Chấp nhận|Ủng hộ|Lo lắng|Học sinh
+Hâm mộ,973074.mp4,Hâm mộ,0.8007,Hâm mộ|Lo lắng|Chấp nhận|Virus|Học sinh
+Ho,416950.mp4,Ho,0.2322,Ho|Phỏng vấn|Nôn ói|Ngón tay|Học sinh
+Hôm nay,112861.mp4,Hôm nay,0.8998,Hôm nay|Có thể|Nặng|Ho|Vâng lời
+Hôm nay,831295.mp4,Hôm nay,0.9202,Hôm nay|Nặng|Có thể|Ho|Sốt
+Hôm nay,889359.mp4,Hôm nay,0.8619,Hôm nay|Ô tô|Nặng|Có thể|Chấp nhận
+Họ,224205.mp4,Họ,0.8231,Họ|Ban đêm|Ho|Virus|Bệnh nhân
+Họ,293319.mp4,Họ,0.8292,Họ|Cách ly|Virus|Sốt|Thương
+Họ,336650.mp4,Họ,0.7708,Họ|Ho|Cách ly|Vâng lời|Virus
+Họ,561865.mp4,Họ,0.843,Họ|Cách ly|Virus|Ho|Chấp nhận
+Họ,592198.mp4,Họ,0.7648,Họ|Virus|Xe máy|Lo lắng|Chấp nhận
+Họ,685181.mp4,Họ,0.5858,Họ|Ban đêm|Con gấu|Ho|Virus
+Họ,901577.mp4,Họ,0.5956,Họ|Ban đêm|Nhìn|Virus|Ho
+Học sinh,498855.mp4,Học sinh,0.8611,Học sinh|Uống|Lo lắng|Ho|Thương
+Hy sinh,102805.mp4,Hy sinh,0.7613,Hy sinh|Lo lắng|Cơ thể|Ban đêm|Học sinh
+Hy sinh,134225.mp4,Hy sinh,0.8288,Hy sinh|Cơ thể|Vâng lời|Ban đêm|Lo lắng
+Hy sinh,572387.mp4,Hy sinh,0.7809,Hy sinh|Lo lắng|Virus|Ban đêm|Vâng lời
+Hy sinh,592738.mp4,Hy sinh,0.8147,Hy sinh|Vâng lời|Virus|Cơ thể|Chấp nhận
+Hy sinh,722656.mp4,Hy sinh,0.8203,Hy sinh|Ban đêm|Vâng lời|Cơ thể|Lo lắng
+Hy sinh,751194.mp4,Đâu,0.149,Đâu|Hy sinh|Ghét|Cơ thể|Cảm ơn
+Hy sinh,792509.mp4,Hy sinh,0.7802,Hy sinh|Lo lắng|Vâng lời|Chấp nhận|Ho
+Kết hôn,249145.mp4,Kết hôn,0.8624,Kết hôn|Xe máy|Phục hồi|Chấp nhận|Nhầm
+Kết hôn,273982.mp4,Kết hôn,0.8466,Kết hôn|Nghỉ ngơi|Phục hồi|Cách ly|Bàn tay
+Kết hôn,307428.mp4,Kết hôn,0.917,Kết hôn|Cần|Vâng lời|Xe máy|Bàn tay
+Kết hôn,820775.mp4,Kết hôn,0.5776,Kết hôn|Thất lạc|Thăm|Thương|Bệnh nhân
+Kết hôn,931131.mp4,Kết hôn,0.8503,Kết hôn|Xe máy|Phục hồi|Cách ly|Bệnh nhân
+Khai báo,127121.mp4,Khai báo,0.7682,Khai báo|Thương|Ngón tay|Bàn tay|Ban đêm
+Khai báo,141797.mp4,Khai báo,0.76,Khai báo|Sốt|Bàn tay|Thương|Ngón tay
+Khai báo,184349.mp4,Khai báo,0.8306,Khai báo|Ngón tay|Thương|Ban đêm|Sốt
+Khai báo,230394.mp4,Khai báo,0.8281,Khai báo|Thương|Ngón tay|Ủng hộ|Xe máy
+Khai báo,666211.mp4,Khai báo,0.8342,Khai báo|Thương|Ngón tay|Sốt|Phục hồi
+Khai báo,901909.mp4,Khai báo,0.8089,Khai báo|Thương|Ngón tay|Ban đêm|Ho
+Khai báo,961322.mp4,Khai báo,0.7893,Khai báo|Thương|Ngón tay|Sốt|Bàn tay
+Khai báo,964278.mp4,Khai báo,0.8361,Khai báo|Ngón tay|Ho|Ban đêm|Sốt
+Khẩu trang,391668.mp4,Khẩu trang,0.8975,Khẩu trang|Vâng lời|Cách ly|Lo lắng|Thất lạc
+Khóc,101206.mp4,Khóc,0.7337,Khóc|Học sinh|Ngón tay|Ủng hộ|Cần
+Khóc,209680.mp4,Khóc,0.7853,Khóc|Thương|Bệnh nhân|Học sinh|Ủng hộ
+Khóc,402218.mp4,Khóc,0.8103,Khóc|Thương|Ủng hộ|Virus|Ngón tay
+Khóc,429795.mp4,Khóc,0.7648,Khóc|Ăn|Học sinh|Ủng hộ|Bàn tay
+Khóc,523808.mp4,Khóc,0.7992,Khóc|Bàn tay|Thương|Virus|Học sinh
+Khóc,533321.mp4,Khóc,0.6977,Khóc|Uống|Học sinh|Xe máy|Cách ly
+Khóc,615611.mp4,Khóc,0.7925,Khóc|Thương|Ngón tay|Virus|Ủng hộ
+Khóc,897441.mp4,Khóc,0.4965,Khóc|Ủng hộ|Uống|Bệnh nhân|Học sinh
+Khóc,910075.mp4,Khóc,0.7989,Khóc|Ủng hộ|Bàn tay|Virus|Thương
+Khu cách ly,154118.mp4,Khu cách ly,0.9372,Khu cách ly|Cách ly|Virus|Ủng hộ|Chấp nhận
+Khu cách ly,752878.mp4,Khu cách ly,0.9516,Khu cách ly|Cơ thể|Chấp nhận|Ngón tay|Virus
+Lây bệnh,227324.mp4,Lây bệnh,0.804,Lây bệnh|Virus|Cách ly|Nhầm|Xe máy
+Lây bệnh,266071.mp4,Lây bệnh,0.8266,Lây bệnh|Bệnh nhân|Thương|Xe máy|Ban đêm
+Lây bệnh,559398.mp4,Lây bệnh,0.8342,Lây bệnh|Thương|Bệnh nhân|Ủng hộ|Cơ thể
+Lây bệnh,622584.mp4,Lây bệnh,0.8284,Lây bệnh|Virus|Xe máy|Lo lắng|Nhầm
+Lây bệnh,677596.mp4,Lây bệnh,0.8255,Lây bệnh|Cách ly|Xe máy|Bệnh nhân|Cơ thể
+Lây bệnh,779172.mp4,Lây bệnh,0.8024,Lây bệnh|Virus|Cần|Thương|Xe máy
+Lây bệnh,839677.mp4,Lây bệnh,0.8551,Lây bệnh|Bệnh nhân|Cách ly|Xe máy|Ngón tay
+Lo lắng,578975.mp4,Lo lắng,0.3147,Lo lắng|Dạy dỗ|Thương|Nói xấu|Ho
+Mời vào,251668.mp4,Mời vào,0.7365,Mời vào|Vâng lời|Bàn tay|Ho|Học sinh
+Mời vào,396578.mp4,Mời vào,0.7373,Mời vào|Vâng lời|Chậm lại|Ho|Ngón tay
+Mời vào,448588.mp4,Mời vào,0.3947,Mời vào|Rẽ phải|Nhầm|Cơ thể|Bệnh nhân
+Mời vào,568238.mp4,Chậm lại,0.284,Chậm lại|Mời vào|Ủng hộ|Xe máy|Ho
+Mời vào,669827.mp4,Mời vào,0.672,Mời vào|Chậm lại|Vâng lời|Ủng hộ|Thương
+Mời vào,728492.mp4,Mời vào,0.6092,Mời vào|Chậm lại|Bàn tay|Vâng lời|Ban đêm
+Mời vào,861319.mp4,Mời vào,0.6268,Mời vào|Chậm lại|Vâng lời|Cách ly|Ho
+Mời vào,882544.mp4,Mời vào,0.623,Mời vào|Chậm lại|Vâng lời|Chấp nhận|Ngón tay
+Mua,232378.mp4,Mua,0.9393,Mua|Ăn|Học sinh|Cách ly|Xe máy
+Mua,344907.mp4,Mua,0.706,Mua|Sử dụng|Bệnh nhân|Chúng ta|Học sinh
+Mua,350405.mp4,Sử dụng,0.5579,Sử dụng|Mua|Học sinh|Rẽ phải|Ngón tay
+Mua,530728.mp4,Mua,0.7104,Mua|Chúng ta|Ngón tay|Thương|Xe máy
+Mua,626690.mp4,Sử dụng,0.4437,Sử dụng|Có thể|Dễ|Rẽ trái|Đẹp
+Mua,831380.mp4,Sử dụng,0.539,Sử dụng|Mua|Học sinh|Virus|Phục hồi
+Nặng,204555.mp4,Nặng,0.7805,Nặng|Học sinh|Phục hồi|Nhầm|Bàn tay
+Nặng,377896.mp4,Nặng,0.8457,Nặng|Sốt|Phục hồi|Học sinh|Lo lắng
+Nặng,516791.mp4,Nặng,0.7644,Nặng|Thương|Học sinh|Ngón tay|Sốt
+Nặng,659543.mp4,Nặng,0.901,Nặng|Xe máy|Rẽ phải|Học sinh|Cơ thể
+Nặng,896290.mp4,Nặng,0.8367,Nặng|Hôm nay|Xe máy|Học sinh|Ho
+Nặng,986088.mp4,Nặng,0.7869,Nặng|Học sinh|Phục hồi|Bàn tay|Nhầm
+Nghe,137642.mp4,Nghe,0.3199,Nghe|Ăn|Tối|Bàn tay|Khóc
+Nghe,158845.mp4,Nghe,0.7796,Nghe|Ngón tay|Cách ly|Virus|Học sinh
+Nghe,205389.mp4,Nghe,0.7996,Nghe|Sốt|Ủng hộ|Ho|Bàn tay
+Nghe,274446.mp4,Nghe,0.7512,Nghe|Virus|Sốt|Cách ly|Chấp nhận
+Nghe,346174.mp4,Nghe,0.7766,Nghe|Học sinh|Xe máy|Bàn tay|Cách ly
+Nghe,356059.mp4,Nghe,0.7325,Nghe|Bàn tay|Virus|Xe máy|Học sinh
+Nghe,475876.mp4,Nghe,0.7546,Nghe|Học sinh|Virus|Cách ly|Xe máy
+Nghe,493049.mp4,Nghe,0.7006,Nghe|Virus|Nhầm|Cách ly|Xe máy
+Nghe,621841.mp4,Nghe,0.7386,Nghe|Đẹp|Đồng ý|Bàn tay|Cơ thể
+Nghe,739098.mp4,Nghe,0.7648,Nghe|Ho|Ban đêm|Lo lắng|Bàn tay
+Nghỉ ngơi,123005.mp4,Nghỉ ngơi,0.7595,Nghỉ ngơi|Thương|Virus|Thích|Cơ thể
+Nghỉ ngơi,211834.mp4,Nghỉ ngơi,0.7826,Nghỉ ngơi|Virus|Bàn tay|Ngón tay|Lo lắng
+Nghỉ ngơi,250069.mp4,Nghỉ ngơi,0.6427,Nghỉ ngơi|Phục hồi|Xe máy|Cách ly|Virus
+Nghỉ ngơi,409571.mp4,Nghỉ ngơi,0.7724,Nghỉ ngơi|Virus|Bàn tay|Ngón tay|Chấp nhận
+Nghỉ ngơi,410244.mp4,Nghỉ ngơi,0.7782,Nghỉ ngơi|Virus|Chấp nhận|Bàn tay|Ngón tay
+Nghỉ ngơi,499889.mp4,Nghỉ ngơi,0.76,Nghỉ ngơi|Virus|Thích|Chấp nhận|Học sinh
+Nghỉ ngơi,583550.mp4,Nghỉ ngơi,0.631,Nghỉ ngơi|Lo lắng|Xe máy|Phục hồi|Bàn tay
+Nghỉ ngơi,673149.mp4,Nghỉ ngơi,0.7456,Nghỉ ngơi|Cơ thể|Chấp nhận|Phục hồi|Virus
+Nghỉ ngơi,768891.mp4,Nghỉ ngơi,0.5653,Nghỉ ngơi|Đâu|Xe máy|Phục hồi|Học sinh
+Nghỉ ngơi,819112.mp4,Nghỉ ngơi,0.7641,Nghỉ ngơi|Thương|Virus|Cơ thể|Bệnh nhân
+Ngón tay,151426.mp4,Ngón tay,0.932,Ngón tay|Dễ|Bàn tay|Trường học|Ho
+Nhà,194511.mp4,Nhà,0.7726,Nhà|Ủng hộ|Xe máy|Ban đêm|Chấp nhận
+Nhà,284171.mp4,Nhà,0.7437,Nhà|Ủng hộ|Sốt|Thương|Xe máy
+Nhà,299367.mp4,Nhà,0.7429,Nhà|Thương|Chấp nhận|Lo lắng|Ủng hộ
+Nhà,310548.mp4,Nhà,0.7462,Nhà|Xe máy|Ủng hộ|Sốt|Lo lắng
+Nhà,369452.mp4,Nhà,0.7663,Nhà|Ủng hộ|Sốt|Thương|Xe máy
+Nhà,483629.mp4,Nhà,0.7567,Nhà|Ủng hộ|Thương|Lo lắng|Sốt
+Nhà,562236.mp4,Nhà,0.4888,Nhà|Sốt|Ủng hộ|Rau|Lo lắng
+Nhà,707727.mp4,Nhà,0.76,Nhà|Xe máy|Ban đêm|Ho|Xe đạp
+Nhà,777737.mp4,Nhà,0.7565,Nhà|Xe máy|Cơ thể|Ủng hộ|Ban đêm
+Nhà,867934.mp4,Nhà,0.7179,Nhà|Ban đêm|Thương|Ủng hộ|Xe máy
+Nhầm,945664.mp4,Nhầm,0.9824,Nhầm|Sốt|Cơ thể|Lo lắng|Xe máy
+Nhìn,345180.mp4,Nhìn,0.7676,Nhìn|Cơ thể|Phục hồi|Vâng lời|Chấp nhận
+Nhìn,483542.mp4,Nhìn,0.6995,Nhìn|Họ|Cơ thể|Bệnh nhân|Cách ly
+Nhìn,486490.mp4,Khóc,0.325,Khóc|Nhìn|Uống|Học sinh|Ban đêm
+Nhìn,807617.mp4,Nhìn,0.816,Nhìn|Cơ thể|Vâng lời|Chào|Học sinh
+Nhìn,885395.mp4,Thức dậy,0.3178,Thức dậy|Nhìn|Nhầm|Ủng hộ|Cách ly
+Nhìn,943298.mp4,Nhìn,0.7806,Nhìn|Họ|Cơ thể|Vâng lời|Ho
+Nhìn,986827.mp4,Nhìn,0.7087,Nhìn|Cơ thể|Ho|Ngón tay|Cách ly
+Nhớ,166287.mp4,Nhớ,0.8529,Nhớ|Bệnh nhân|Bàn tay|Xe máy|Ủng hộ
+Nhớ,201913.mp4,Nhớ,0.7717,Nhớ|Cơ thể|Xe máy|Ho|Chấp nhận
+Nhớ,246566.mp4,Nhớ,0.793,Nhớ|Bệnh nhân|Học sinh|Cách ly|Ủng hộ
+Nhớ,346205.mp4,Nhớ,0.7901,Nhớ|Cơ thể|Ho|Cách ly|Thương
+Nhớ,419149.mp4,Nhớ,0.7761,Nhớ|Ho|Cơ thể|Cách ly|Xe máy
+Nhớ,835132.mp4,Nhớ,0.792,Nhớ|Xe máy|Bệnh nhân|Cách ly|Học sinh
+Nhớ,861894.mp4,Nhớ,0.7863,Nhớ|Ủng hộ|Bệnh nhân|Cơ thể|Thương
+Nhớ,878325.mp4,Nhớ,0.7889,Nhớ|Bệnh nhân|Nhầm|Cơ thể|Sốt
+Nói,163491.mp4,Nói,0.8759,Nói|Nhầm|Ho|Chấp nhận|Uống
+Nói,204180.mp4,Nói,0.8624,Nói|Vâng lời|Ủng hộ|Nhầm|Bệnh nhân
+Nói,476096.mp4,Nghe,0.755,Nghe|Ủng hộ|Bệnh nhân|Xe máy|Nhầm
+Nói,997004.mp4,Nói,0.8664,Nói|Nhầm|Ho|Vâng lời|Ủng hộ
+Nói xấu,171942.mp4,Nói xấu,0.6681,Nói xấu|Phục hồi|Ngón tay|Ban đêm|Chấp nhận
+Nói xấu,315173.mp4,Nói xấu,0.7212,Nói xấu|Ban đêm|Chấp nhận|Ngón tay|Phục hồi
+Nói xấu,322409.mp4,Nói xấu,0.7001,Nói xấu|Cơ thể|Vâng lời|Ban đêm|Lo lắng
+Nói xấu,326441.mp4,Nói xấu,0.6974,Nói xấu|Chấp nhận|Ban đêm|Cơ thể|Phục hồi
+Nói xấu,390743.mp4,Nói xấu,0.7134,Nói xấu|Vâng lời|Lo lắng|Chấp nhận|Ho
+Nói xấu,576805.mp4,Nói xấu,0.7443,Nói xấu|Cách ly|Ban đêm|Cơ thể|Phục hồi
+Nói xấu,681128.mp4,Nói xấu,0.7027,Nói xấu|Ban đêm|Chấp nhận|Vâng lời|Ngón tay
+Nói xấu,726152.mp4,Nói xấu,0.7536,Nói xấu|Bệnh nhân|Sốt|Ho|Lo lắng
+Nói xấu,911984.mp4,Nói xấu,0.6728,Nói xấu|Ho|Chấp nhận|Cơ thể|Cách ly
+Nói xấu,952547.mp4,Nói xấu,0.7151,Nói xấu|Chấp nhận|Cơ thể|Vâng lời|Ho
+Nôn ói,116547.mp4,Nôn ói,0.8318,Nôn ói|Cách ly|Ho|Bàn tay|Phục hồi
+Nôn ói,282710.mp4,Nôn ói,0.848,Nôn ói|Học sinh|Ho|Cách ly|Phục hồi
+Nôn ói,349489.mp4,Nôn ói,0.8049,Nôn ói|Ho|Thương|Chấp nhận|Bàn tay
+Nôn ói,599380.mp4,Nôn ói,0.8733,Nôn ói|Thương|Cơ thể|Học sinh|Lo lắng
+Nôn ói,638169.mp4,Nôn ói,0.8661,Nôn ói|Cơ thể|Vâng lời|Bàn tay|Thương
+Nôn ói,881886.mp4,Nôn ói,0.7063,Nôn ói|Thương|Ghét|Cơ thể|Bàn tay
+Ô tô,132663.mp4,Ô tô,0.8331,Ô tô|Ủng hộ|Ban đêm|Bàn tay|Phục hồi
+Ô tô,255539.mp4,Ô tô,0.8466,Ô tô|Ủng hộ|Bàn tay|Lo lắng|Cơ thể
+Ô tô,437758.mp4,Ô tô,0.8588,Ô tô|Cơ thể|Ủng hộ|Bàn tay|Virus
+Ô tô,546980.mp4,Ô tô,0.8534,Ô tô|Bàn tay|Cơ thể|Ngón tay|Ủng hộ
+Ô tô,575755.mp4,Ô tô,0.7801,Ô tô|Xe đạp|Xe máy|Bàn tay|Ủng hộ
+Ô tô,580292.mp4,Ô tô,0.7617,Ô tô|Có thể|Xe đạp|Ban đêm|Sử dụng
+Ô tô,754644.mp4,Ô tô,0.8506,Ô tô|Cơ thể|Ủng hộ|Ho|Bàn tay
+Phạt,533914.mp4,Phạt,0.8028,Phạt|Cơ thể|Phục hồi|Xe máy|Nhầm
+Phạt,550961.mp4,Phạt,0.8702,Phạt|Ngón tay|Cơ thể|Phục hồi|Xe máy
+Phạt,575528.mp4,Phạt,0.6708,Phạt|Cho|Cơ thể|Vâng lời|Nhầm
+Phạt,630108.mp4,Phạt,0.6251,Phạt|Cho|Hâm mộ|Cơ thể|Xe máy
+Phạt,835869.mp4,Phạt,0.8128,Phạt|Cơ thể|Nhầm|Xe máy|Phục hồi
+Phía sau,153945.mp4,Phía sau,0.7487,Phía sau|Cơ thể|Thương|Ban đêm|Bệnh nhân
+Phía sau,195656.mp4,Phía sau,0.7535,Phía sau|Học sinh|Ban đêm|Vâng lời|Lo lắng
+Phía sau,201255.mp4,Phía sau,0.7522,Phía sau|Học sinh|Vâng lời|Cơ thể|Ban đêm
+Phía sau,208633.mp4,Phía sau,0.7701,Phía sau|Cơ thể|Thương|Học sinh|Ban đêm
+Phía sau,236435.mp4,Phía sau,0.6783,Phía sau|Học sinh|Cơ thể|Thương|Phục hồi
+Phía sau,260053.mp4,Phía sau,0.7148,Phía sau|Học sinh|Xe máy|Cách ly|Ho
+Phía sau,323072.mp4,Phía sau,0.7867,Phía sau|Học sinh|Xe máy|Ban đêm|Vâng lời
+Phía sau,547494.mp4,Phía sau,0.7549,Phía sau|Cơ thể|Vâng lời|Xe máy|Học sinh
+Phía sau,552855.mp4,Phía sau,0.7293,Phía sau|Vâng lời|Học sinh|Ban đêm|Bàn tay
+Phía sau,788637.mp4,Mua,0.1073,Mua|Thức ăn|Xe đạp|Sử dụng|Cá
+Phỏng vấn,220465.mp4,Phỏng vấn,0.8087,Phỏng vấn|Ho|Nhầm|Thương|Xe máy
+Phỏng vấn,337144.mp4,Phỏng vấn,0.7927,Phỏng vấn|Ho|Nhầm|Xe máy|Sốt
+Phỏng vấn,392099.mp4,Phỏng vấn,0.6639,Phỏng vấn|Ho|Nói xấu|Thương|Nhầm
+Phỏng vấn,688215.mp4,Phỏng vấn,0.8241,Phỏng vấn|Sốt|Thương|Ngón tay|Virus
+Phỏng vấn,789786.mp4,Phỏng vấn,0.7575,Phỏng vấn|Nói xấu|Thương|Nhầm|Xe máy
+Phỏng vấn,836833.mp4,Phỏng vấn,0.8059,Phỏng vấn|Ho|Thương|Ủng hộ|Sốt
+Phục hồi,468074.mp4,Phục hồi,0.4725,Phục hồi|An ủi|Cách ly|Hâm mộ|Bệnh nhân
+Rau,172965.mp4,Rau,0.773,Rau|Thương|Cơ thể|Sốt|Cách ly
+Rau,185544.mp4,Rau,0.7694,Rau|Ban đêm|Học sinh|Ủng hộ|Thương
+Rau,326040.mp4,Rau,0.7062,Rau|Vâng lời|Ban đêm|Học sinh|Ngón tay
+Rau,386436.mp4,Dễ,0.3244,Dễ|Rau|Ngón tay|Trường học|Phục hồi
+Rau,534303.mp4,Rau,0.1896,Rau|Dễ|Con gấu|Ban đêm|Cơ thể
+Rau,563516.mp4,Rau,0.556,Rau|Nhà|Bàn tay|Ngón tay|Cơ thể
+Rau,609253.mp4,Rau,0.3819,Rau|Nhà|Sốt|Bàn tay|Chấp nhận
+Rau,637234.mp4,Rau,0.7878,Rau|Ban đêm|Cách ly|Học sinh|Ngón tay
+Rau,656251.mp4,Rau,0.7624,Rau|Ngón tay|Thương|Học sinh|Sốt
+Rau,794093.mp4,Rau,0.758,Rau|Ban đêm|Sốt|Học sinh|Cách ly
+Rẽ phải,108060.mp4,Rẽ trái,0.6232,Rẽ trái|Rẽ phải|Sốt|Bệnh nhân|Chấp nhận
+Rẽ phải,157443.mp4,Rẽ trái,0.5713,Rẽ trái|Rẽ phải|Ban đêm|Chấp nhận|Sốt
+Rẽ phải,799539.mp4,Rẽ phải,0.9586,Rẽ phải|Virus|Cơ thể|Nhầm|Bệnh nhân
+Rẽ trái,119651.mp4,Rẽ trái,0.7539,Rẽ trái|Ban đêm|Rẽ phải|Sốt|Bàn tay
+Rẽ trái,121869.mp4,Cá,0.124,Cá|Mời vào|Xúc động|Mua|Nhầm
+Rẽ trái,284229.mp4,Rẽ trái,0.7593,Rẽ trái|Ban đêm|Bàn tay|Ủng hộ|Lo lắng
+Rẽ trái,403578.mp4,Rẽ trái,0.7921,Rẽ trái|Sốt|Cơ thể|Bàn tay|Ô tô
+Rẽ trái,428267.mp4,Rẽ trái,0.7955,Rẽ trái|Ban đêm|Ủng hộ|Bàn tay|Chấp nhận
+Rẽ trái,524068.mp4,Rẽ trái,0.7947,Rẽ trái|Ban đêm|An ủi|Rẽ phải|Cơ thể
+Rẽ trái,524707.mp4,Cá,0.0634,Cá|Mời vào|Xúc động|Ăn|Mua
+Rẽ trái,658453.mp4,Rẽ trái,0.7377,Rẽ trái|Sốt|Lo lắng|Bàn tay|Cơ thể
+Rẽ trái,843963.mp4,Rẽ trái,0.7487,Rẽ trái|Rẽ phải|Mời vào|Ban đêm|Nhầm
+San sẻ,355135.mp4,San sẻ,0.8428,San sẻ|Vâng lời|Cách ly|Phục hồi|Cơ thể
+San sẻ,514991.mp4,San sẻ,0.7874,San sẻ|Phạt|Phục hồi|Cơ thể|Ủng hộ
+San sẻ,556839.mp4,San sẻ,0.8399,San sẻ|Vâng lời|Cách ly|Phục hồi|Cơ thể
+San sẻ,557925.mp4,San sẻ,0.8807,San sẻ|Cơ thể|Ủng hộ|Xe máy|Lo lắng
+San sẻ,748151.mp4,San sẻ,0.848,San sẻ|Ủng hộ|Bệnh nhân|Học sinh|Phục hồi
+San sẻ,882033.mp4,San sẻ,0.8307,San sẻ|Ủng hộ|Tập luyện|Cơ thể|Bệnh nhân
+San sẻ,913934.mp4,San sẻ,0.8294,San sẻ|Ủng hộ|Vâng lời|Bệnh nhân|Lo lắng
+Sốt,468154.mp4,Biết,0.7157,Biết|Sốt|Chấp nhận|Lo lắng|Bệnh nhân
+Sử dụng,171603.mp4,Sử dụng,0.5283,Sử dụng|Mua|Phục hồi|Cách ly|Bệnh nhân
+Sử dụng,254864.mp4,Sử dụng,0.8342,Sử dụng|Cá|Thức ăn|Tôi|Có thể
+Sử dụng,258290.mp4,Sử dụng,0.6215,Sử dụng|Mua|Ô tô|Bệnh nhân|Virus
+Sử dụng,260295.mp4,Sử dụng,0.8456,Sử dụng|Học sinh|Thương|Virus|Ủng hộ
+Sử dụng,591699.mp4,Có thể,0.2092,Có thể|Sử dụng|Dễ|Thức ăn|Đẹp
+Sử dụng,787351.mp4,Sử dụng,0.7899,Sử dụng|Vâng lời|Bệnh nhân|Virus|Học sinh
+Sử dụng,935012.mp4,Sử dụng,0.8355,Sử dụng|Vâng lời|Chấp nhận|Ngón tay|Bệnh nhân
+Sử dụng,954628.mp4,Sử dụng,0.1024,Sử dụng|Đi|Chúng ta|Hôm nay|Thức ăn
+Tập luyện,573866.mp4,Tập luyện,0.8354,Tập luyện|San sẻ|Phục hồi|Bệnh nhân|Ủng hộ
+Tập luyện,972097.mp4,Tập luyện,0.9166,Tập luyện|Phục hồi|Cách ly|Ủng hộ|Khu cách ly
+Thất lạc,571579.mp4,Thất lạc,0.8812,Thất lạc|Thương|Vâng lời|Ho|Chấp nhận
+Thất lạc,631699.mp4,Thất lạc,0.8336,Thất lạc|Thương|Cách ly|Cơ thể|Ho
+Thất lạc,949153.mp4,Thất lạc,0.8187,Thất lạc|Thương|Xuất viện|Vâng lời|Ho
+Thất lạc,996840.mp4,Thất lạc,0.5902,Thất lạc|Chấp nhận|Khu cách ly|Bệnh nhân|Cách ly
+Thăm,188425.mp4,Thăm,0.8581,Thăm|Thất lạc|Ủng hộ|Chấp nhận|Lo lắng
+Thăm,978053.mp4,Thăm,0.884,Thăm|Ủng hộ|Nhầm|Chấp nhận|Ngón tay
+Thích,280941.mp4,Thích,0.9682,Thích|Thương|Sốt|Xe máy|Bệnh nhân
+Thích,777513.mp4,Thích,0.9619,Thích|Thương|Sốt|Xe máy|Nhầm
+Thương,739427.mp4,Thương,0.9143,Thương|Bệnh nhân|Dạy dỗ|Virus|Khai báo
+Thức ăn,235215.mp4,Thức ăn,0.7844,Thức ăn|Xe đạp|Ho|Nhầm|Học sinh
+Thức ăn,257677.mp4,Thức ăn,0.7904,Thức ăn|Sốt|Bàn tay|Vâng lời|Chấp nhận
+Thức ăn,396635.mp4,Sử dụng,0.1523,Sử dụng|Cá|Đi|Chúng ta|Vâng lời
+Thức ăn,454803.mp4,Thức ăn,0.4289,Thức ăn|Chúng ta|Cơ thể|Nhầm|Sốt
+Thức ăn,505341.mp4,Thức ăn,0.813,Thức ăn|Virus|Bàn tay|Sốt|Nhầm
+Thức ăn,832409.mp4,Thức ăn,0.8354,Thức ăn|Phục hồi|Nhầm|Virus|Chấp nhận
+Thức ăn,927564.mp4,Thức ăn,0.5399,Thức ăn|Xin lỗi|Thức dậy|Thương|Học sinh
+Thức dậy,188834.mp4,Thức dậy,0.6647,Thức dậy|Nghe|Nhầm|Xe máy|Vâng lời
+Thức dậy,206053.mp4,Thức dậy,0.7118,Thức dậy|Nhầm|Lo lắng|Thương|Ủng hộ
+Thức dậy,244247.mp4,Thức dậy,0.708,Thức dậy|Thương|Vâng lời|Lo lắng|Phục hồi
+Thức dậy,289019.mp4,Thức dậy,0.7227,Thức dậy|Lo lắng|Thương|Bàn tay|Phục hồi
+Thức dậy,337547.mp4,Thức dậy,0.6597,Thức dậy|Đầu|Thương|Ban đêm|Ngón tay
+Thức dậy,633188.mp4,Thức dậy,0.7426,Thức dậy|Nhầm|Thương|Bàn tay|Ủng hộ
+Thức dậy,665990.mp4,Thức dậy,0.7331,Thức dậy|Thương|Phục hồi|Đầu|Vâng lời
+Thức dậy,818709.mp4,Thức dậy,0.7722,Thức dậy|Thương|Lo lắng|Xe máy|Vâng lời
+Thức dậy,903531.mp4,Thức dậy,0.6068,Thức dậy|Lo lắng|Nhầm|Uống|Ho
+Thức dậy,975686.mp4,Thức dậy,0.728,Thức dậy|Thương|Phục hồi|Bàn tay|Vâng lời
+Tôi,270128.mp4,Dễ,0.4435,Dễ|Rẽ trái|Sử dụng|Đồng ý|Cá
+Tôi,349068.mp4,Tôi,0.8139,Tôi|Cách ly|Bàn tay|Thương|Vâng lời
+Tôi,530816.mp4,Tôi,0.7551,Tôi|Nhầm|Thương|Lo lắng|Thức ăn
+Tôi,591798.mp4,Tôi,0.2582,Tôi|Thức ăn|Ủng hộ|Virus|Ban đêm
+Tôi,826501.mp4,Tôi,0.8274,Tôi|Cách ly|Bàn tay|Xe máy|Phục hồi
+Tôi,922471.mp4,Thức ăn,0.207,Thức ăn|Tôi|Chiều|Ủng hộ|Nhầm
+Tôi,947903.mp4,Tôi,0.8294,Tôi|Bàn tay|Ngón tay|Mua|Nhầm
+Tôi,948343.mp4,Tôi,0.7976,Tôi|Bàn tay|Cách ly|Xe máy|Vâng lời
+Tối,245121.mp4,Uống,0.1223,Uống|Ban đêm|Chào|Chậm lại|Nhầm
+Tối,653081.mp4,Tối,0.8084,Tối|Trưa|Sốt|Nhầm|Phục hồi
+Tối,698128.mp4,Khóc,0.1068,Khóc|Đẹp|Ban đêm|Tối|Bàn tay
+Trưa,129556.mp4,Trưa,0.8099,Trưa|Bàn tay|Ho|Sốt|Học sinh
+Trưa,203896.mp4,Trưa,0.7694,Trưa|Học sinh|Sốt|Lo lắng|Ho
+Trưa,230734.mp4,Trưa,0.8031,Trưa|Sốt|Bàn tay|Ban đêm|Vâng lời
+Trưa,347231.mp4,Trưa,0.6264,Trưa|Ngón tay|Đồng ý|Cách ly|Vâng lời
+Trưa,398910.mp4,Trưa,0.831,Trưa|Sốt|Bàn tay|Lo lắng|Ban đêm
+Trưa,626392.mp4,Trưa,0.7179,Trưa|Ngón tay|Đồng ý|Ban ngày|Cơ thể
+Trưa,845957.mp4,Trưa,0.7936,Trưa|Xe máy|Học sinh|Sốt|Nhầm
+Trưa,956375.mp4,Trưa,0.7676,Trưa|Học sinh|Sốt|Lo lắng|Ban đêm
+Trường học,119927.mp4,Trường học,0.6541,Trường học|Nhà|Phục hồi|Sốt|Ngón tay
+Trường học,244283.mp4,Trường học,0.8031,Trường học|Ban đêm|Phục hồi|Ủng hộ|Xe máy
+Trường học,256782.mp4,Trường học,0.7533,Trường học|Phục hồi|Ban đêm|Bàn tay|Ho
+Trường học,451577.mp4,Nhà,0.6582,Nhà|Trường học|Thương|Ban đêm|Bàn tay
+Trường học,543814.mp4,Trường học,0.7618,Trường học|Ho|Ngón tay|Cơ thể|Phục hồi
+Trường học,591897.mp4,Trường học,0.7807,Trường học|Ho|Phục hồi|Bàn tay|Ngón tay
+Trường học,640410.mp4,Trường học,0.7339,Trường học|Ngón tay|Phục hồi|Cơ thể|Ho
+Trường học,829884.mp4,Trường học,0.7765,Trường học|Ngón tay|Bàn tay|Phục hồi|Sốt
+Trường học,929822.mp4,Trường học,0.7183,Trường học|Nhà|Bàn tay|Virus|Phục hồi
+Trường học,977330.mp4,Trường học,0.7739,Trường học|Phục hồi|Ho|Bàn tay|Ngón tay
+Uống,189772.mp4,Uống,0.9171,Uống|Học sinh|Cơ thể|Sốt|Ủng hộ
+Uống,405420.mp4,Uống,0.683,Uống|Học sinh|Khóc|Vâng lời|Xe máy
+Uống,536802.mp4,Uống,0.9054,Uống|Học sinh|Khóc|Cơ thể|Thương
+Uống,550089.mp4,Uống,0.9002,Uống|Nhầm|Sốt|Tối|Thương
+Ủng hộ,651613.mp4,San sẻ,0.3469,San sẻ|Tập luyện|Bệnh nhân|Ủng hộ|Virus
+Vâng lời,681070.mp4,Kết hôn,0.2062,Kết hôn|Vâng lời|Thất lạc|Thương|Hy sinh
+Virus,766549.mp4,Virus,0.9678,Virus|Bệnh nhân|Cách ly|Chấp nhận|Cần
+Xa,241403.mp4,Xa,0.7527,Xa|Ủng hộ|Lo lắng|Ban đêm|Cách ly
+Xa,352838.mp4,Xa,0.5853,Xa|Cá|Bệnh nhân|Xe máy|Dễ
+Xa,474440.mp4,Xa,0.724,Xa|Cách ly|Phục hồi|Xe máy|Cá
+Xa,868544.mp4,Xa,0.5743,Xa|Cá|Bệnh nhân|Xe máy|Lo lắng
+Xa,908977.mp4,Xa,0.7398,Xa|Xe máy|Cách ly|Ủng hộ|Ho
+Xa,916990.mp4,Xa,0.7531,Xa|Ủng hộ|Xe máy|Lo lắng|Ho
+Xa,953025.mp4,Xa,0.7598,Xa|Xe máy|Cách ly|Ho|Phục hồi
+Xa,970720.mp4,Xa,0.7118,Xa|Xe máy|Ủng hộ|Lo lắng|Ho
+Xe máy,309159.mp4,Xe đạp,0.3876,Xe đạp|Ô tô|Phục hồi|Xe máy|Ban đêm
+Xe đạp,300386.mp4,Xe đạp,0.8487,Xe đạp|Con gấu|Xe máy|Phục hồi|Chiều
+Xe đạp,400009.mp4,Xe đạp,0.236,Xe đạp|Con gấu|Ban đêm|Có thể|Nặng
+Xe đạp,778324.mp4,Xe đạp,0.9505,Xe đạp|Con gấu|Xe máy|Ban đêm|Phục hồi
+Xin lỗi,448048.mp4,Xin lỗi,0.1211,Xin lỗi|Chiều|Bạn thân|Học sinh|Vâng lời
+Xin lỗi,558176.mp4,Xin lỗi,0.7747,Xin lỗi|Chậm lại|Thức ăn|Thương|Lo lắng
+Xin lỗi,938171.mp4,Xin lỗi,0.8463,Xin lỗi|Chậm lại|Thương|Lo lắng|Học sinh
+Xin phép,443848.mp4,Xin phép,0.829,Xin phép|Cách ly|Ngón tay|Học sinh|Virus
+Xin phép,671971.mp4,Ăn mừng,0.4293,Ăn mừng|Virus|Ngón tay|Cách ly|Nhầm
+Xin phép,731894.mp4,Xin phép,0.808,Xin phép|Cách ly|Ho|Học sinh|Bàn tay
+Xin phép,825686.mp4,Xin phép,0.8025,Xin phép|Ho|Virus|Ngón tay|Cách ly
+Xin phép,962287.mp4,Xin phép,0.839,Xin phép|Ho|Cần|Cách ly|Virus
+Xuất viện,170499.mp4,Xuất viện,0.8218,Xuất viện|Cách ly|Bệnh nhân|Ủng hộ|Sốt
+Xuất viện,274739.mp4,Xuất viện,0.8592,Xuất viện|Vâng lời|Sốt|Ban đêm|Chấp nhận
+Xuất viện,347459.mp4,Xuất viện,0.8256,Xuất viện|Vâng lời|Học sinh|Nhầm|Sốt
+Xuất viện,744718.mp4,Xuất viện,0.8182,Xuất viện|Thương|Ban đêm|Bàn tay|Vâng lời
+Xuất viện,862120.mp4,Xuất viện,0.8577,Xuất viện|Phục hồi|Bệnh nhân|Cơ thể|Bàn tay
+Xuất viện,919264.mp4,Xuất viện,0.7666,Xuất viện|Khu cách ly|Ban đêm|Cách ly|Chấp nhận
+Xuất viện,929924.mp4,Xuất viện,0.8556,Xuất viện|Vâng lời|Sốt|Học sinh|Thương
+Xúc động,260891.mp4,Xúc động,0.3869,Xúc động|Ban ngày|Bàn tay|Mời vào|Xe máy
+Xúc động,295085.mp4,Xúc động,0.7929,Xúc động|Bệnh nhân|Cách ly|Ho|Nhầm
+Xúc động,324993.mp4,Xúc động,0.7615,Xúc động|Bệnh nhân|Thương|Nhầm|Cách ly
+Xúc động,429657.mp4,Xúc động,0.7495,Xúc động|Bệnh nhân|Học sinh|Ho|Cách ly
+Xúc động,484774.mp4,Xúc động,0.796,Xúc động|Ho|Bệnh nhân|Phục hồi|Cách ly
+Xúc động,501451.mp4,Xúc động,0.7156,Xúc động|Sử dụng|Ban đêm|Bàn tay|Học sinh
+Xúc động,776502.mp4,Xúc động,0.7432,Xúc động|Nhầm|Bệnh nhân|Cách ly|Xe máy
+Xúc động,827691.mp4,Xúc động,0.8151,Xúc động|Bệnh nhân|Cơ thể|Bàn tay|Ban đêm
+Xúc động,912609.mp4,Xúc động,0.8129,Xúc động|Ho|Bệnh nhân|Nhầm|Phục hồi
+Đâu,168093.mp4,Đâu,0.8231,Đâu|Xe máy|Ho|Phục hồi|Ban đêm
+Đâu,192055.mp4,Đâu,0.8197,Đâu|Xe máy|Ho|Sốt|Bệnh nhân
+Đâu,310743.mp4,Đâu,0.8076,Đâu|Ho|Xe máy|Ban đêm|Học sinh
+Đâu,574001.mp4,Đâu,0.8076,Đâu|Xe máy|Ban đêm|Học sinh|Ho
+Đâu,768676.mp4,Đâu,0.8254,Đâu|Ho|Ban đêm|Xe máy|Vâng lời
+Đâu,846385.mp4,Đâu,0.8291,Đâu|Xe máy|Ho|Bệnh nhân|Sốt
+Đâu,932250.mp4,Đâu,0.8386,Đâu|Xe máy|Ban đêm|Vâng lời|Bệnh nhân
+Đâu,994253.mp4,Đâu,0.8195,Đâu|Xe máy|Ho|Ban đêm|Học sinh
+Đầu,190403.mp4,Đầu,0.2795,Đầu|Thức dậy|Ngón tay|Ban đêm|Ho
+Đầu,424314.mp4,Đầu,0.7008,Đầu|Nhầm|Cách ly|Vâng lời|Ban đêm
+Đầu,571832.mp4,Đầu,0.8485,Đầu|Ngón tay|Nhầm|Cách ly|Bệnh nhân
+Đầu,618019.mp4,Đầu,0.1144,Đầu|Nghe|Học sinh|Khóc|Ban đêm
+Đầu,651231.mp4,Đầu,0.7048,Đầu|Nhầm|Bệnh nhân|Vâng lời|Cần
+Đầu,942700.mp4,Đầu,0.8231,Đầu|Nhầm|Ngón tay|Ban đêm|Cơ thể
+Đầu,963333.mp4,Đầu,0.8396,Đầu|Nhầm|Bệnh nhân|Ngón tay|Ban đêm
+Đẹp,230192.mp4,Khóc,0.779,Khóc|Ngón tay|Phục hồi|Vâng lời|Ủng hộ
+Đẹp,716338.mp4,Đẹp,0.6188,Đẹp|Rẽ phải|Họ|Ban đêm|Bàn tay
+Đẹp,971776.mp4,Đẹp,0.3054,Đẹp|Nhìn|Khóc|Ban đêm|Ủng hộ
+Đi,129751.mp4,Đi,0.7458,Đi|Thương|Sốt|Cách ly|Ngón tay
+Đi,147670.mp4,Đi,0.7577,Đi|Sốt|Thương|Ngón tay|Xe máy
+Đi,231250.mp4,Đi,0.7799,Đi|Thương|Xe máy|Ngón tay|Sốt
+Đi,260448.mp4,Đi,0.7681,Đi|Nhầm|Vâng lời|Sốt|Bệnh nhân
+Đi,377511.mp4,Đi,0.7981,Đi|Thương|Virus|Nhầm|Ngón tay
+Đi,417534.mp4,Đi,0.7782,Đi|Thương|Ngón tay|Nhầm|Chấp nhận
+Đi,708851.mp4,Phía sau,0.2036,Phía sau|Sử dụng|Ủng hộ|Ban đêm|Đi
+Đi,734534.mp4,Đi,0.7944,Đi|Xe máy|Ngón tay|Thương|Nhầm
+Đi,843788.mp4,Đi,0.5346,Đi|Chúng ta|Nhầm|Nói|Ban đêm
+Đồng ý,176517.mp4,Đồng ý,0.8228,Đồng ý|Bàn tay|Sốt|Học sinh|Phục hồi
+Đồng ý,416768.mp4,Đồng ý,0.8404,Đồng ý|Cơ thể|Sốt|Lo lắng|Bàn tay
+Đồng ý,575575.mp4,Đồng ý,0.8295,Đồng ý|Bàn tay|Sốt|Phục hồi|Học sinh
+Đồng ý,606404.mp4,Đồng ý,0.8262,Đồng ý|Cơ thể|Lo lắng|Sốt|Bàn tay
+Đồng ý,672079.mp4,Đồng ý,0.6859,Đồng ý|Rẽ trái|Cơ thể|Bàn tay|Virus
+Đồng ý,782759.mp4,Đồng ý,0.7906,Đồng ý|Bàn tay|Nhìn|Ngón tay|Nhầm
+Đồng ý,946567.mp4,Đồng ý,0.8439,Đồng ý|Học sinh|Ho|Sốt|Bàn tay

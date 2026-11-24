@@ -1,0 +1,8 @@
+label,rel_path,note
+Rẽ trái,train/Rẽ trái/428267.mp4,Đoán đúng
+Uống,train/Uống/189772.mp4,Đoán đúng
+Ô tô,train/Ô tô/437758.mp4,Đoán đúng
+Thức dậy,train/Thức dậy/818709.mp4,Đoán đúng
+Xin lỗi,train/Xin lỗi/938171.mp4,Có 18 khung đơn sắc
+Rẽ phải,train/Rẽ phải/108060.mp4,Bị nhầm thành Rẽ trái
+Mua,train/Mua/831380.mp4,Bị nhầm thành Sử dụng

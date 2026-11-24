@@ -35,7 +35,7 @@ Chi tiết và phân tích trong báo cáo `report/main.pdf`.
 | `models/cnn_lstm/` | CNN-LSTM: giai đoạn A (CNN đóng băng, biến thể A0, A2) và giai đoạn B (tinh chỉnh CNN) |
 | `models/extract_finetuned.ipynb` | Trích đặc trưng từ CNN đã tinh chỉnh của CNN-LSTM B → `models/features_ft/` |
 | `models/classical/` | So sánh bốn thuật toán cổ điển trên hai bộ đặc trưng; permutation importance |
-| `demo/` | Ứng dụng Streamlit |
+| `demo/` | Ứng dụng Streamlit: `app.py` (giao diện), `model.py` (nạp CNN-LSTM B, dự đoán kèm attention), `assets/` (video mẫu, bảng điểm, dự đoán trên fold 0, giao diện) |
 | `report/` | Báo cáo LaTeX (pdfLaTeX + `-shell-escape`, cần gói `vntex`) |
 
 Mỗi notebook ghi kết quả (bảng chỉ số, hình, tệp nộp bài) vào thư mục `output/` bên cạnh.
@@ -62,6 +62,20 @@ Trọng số mô hình (`*.pth`, `*.joblib`) và tệp đặc trưng (`*.npy`) c
 6. `models/classical/classical.ipynb`: so sánh bốn thuật toán trên hai bộ đặc trưng.
 
 Các bước 2, 4, 5 cần GPU (nhóm dùng Kaggle Notebook với Tesla T4). Mọi bước có yếu tố ngẫu nhiên đều dùng `SEED = 42`.
+
+## Chạy demo
+
+```bash
+streamlit run demo/app.py
+```
+
+Chạy lệnh từ thư mục gốc của repo để Streamlit nhận giao diện trong `.streamlit/config.toml`. Ứng dụng dùng mô hình CNN-LSTM giai đoạn B; nếu chưa có `models/cnn_lstm/output/cnn_lstm_B.pth`, trọng số được tự tải từ Releases ở lần chạy đầu.
+
+| Trang | Nội dung |
+| --- | --- |
+| Nhận diện | Chọn video mẫu (lấy từ fold 0, cần `data/dataset/`) hoặc tải video lên; xem 5 từ có xác suất cao nhất, các bước xử lý, thông tin về từ được dự đoán, 16 khung đưa vào mô hình kèm trọng số attention; lịch sử nhận diện tải về được dạng CSV |
+| Từ điển 100 từ | Số video huấn luyện, F1 trên fold 0 và các từ hay bị nhầm của từng từ; tìm kiếm, lọc theo F1, xem video ví dụ |
+| So sánh mô hình | Macro-F1 của 11 mô hình trên fold 0 và tập private test, các chỉ số khác trên fold 0 |
 
 ## Về dữ liệu
 

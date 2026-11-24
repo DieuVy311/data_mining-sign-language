@@ -1,0 +1,70 @@
+/* Ẩn các thành phần mặc định của Streamlit */
+[data-testid="stAppDeployButton"], [data-testid="stMainMenu"], footer, [data-testid="stSidebar"],
+[data-testid="stSidebarCollapsedControl"] { display: none !important; }
+[data-testid="stHeader"] { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(6px);
+  border-bottom: 1px solid #e2e8f0; }
+.block-container { padding-top: 4.2rem; padding-bottom: 3rem; max-width: 1240px; }
+h1, h2, h3, h4 { letter-spacing: -0.01em; }
+
+/* Hero */
+.hero { background: linear-gradient(120deg, #1e3a8a 0%, #2563eb 55%, #0ea5e9 100%); color: #fff;
+  border-radius: 18px; padding: 30px 34px 26px; margin-bottom: 22px; box-shadow: 0 10px 30px rgba(37, 99, 235, .25); }
+.hero h1 { color: #fff; font-size: 2.05rem; margin: 0 0 6px; padding: 0; }
+.hero p { color: #dbeafe; margin: 0 0 20px; font-size: 1.02rem; max-width: 760px; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.kpi { background: rgba(255, 255, 255, .13); border: 1px solid rgba(255, 255, 255, .22); border-radius: 12px; padding: 12px 16px; }
+.kpi .v { font-size: 1.55rem; font-weight: 700; line-height: 1.2; }
+.kpi .l { font-size: .82rem; color: #dbeafe; }
+.page-title { margin: 4px 0 2px; font-size: 1.7rem; font-weight: 700; }
+.page-sub { color: #64748b; margin-bottom: 18px; }
+
+/* Thẻ */
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px 20px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, .06); margin-bottom: 14px; }
+.card h4 { margin: 0 0 10px; font-size: 1.02rem; }
+.muted { color: #64748b; font-size: .88rem; }
+div[data-testid="stVerticalBlockBorderWrapper"] { border-radius: 14px; background: #fff; }
+
+/* Kết quả dự đoán */
+.pred-label { font-size: .85rem; color: #64748b; text-transform: uppercase; letter-spacing: .05em; }
+.pred-word { font-size: 2.6rem; font-weight: 800; color: #0f172a; line-height: 1.15; margin: 2px 0 8px; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; margin-right: 6px; }
+.b-green { background: #dcfce7; color: #166534; } .b-amber { background: #fef3c7; color: #92400e; }
+.b-red { background: #fee2e2; color: #991b1b; } .b-blue { background: #dbeafe; color: #1e40af; }
+.b-gray { background: #f1f5f9; color: #334155; }
+.bar-row { display: grid; grid-template-columns: 130px 1fr 56px; align-items: center; gap: 10px; margin: 7px 0; font-size: .92rem; }
+.bar-bg { background: #eef2f7; border-radius: 999px; height: 10px; overflow: hidden; }
+.bar-fg { background: #2563eb; height: 100%; border-radius: 999px; }
+.bar-row.first .bar-fg { background: linear-gradient(90deg, #1d4ed8, #0ea5e9); }
+.bar-row .pct { text-align: right; color: #334155; font-variant-numeric: tabular-nums; }
+
+/* Quy trình xử lý */
+.steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 6px 0 4px; }
+.step { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px 12px; position: relative; }
+.step .n { width: 22px; height: 22px; border-radius: 50%; background: #2563eb; color: #fff; font-size: .75rem;
+  display: flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 6px; }
+.step .t { font-weight: 600; font-size: .86rem; }
+.step .d { color: #64748b; font-size: .78rem; margin-top: 2px; }
+
+/* Thông tin từ */
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.fact { background: #f8fafc; border-radius: 10px; padding: 10px 14px; }
+.fact .v { font-size: 1.25rem; font-weight: 700; } .fact .l { color: #64748b; font-size: .8rem; }
+
+/* Từ điển */
+.words { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.word { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; }
+.word .w { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+.word .m { color: #64748b; font-size: .78rem; }
+.f1bar { height: 6px; background: #eef2f7; border-radius: 999px; margin-top: 8px; overflow: hidden; }
+.f1bar span { display: block; height: 100%; border-radius: 999px; }
+
+/* Kết luận */
+.insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 8px; }
+.insight { background: #fff; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb; border-radius: 12px; padding: 14px 16px; }
+.insight .v { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; }
+.insight .t { font-weight: 600; margin: 2px 0 4px; }
+.insight .d { color: #64748b; font-size: .86rem; }
+
+/* Ảnh khung hình */
+[data-testid="stImageCaption"] { font-size: .74rem; color: #64748b; }
