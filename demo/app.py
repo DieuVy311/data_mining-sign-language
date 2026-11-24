@@ -25,8 +25,8 @@ ROOT = DEMO.parent
 ASSETS = DEMO / 'assets'
 sys.path[:0] = [str(DEMO), str(ROOT / 'processing')]
 
-import preprocess as pp  # noqa: E402
-from model import load_model, predict  # noqa: E402
+import preprocess as pp  
+from model import load_model, predict 
 
 DATASET = ROOT / 'data' / 'dataset'
 TOP_K = 5
@@ -35,7 +35,7 @@ st.set_page_config(page_title='Nhận diện ngôn ngữ ký hiệu', page_icon=
 st.markdown(f'<style>{(ASSETS / "style.css").read_text(encoding="utf-8")}</style>', unsafe_allow_html=True)
 
 
-# ------------------------------------------------------------------ dữ liệu ----------------------------------
+# ----------------------------------------------- dữ liệu --------------------------------------------------------
 def nfc(s: str) -> str:
     return unicodedata.normalize('NFC', str(s))
 
@@ -124,11 +124,11 @@ def run(path: str) -> dict:
             'n_frames': len(frames), 'n_solid': n_solid, 'seconds': time.time() - t0}
 
 
-# ---------------------------------------------------------------- thành phần ---------------------------------
+# ----------------------------------------------------------- thành phần -----------------------------------------------
 def show_chart(chart):
     try:
         st.altair_chart(chart, width='stretch')
-    except TypeError:  # Streamlit cũ chưa có tham số width
+    except TypeError:  
         st.altair_chart(chart, use_container_width=True)
 
 
@@ -278,7 +278,8 @@ def show_history():
                                                                                 format='percent')})
 
 
-# -------------------------------------------------------------------- trang ----------------------------------
+
+# -------------------------------------------------------------------- trang ----------------------------------------------------------------
 def page_recognize():
     hero()
     samples = read_csv(ASSETS / 'samples.csv')
