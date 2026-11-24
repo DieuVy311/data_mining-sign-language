@@ -64,7 +64,7 @@ Trọng số mô hình (`*.pth`, `*.joblib`) và tệp đặc trưng (`*.npy`) c
 
 Các bước 2, 4, 5 cần GPU (nhóm dùng Kaggle Notebook với Tesla T4). Mọi bước có yếu tố ngẫu nhiên đều dùng `SEED = 42`.
 
-## Lưu ý về dữ liệu
+## Về dữ liệu
 
 - Tên lớp trong `label_mapping.pkl` ở dạng Unicode NFD; luôn chuẩn hoá cả tên thư mục và khoá về NFC (`unicodedata.normalize('NFC', ...)`) trước khi tra nhãn. Tệp nộp bài phải giữ nhãn ở dạng NFD.
 - Tập train có 1.099 tệp trùng lặp (MD5) và khoảng 20% video chứa khung đơn sắc; xem `eda/` và `processing/`.
