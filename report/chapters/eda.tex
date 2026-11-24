@@ -23,9 +23,6 @@
 \sloppy
 
 Mục này trình bày kết quả phân tích khám phá dữ liệu (\textit{Exploratory Data Analysis -- EDA}) trên bộ dữ liệu video ngôn ngữ ký hiệu. EDA chỉ nhằm \emph{quan sát} xu hướng, phân phối và chất lượng dữ liệu. Nhóm sử dụng Python làm công cụ để thực hiện EDA (\texttt{os}, \texttt{pickle}, \texttt{pandas}, \texttt{OpenCV}, \texttt{numpy}, \texttt{hashlib}, \texttt{matplotlib}).
-
-Phần phân tích được tổ chức theo trình tự quy trình EDA: tổng quan và cấu trúc dữ liệu (Mục~\ref{subsec:eda_overview}--\ref{subsec:eda_structure}), chất lượng dữ liệu (Mục~\ref{subsec:eda_quality}), phân tích đơn biến (Mục~\ref{subsec:eda_uni}), phân tích biến mục tiêu (Mục~\ref{subsec:eda_class}), phân tích hai biến và đa biến (Mục~\ref{subsec:eda_multi}), so sánh giữa các tập (Mục~\ref{subsec:eda_shift}) và cuối cùng là kết luận kèm khuyến nghị (Mục~\ref{subsec:eda_conclusion}).
-
 \begin{table}[H]
   \centering
   \caption{Các script EDA, thứ tự chạy và mục sử dụng kết quả.}
@@ -63,7 +60,7 @@ Phần phân tích được tổ chức theo trình tự quy trình EDA: tổng 
 
 \paragraph{Bài toán và thước đo} Bài toán là phân loại video ngôn ngữ ký hiệu (\textit{Sign Language Video Classification}) thành $N=100$ lớp từ vựng tiếng Việt. Đầu vào là một video ghi cử chỉ của một người, được tiền xử lý thành chuỗi $T=16$ khung hình RGB; đầu ra là nhãn dự đoán. Thước đo chính thức là Macro F1-Score. Biến mục tiêu là nhãn lớp (biến phân loại, 100 giá trị), còn các thuộc tính mô tả video (số khung hình, FPS, dung lượng\ldots) chỉ đóng vai trò thông tin phụ trợ cho phân tích.
 
-\paragraph{Nguồn dữ liệu} Bộ dữ liệu là đề chính thức của cuộc thi \textit{Olympic Trí tuệ Nhân tạo Sinh viên 2025 -- Vòng Sơ loại} do Khoa Trí tuệ Nhân tạo, Học viện Công nghệ Bưu chính Viễn thông (PTIT) tổ chức. Các lớp thuộc nhiều nhóm chủ đề: y tế -- dịch bệnh (\textit{Bệnh viện}, \textit{Cách ly}, \textit{Khẩu trang}, \textit{Virus}, \textit{Sốt}, \textit{Ho}\ldots), cảm xúc (\textit{Lo lắng}, \textit{Xúc động}, \textit{Thương}, \textit{Ghét}\ldots), hành động thường ngày (\textit{Ăn}, \textit{Uống}, \textit{Chạy}, \textit{Đi}, \textit{Mua}\ldots), thời gian -- vị trí (\textit{Ban ngày}, \textit{Trưa}, \textit{Hôm nay}, \textit{Phía sau}, \textit{Rẽ trái}\ldots) và phương tiện (\textit{Ô tô}, \textit{Xe máy}, \textit{Xe đạp}).
+\paragraph{Chủ đề các lớp} 100 lớp của bộ dữ liệu (Mục~\ref{subsec:data_source}) thuộc nhiều nhóm chủ đề: y tế -- dịch bệnh (\textit{Bệnh viện}, \textit{Cách ly}, \textit{Khẩu trang}, \textit{Virus}, \textit{Sốt}, \textit{Ho}\ldots), cảm xúc (\textit{Lo lắng}, \textit{Xúc động}, \textit{Thương}, \textit{Ghét}\ldots), hành động thường ngày (\textit{Ăn}, \textit{Uống}, \textit{Chạy}, \textit{Đi}, \textit{Mua}\ldots), thời gian -- vị trí (\textit{Ban ngày}, \textit{Trưa}, \textit{Hôm nay}, \textit{Phía sau}, \textit{Rẽ trái}\ldots) và phương tiện (\textit{Ô tô}, \textit{Xe máy}, \textit{Xe đạp}).
 
 \paragraph{Từ điển dữ liệu} Vì dữ liệu là video nên không có bảng thuộc tính sẵn. Nhóm duyệt cây thư mục, mở từng video bằng \texttt{cv2.VideoCapture} và gom thông tin vào một bảng metadata duy nhất (\texttt{01\_overview/video\_metadata.csv}, 8.364 dòng). Mã băm MD5 được lưu ở \texttt{02\_data\_quality/file\_hashes.csv}, còn các thuộc tính suy ra từ nội dung khung hình (khung đơn sắc, chuyển động) được lưu ở \texttt{02\_data\_quality/video\_quality\_flags.csv}. Ba bảng có chung khoá (tập, lớp, tên tệp). Bảng~\ref{tab:eda_dict} liệt kê ý nghĩa từng thuộc tính; mọi thống kê phía sau chỉ là phép ghép và \texttt{groupby} trên ba bảng này.
 

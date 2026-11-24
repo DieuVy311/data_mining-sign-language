@@ -1,0 +1,168 @@
+% =====================================================================
+% Chương 3 – Phương pháp nghiên cứu
+% =====================================================================
+\section{Phương pháp nghiên cứu}
+\label{sec:method}
+
+\subsection{Quy trình tổng thể}
+\label{subsec:pipeline}
+
+Đề tài thực hiện đủ sáu giai đoạn của quy trình CRISP-DM (Mục~\ref{subsec:crispdm}). Bảng~\ref{tab:pipeline} tóm tắt công việc ở từng giai đoạn, mục trình bày trong báo cáo và mã nguồn tương ứng trong GitHub của nhóm. Mọi bước có yếu tố ngẫu nhiên đều cố định hạt giống \texttt{SEED = 42}.
+
+\begin{table}[H]
+  \centering
+  \caption{Các bước thực hiện theo quy trình CRISP-DM.}
+  \label{tab:pipeline}
+  \small
+  \begin{tabular}{@{}p{0.17\textwidth}p{0.47\textwidth}p{0.29\textwidth}@{}}
+    \toprule
+    \textbf{Giai đoạn} & \textbf{Công việc} & \textbf{Mã nguồn} \\
+    \midrule
+    Hiểu bài toán & Xác định đầu vào, đầu ra, thước đo Macro-F1, mục tiêu (Chương~\ref{sec:intro}) & -- \\
+    Hiểu dữ liệu & Phân tích khám phá: cấu trúc, chất lượng, phân phối, khác biệt giữa các tập (Mục~\ref{sec:eda}) & \texttt{eda/} \\
+    Chuẩn bị dữ liệu & Làm sạch, lấy mẫu khung, chuẩn hoá, chia tập, tăng cường (Mục~\ref{sec:preprocess}); trích xuất và gộp đặc trưng (Mục~\ref{subsec:features}) & \texttt{processing/}, \texttt{models/extract\_*.ipynb} \\
+    Mô hình hoá & Bốn thuật toán cổ điển và CNN-LSTM, tìm siêu tham số bằng cross-validation (Mục~\ref{sec:model}, \ref{subsec:res_tuning}) & \texttt{models/svm/}, \texttt{models/classical/}, \texttt{models/cnn\_lstm/} \\
+    Đánh giá & Fold~0 với nhiều chỉ số, tập private trên AIChallenge (Mục~\ref{subsec:eval_design}, \ref{subsec:res_fold0}--\ref{subsec:res_private}); diễn giải mô hình (Mục~\ref{subsec:res_explain}) & như trên \\
+    Triển khai & Ứng dụng demo Streamlit (Mục~\ref{subsec:demo_design}); mã nguồn kèm \texttt{README} và \texttt{requirements.txt} (Phụ lục~\ref{app:repo}) & \texttt{demo/} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph*{Vòng lặp trong quy trình} Đề tài đi qua các giai đoạn hai lần. Ở lần đầu, các mô hình dùng đặc trưng từ EfficientNet-B0 đóng băng đạt Macro-F1 cao trên fold~0 nhưng giảm mạnh trên tập private (Mục~\ref{subsec:res_private}). Kết quả đánh giá này đưa nhóm quay lại giai đoạn chuẩn bị dữ liệu: trích bộ đặc trưng mới từ CNN đã tinh chỉnh trên dữ liệu ký hiệu (Mục~\ref{subsec:features}), rồi huấn luyện và đánh giá lại cả bốn thuật toán cổ điển trên bộ đặc trưng này.
+
+\subsection{Thu thập dữ liệu}
+\label{subsec:data_source}
+
+Nhóm sử dụng bộ dữ liệu công khai của cuộc thi \textit{Olympic Trí tuệ Nhân tạo Sinh viên 2025 -- Vòng Sơ loại}~\cite{ptit2025} do Khoa Trí tuệ Nhân tạo, Học viện Công nghệ Bưu chính Viễn thông (PTIT) tổ chức, tải từ nền tảng AIChallenge của PTIT. Bộ dữ liệu gồm thư mục \texttt{train/} (mỗi lớp một thư mục con), hai thư mục \texttt{public\_test/} và \texttt{private\_test/} không có nhãn, cùng tệp \texttt{label\_mapping.pkl} ánh xạ 100 tên lớp sang chỉ số 0--99. Nhãn của hai tập kiểm tra do ban tổ chức giữ; nhóm nộp tệp dự đoán lên nền tảng để được chấm Macro-F1 (Mục~\ref{subsec:eval_design}). Các thuộc tính mô tả video (số khung, FPS, độ phân giải, dung lượng, mã băm\ldots) được nhóm tự trích xuất bằng OpenCV như trình bày ở mục tiếp theo.
+
+% 3.3 – Phân tích khám phá dữ liệu (EDA)
+\input{chapters/eda}
+
+% 3.4 – Tiền xử lý dữ liệu
+\input{chapters/preprocess}
+
+% =====================================================================
+\subsection{Trích xuất đặc trưng}
+\label{subsec:features}
+
+Video là dữ liệu phi cấu trúc: mỗi video sau tiền xử lý là một tensor $16\times3\times224\times224$ (khoảng 2,4 triệu giá trị). Các thuật toán phân lớp cổ điển không làm việc trực tiếp được với dữ liệu này, nên nhóm biến mỗi khung thành một vector đặc trưng bằng EfficientNet-B0 (Mục~\ref{subsec:cnn}), rồi gộp 16 vector theo thời gian thành một vector cho cả video.
+
+\paragraph*{Hai bộ đặc trưng}
+\begin{itemize}
+  \item \textbf{Đóng băng} (\texttt{models/extract\_features.ipynb}): EfficientNet-B0 với trọng số ImageNet, bỏ lớp phân loại, chạy ở chế độ suy luận trên GPU Tesla T4. Mỗi video cho ra mảng $16\times1.280$. Ngoài bản gốc, notebook tạo thêm 5 bản tăng cường cho mỗi video train (Mục~\ref{subsec:pp_aug}) với hạt giống cố định, dùng để huấn luyện CNN-LSTM giai đoạn A.
+  \item \textbf{Tinh chỉnh} (\texttt{models/extract\_finetuned.ipynb}): EfficientNet-B0 đã được tinh chỉnh trong CNN-LSTM giai đoạn B (Mục~\ref{subsec:cnnlstm_design}). Cùng định dạng $16\times1.280$, kèm vector video 512 chiều sau attention và trọng số attention của từng khung.
+\end{itemize}
+Thứ tự dòng của mọi tệp đặc trưng khớp với \texttt{manifest\_clean.csv} và \texttt{test\_manifest.csv}. Đặc trưng lưu ở dạng số thực 16 bit (khoảng 300~MB mỗi bộ cho cả ba tập).
+
+\paragraph*{Gộp theo thời gian} Với chuỗi vector khung $\mathbf{f}_1,\dots,\mathbf{f}_{16}\in\mathbb{R}^{1280}$, nhóm thử ba cách gộp cho các thuật toán cổ điển:
+\begin{align}
+  \text{F1:}\quad & \bar{\mathbf{f}} = \frac{1}{16}\sum_{t=1}^{16}\mathbf{f}_t \in\mathbb{R}^{1280} && \text{(tư thế trung bình, mất thứ tự)}\\
+  \text{F2:}\quad & [\bar{\mathbf{f}};\ \mathbf{s}],\quad s_j=\sqrt{\tfrac{1}{16}\textstyle\sum_t(f_{t,j}-\bar{f}_j)^2} \in\mathbb{R}^{2560} && \text{(thêm mức độ thay đổi theo thời gian)}\\
+  \text{F3:}\quad & [\bar{\mathbf{f}}^{(1)};\bar{\mathbf{f}}^{(2)};\bar{\mathbf{f}}^{(3)};\bar{\mathbf{f}}^{(4)}] \in\mathbb{R}^{5120} && \text{(trung bình 4 đoạn liên tiếp: đầu, giữa, cuối)}
+\end{align}
+Thí nghiệm với SVM (Mục~\ref{subsec:res_svm}) cho thấy F2 tốt nhất, nên phần so sánh thuật toán dùng F2. Nửa sau của F2 (độ lệch chuẩn) mô tả \emph{chuyển động}: một chiều đặc trưng thay đổi nhiều qua các khung thì có độ lệch chuẩn lớn.
+
+\paragraph*{Lưu ý về rò rỉ thông tin} CNN tinh chỉnh đã học trên chính các video fold 1--4, nên đặc trưng tinh chỉnh của các video này đã ``thấy'' nhãn của chúng. Vì vậy cross-validation trên fold 1--4 với bộ đặc trưng tinh chỉnh cho điểm lạc quan và chỉ dùng để chọn siêu tham số; kết quả báo cáo dựa trên fold~0 (CNN chỉ dùng fold~0 để chọn epoch dừng) và tập private.
+
+% =====================================================================
+\subsection{Thiết kế mô hình}
+\label{sec:model}
+
+\subsubsection{Các thuật toán phân lớp cổ điển}
+\label{subsec:classical_design}
+
+Mọi thuật toán dùng chung pipeline \texttt{StandardScaler} $\rightarrow$ \texttt{PCA} $\rightarrow$ bộ phân lớp của scikit-learn~\cite{sklearn}. Pipeline được học lại từ đầu trong mỗi lần chia cross-validation, nên chuẩn hoá và PCA chỉ dùng phần huấn luyện của lần chia đó. Logistic Regression, Random Forest và SVM dùng trọng số lớp \texttt{balanced} (Mục~\ref{subsec:pp_weights}); kNN không hỗ trợ trọng số lớp.
+
+\paragraph*{SVM (thí nghiệm riêng)} Notebook \texttt{models/svm/svm.ipynb} khảo sát rộng hơn cho SVM trên đặc trưng đóng băng: ba cách gộp F1, F2, F3; PCA giữ 95\% phương sai hoặc 256 thành phần; SVM tuyến tính (\texttt{LinearSVC}, $C\in\{0{,}001;\,0{,}01\}$) và SVM nhân RBF (\texttt{SVC}, $C\in\{1;\,10\}$, $\gamma\in\{\texttt{scale};\,0{,}001\}$), tổng cộng 36 cấu hình.
+
+\paragraph*{So sánh bốn thuật toán} Notebook \texttt{models/classical/classical.ipynb} so sánh bốn thuật toán trên cả hai bộ đặc trưng (gộp F2, PCA 95\%) với lưới siêu tham số ở Bảng~\ref{tab:grids}.
+
+\begin{table}[H]
+  \centering
+  \caption{Thuật toán và lưới siêu tham số trong phần so sánh.}
+  \label{tab:grids}
+  \small
+  \begin{tabular}{@{}p{0.17\textwidth}p{0.12\textwidth}p{0.21\textwidth}p{0.42\textwidth}@{}}
+    \toprule
+    \textbf{Thuật toán} & \textbf{Vai trò} & \textbf{Tìm tham số} & \textbf{Giá trị thử} \\
+    \midrule
+    Logistic Regression & baseline & GridSearchCV & $C\in\{0{,}01;\,0{,}1;\,1\}$ \\
+    kNN & dựa trên khoảng cách & GridSearchCV & $k\in\{1;3;5;10;20\}$; trọng số đều / theo khoảng cách; khoảng cách euclid / cosine (20 cấu hình) \\
+    Random Forest & ensemble & RandomizedSearchCV (8 cấu hình) & số cây $\in\{300;\,600\}$; độ sâu tối đa $\in\{\text{không giới hạn};\,30\}$; số thuộc tính mỗi lần tách $\in\{\sqrt{d};\,5\%\}$; số mẫu tối thiểu ở lá $\in\{1;\,2\}$ \\
+    SVM tuyến tính & lề cực đại & GridSearchCV & $C\in\{0{,}001;\,0{,}01\}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{Mô hình CNN-LSTM}
+\label{subsec:cnnlstm_design}
+
+Mô hình đọc 16 khung theo thứ tự thời gian (Bảng~\ref{tab:cnnlstm_arch}). Phần sau CNN (gọi là \emph{phần đầu}) gồm khoảng 3,9 triệu tham số.
+
+\begin{table}[H]
+  \centering
+  \caption{Kiến trúc CNN-LSTM.}
+  \label{tab:cnnlstm_arch}
+  \small
+  \begin{tabular}{@{}p{0.16\textwidth}p{0.55\textwidth}p{0.2\textwidth}@{}}
+    \toprule
+    \textbf{Khối} & \textbf{Cấu hình} & \textbf{Đầu ra} \\
+    \midrule
+    CNN & EfficientNet-B0, chạy riêng từng khung & $B\times16\times1.280$ \\
+    Chuẩn hoá & trừ trung bình, chia độ lệch chuẩn của từng chiều (tính trên fold 1--4) & $B\times16\times1.280$ \\
+    Chiếu & Linear $\rightarrow$ 512, LayerNorm, ReLU, Dropout 0,3 & $B\times16\times512$ \\
+    BiLSTM & 2 lớp, 256 đơn vị mỗi chiều, dropout 0,3 giữa hai lớp & $B\times16\times512$ \\
+    Attention & $e_t=\mathbf{v}^\top\tanh(W\mathbf{h}_t+\mathbf{b})$, $W\in\mathbb{R}^{128\times512}$, softmax theo thời gian & $B\times512$ \\
+    Phân loại & Dropout 0,4, Linear 512 $\rightarrow$ 100 & $B\times100$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph*{Giai đoạn A -- CNN đóng băng} Phần đầu học trên đặc trưng đóng băng đã trích sẵn, nên mỗi epoch chỉ mất vài giây. Mỗi epoch, mỗi video lấy ngẫu nhiên 1 trong 5 bản tăng cường, rồi được tăng cường thêm trên chuỗi đặc trưng: che ngẫu nhiên 0--3 khung, cộng nhiễu Gauss độ lệch chuẩn 0,1 và dropout đầu vào 0,1. Huấn luyện bằng AdamW (tốc độ học $10^{-3}$, suy giảm trọng số $10^{-2}$, batch 64), 3 epoch khởi động rồi giảm theo cosine, cross-entropy có trọng số lớp và label smoothing 0,1, cắt gradient 1,0, tối đa 60 epoch, dừng sớm sau 10 epoch Macro-F1 fold~0 không tăng. Hai biến thể:
+\begin{itemize}
+  \item \textbf{A0}: đầu vào là chuỗi đặc trưng gốc.
+  \item \textbf{A2}: đầu vào \emph{chuyển động} $[\mathbf{f}_t;\ \mathbf{f}_t-\mathbf{f}_{t-1}]$ (2.560 chiều); phần không đổi theo thời gian như nền, trang phục bị triệt tiêu ở nửa sau.
+\end{itemize}
+Sau khi chọn epoch tốt nhất trên fold~0, mỗi biến thể được huấn luyện lại trên cả 2.772 video đúng số epoch đó để ghi tệp nộp.
+
+\paragraph*{Giai đoạn B -- tinh chỉnh CNN} EfficientNet-B0 được nối vào trước phần đầu và huấn luyện cùng nhau trên video. Phần đầu khởi tạo từ mô hình A0 (đã học trên fold 1--4); stem và hai nhóm khối đầu của EfficientNet (học cạnh, màu cơ bản) giữ đóng băng, các lớp BatchNorm giữ thống kê ImageNet vì mỗi batch chỉ có 8 video. Mỗi epoch đọc lại video và tăng cường mới (giữ 80--100\% đoạn thời gian, cắt 75--100\% khung hình, đổi độ sáng, độ tương phản, độ bão hoà $\pm25\%$; không lật ngang vì tay trái và tay phải có thể đổi nghĩa ký hiệu). Tốc độ học $10^{-4}$ cho CNN và $5\cdot10^{-4}$ cho phần đầu, 1 epoch khởi động rồi cosine, tính toán số thực hỗn hợp 16/32 bit, tối đa 15 epoch, dừng sớm sau 4 epoch. Mô hình nộp bài là checkpoint có Macro-F1 fold~0 cao nhất (không huấn luyện lại trên toàn bộ train vì chi phí GPU).
+
+% =====================================================================
+\subsection{Thiết kế thí nghiệm và đánh giá}
+\label{subsec:eval_design}
+
+\paragraph*{Chia dữ liệu} Theo Mục~\ref{subsec:pp_split}, 2.772 video sạch được chia phân tầng thành 5 phần. \textbf{Fold~0} (555 video) được giữ riêng làm tập kiểm định, không dùng khi chọn siêu tham số. Siêu tham số của các thuật toán cổ điển được chọn bằng cross-validation 4 lần trên \textbf{fold 1--4} (2.217 video, dùng \texttt{PredefinedSplit} để giữ đúng cách chia), tiêu chí Macro-F1.
+
+\paragraph*{Ba mức đánh giá}
+\begin{enumerate}
+  \item \textbf{Cross-validation trên fold 1--4}: chỉ để chọn siêu tham số.
+  \item \textbf{Fold~0}: mô hình với tham số tốt nhất được huấn luyện trên fold 1--4 và đánh giá một lần bằng Macro-F1~\eqref{eq:macro_f1}, Macro-Precision, Macro-Recall, Accuracy~\eqref{eq:accuracy_multi}, Top-5 Accuracy và ROC-AUC (Mục~\ref{subsec:metrics}), kèm thời gian huấn luyện và dự đoán. Với SVM tuyến tính (không cho xác suất), điểm quyết định được đưa qua hàm softmax để tính Top-5 và ROC-AUC; thứ tự các lớp không đổi.
+  \item \textbf{Tập private test (2.859 video)}: mô hình được huấn luyện lại trên toàn bộ 2.772 video, dự đoán tập private và nộp lên AIChallenge để nhận Macro-F1 do ban tổ chức chấm. Đây là đánh giá độc lập duy nhất trên video chưa từng được dùng.
+\end{enumerate}
+
+\paragraph*{Định dạng tệp nộp} Tệp \texttt{cv\_submission.csv} gồm hai cột \texttt{video\_name,label}, mỗi video private đúng một dòng, nén thành tệp \texttt{.zip}. Nhãn phải viết đúng như khoá trong \texttt{label\_mapping.pkl} (dạng Unicode NFD, Mục~\ref{subsec:eda_structure}); các notebook tự kiểm tra số dòng, tên tệp không trùng và dạng Unicode trước khi ghi.
+
+\paragraph*{Kiểm tra tính đúng} 156 video public test giống hệt video train (cùng mã MD5). Mọi mô hình phải đoán đúng nhãn train cho gần hết các video này; nếu không, có lỗi lệch thứ tự dòng giữa đặc trưng và manifest. Phép kiểm tra chỉ để phát hiện lỗi, dự đoán không bị thay bằng nhãn train.
+
+% =====================================================================
+\subsection{Thiết kế ứng dụng demo}
+\label{subsec:demo_design}
+
+% TODO: cập nhật theo ứng dụng thực tế sau khi hoàn thành demo/
+Ứng dụng web viết bằng Streamlit cho phép người dùng tải lên một video ký hiệu và nhận kết quả nhận diện. Luồng xử lý dùng lại đúng các hàm của \texttt{processing/preprocess.py} và mô hình CNN-LSTM giai đoạn B, nên dữ liệu ở bước demo được xử lý giống hệt lúc huấn luyện:
+\begin{enumerate}
+  \item Người dùng tải video (\texttt{.mp4}, \texttt{.avi}, \texttt{.mov}) hoặc chọn video mẫu.
+  \item Ứng dụng bỏ khung đơn sắc, lấy đều 16 khung, chuẩn hoá ImageNet.
+  \item Mô hình trả về 5 từ có xác suất cao nhất cùng xác suất tương ứng.
+  \item Ứng dụng hiển thị các khung đã lấy mẫu kèm trọng số attention của từng khung, cho biết khung nào ảnh hưởng nhiều nhất đến quyết định.
+\end{enumerate}
+
+\subsection{Công cụ và môi trường}
+\label{subsec:tools}
+
+\begin{itemize}
+  \item \textbf{Ngôn ngữ và thư viện}: Python; \texttt{pandas}, \texttt{numpy}, \texttt{OpenCV} (đọc video, xử lý dữ liệu); \texttt{scikit-learn}~\cite{sklearn} (pipeline, PCA, các thuật toán cổ điển, tìm siêu tham số, chỉ số); PyTorch và \texttt{torchvision} (EfficientNet-B0, CNN-LSTM); \texttt{matplotlib} (trực quan hoá); Streamlit (ứng dụng demo).
+  \item \textbf{Phần cứng}: Kaggle Notebook với GPU NVIDIA Tesla T4 cho trích xuất đặc trưng và huấn luyện CNN-LSTM; máy tính cá nhân cho các thuật toán cổ điển và trích xuất đặc trưng tinh chỉnh.
+  \item \textbf{Theo dõi thí nghiệm}: Weights \& Biases, các tệp \texttt{history.csv}, \texttt{summary.json} trong thư mục output của mỗi notebook.
+  \item \textbf{Quản lý mã nguồn}: GitHub, kèm \texttt{README.md} và \texttt{requirements.txt}.
+\end{itemize}

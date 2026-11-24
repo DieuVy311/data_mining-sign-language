@@ -1,0 +1,45 @@
+% =====================================================================
+% Chương 5 – Kết luận và hướng phát triển
+% =====================================================================
+\section{Kết luận và hướng phát triển}
+\label{sec:conclusion}
+
+\subsection{Kết luận}
+
+Đề tài đã xây dựng một quy trình khai phá dữ liệu hoàn chỉnh cho bài toán nhận diện 100 từ ngôn ngữ ký hiệu tiếng Việt từ video. Bảng~\ref{tab:goals_check} đối chiếu kết quả với các mục tiêu đặt ra ở Mục~\ref{subsec:goals}.
+
+\begin{table}[H]
+  \centering
+  \caption{Đối chiếu kết quả với mục tiêu.}
+  \label{tab:goals_check}
+  \small
+  \begin{tabular}{@{}p{0.06\textwidth}p{0.3\textwidth}p{0.56\textwidth}@{}}
+    \toprule
+    \textbf{Mục tiêu} & \textbf{Nội dung} & \textbf{Kết quả đạt được} \\
+    \midrule
+    (1) & Phân tích và làm sạch dữ liệu & Phát hiện và loại 1.099 bản sao, 2 nội dung có nhãn mâu thuẫn (5 tệp) và 2 video rỗng; xử lý khung đơn sắc ở 20,3\% video; chia 5 phần phân tầng không rò rỉ bản sao (3.875 $\rightarrow$ 2.772 video) \\
+    (2) & Trích xuất đặc trưng & Hai bộ đặc trưng EfficientNet-B0 (đóng băng, tinh chỉnh), ba cách gộp theo thời gian \\
+    (3) & Năm mô hình (bốn thuật toán cổ điển và CNN-LSTM), có tìm siêu tham số & Logistic Regression (baseline), kNN, SVM tuyến tính với GridSearchCV, Random Forest với RandomizedSearchCV, cross-validation 4 fold; CNN-LSTM ba biến thể \\
+    (4) & Đánh giá nhiều chỉ số; Macro-F1 private $\ge0{,}6$ & Sáu chỉ số trên fold~0; 11 mô hình được chấm trên tập private; tốt nhất CNN-LSTM B đạt \textbf{0,687}, Logistic Regression trên đặc trưng tinh chỉnh đạt 0,662 \\
+    (5) & Diễn giải và ứng dụng & Mức độ quan trọng hoán vị theo nhóm đặc trưng, F1 từng lớp, các cặp hay nhầm; ứng dụng Streamlit % TODO: cập nhật khi hoàn thành demo
+    \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Kết luận chính của đề tài:
+\begin{itemize}
+  \item \textbf{Biểu diễn đặc trưng quan trọng hơn thuật toán phân lớp}: tinh chỉnh CNN cải thiện mọi thuật toán nhiều hơn chênh lệch giữa các thuật toán.
+  \item \textbf{Mô hình tuyến tính phù hợp nhất với đặc trưng CNN nhiều chiều}, vừa tốt nhất vừa nhanh nhất.
+  \item \textbf{Thông tin chuyển động quan trọng hơn hình dáng trung bình} trong việc phân biệt ký hiệu.
+  \item \textbf{Tập kiểm định chia ngẫu nhiên có thể rất lạc quan}; cần một tập kiểm tra độc lập để đánh giá đúng khả năng tổng quát hoá.
+\end{itemize}
+
+\subsection{Hướng phát triển}
+
+\begin{itemize}
+  \item \textbf{Chia tập kiểm định theo người ký hiệu}: gom cụm các video theo đặc trưng khuôn mặt hoặc bối cảnh để xấp xỉ nhóm người ký hiệu, rồi chia theo nhóm, giúp tập kiểm định phản ánh đúng dữ liệu mới.
+  \item \textbf{Đặc trưng điểm khớp cơ thể và bàn tay}: dùng bộ ước lượng tư thế để biến video thành chuỗi toạ độ, loại bỏ hoàn toàn nền và trang phục.
+  \item \textbf{Mở rộng mô hình}: kết hợp tinh chỉnh CNN với đầu vào chuyển động (hướng gợi ý từ kết quả A2), huấn luyện lại CNN-LSTM trên toàn bộ dữ liệu, mở rộng lưới siêu tham số và thử kết hợp nhiều mô hình (ensemble).
+  \item \textbf{Ứng dụng}: nhận diện theo thời gian thực từ webcam và mở rộng sang nhận diện câu ký hiệu liên tục.
+\end{itemize}

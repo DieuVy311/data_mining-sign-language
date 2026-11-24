@@ -1,0 +1,22 @@
+# Python 3.10+
+# pip install -r requirements.txt
+
+# Dữ liệu, video, trực quan hoá
+numpy>=1.24
+pandas>=2.0
+opencv-python>=4.8
+matplotlib>=3.7
+scipy>=1.10
+
+# Thuật toán cổ điển
+scikit-learn>=1.3
+joblib>=1.3
+
+# Học sâu (EfficientNet-B0, CNN-LSTM)
+torch>=2.1
+torchvision>=0.16
+
+# Theo dõi thí nghiệm, notebook, demo
+wandb>=0.16
+ipykernel
+streamlit>=1.30

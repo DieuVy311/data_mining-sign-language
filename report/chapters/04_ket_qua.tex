@@ -1,0 +1,245 @@
+% =====================================================================
+% Chương 4 – Kết quả và thảo luận
+% =====================================================================
+\section{Kết quả và thảo luận}
+\label{sec:results}
+
+\subsection{Kết quả tìm siêu tham số}
+\label{subsec:res_tuning}
+
+\subsubsection{SVM: cách gộp đặc trưng, PCA và hàm nhân}
+\label{subsec:res_svm}
+
+Hình~\ref{fig:svm_grid} tóm tắt Macro-F1 cross-validation tốt nhất của SVM trên đặc trưng đóng băng theo từng cách gộp và loại SVM (36 cấu hình).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{models/svm_gridsearch.png}
+  \caption{Kết quả tìm siêu tham số của SVM. Trái: Macro-F1 cross-validation tốt nhất theo cách gộp và hàm nhân. Phải: ảnh hưởng của $C$ với cách gộp F2.}
+  \label{fig:svm_grid}
+\end{figure}
+
+Một số nhận xét:
+\begin{itemize}
+  \item \textbf{F2 tốt nhất}: thêm độ lệch chuẩn theo thời gian (thông tin chuyển động) giúp tăng 0,07 Macro-F1 so với chỉ lấy trung bình. F3 giữ thứ tự thời gian thô nhưng có 5.120 chiều, quá nhiều so với khoảng 2.200 video huấn luyện.
+  \item \textbf{Tuyến tính hay RBF tuỳ số chiều}: với F1 (1.280 chiều), SVM RBF tốt hơn; với F2, F3 (nhiều chiều hơn), SVM tuyến tính tốt hơn rõ. Khi số chiều lớn so với số mẫu, dữ liệu thường đã gần như tách được tuyến tính, hàm nhân phức tạp chỉ làm tăng nguy cơ quá khớp.
+  \item \textbf{Hai loại SVM cần vùng $C$ khác nhau}: SVM tuyến tính tốt nhất ở $C=0{,}01$, còn SVM RBF tăng từ 0,54 lên 0,63 khi $C$ tăng từ 1 lên 10 (Hình~\ref{fig:svm_grid}, phải).
+  \item \textbf{PCA giữ 95\% phương sai} (597 thành phần với F2) luôn tốt hơn PCA cố định 256 thành phần.
+\end{itemize}
+Cấu hình được chọn là F2, PCA 95\%, SVM tuyến tính $C=0{,}01$: cross-validation $0{,}679\pm0{,}008$, fold~0 Macro-F1 0,682 và Accuracy 0,809.
+
+\subsubsection{Bốn thuật toán trên hai bộ đặc trưng}
+\label{subsec:res_classical_cv}
+
+Bảng~\ref{tab:res_cv} liệt kê tham số tốt nhất của từng tổ hợp (tổng 66 cấu hình, 10,7 phút). Điểm cross-validation của bộ đặc trưng tinh chỉnh bị lạc quan (Mục~\ref{subsec:features}).
+
+\begin{table}[H]
+  \centering
+  \caption{Tham số tốt nhất và Macro-F1 cross-validation trên fold 1--4.}
+  \label{tab:res_cv}
+  \small
+  \begin{tabular}{@{}llp{0.42\textwidth}c@{}}
+    \toprule
+    \textbf{Đặc trưng} & \textbf{Thuật toán} & \textbf{Tham số tốt nhất} & \textbf{CV Macro-F1} \\
+    \midrule
+    \multirow{4}{*}{Đóng băng} & Logistic Regression & $C=1$ & $0{,}662\pm0{,}018$ \\
+     & kNN & $k=1$, cosine & $0{,}616\pm0{,}010$ \\
+     & Random Forest & 600 cây, không giới hạn độ sâu, $\sqrt{d}$ thuộc tính, lá $\ge1$ & $0{,}556\pm0{,}018$ \\
+     & SVM tuyến tính & $C=0{,}01$ & $0{,}679\pm0{,}008$ \\
+    \midrule
+    \multirow{4}{*}{Tinh chỉnh} & Logistic Regression & $C=1$ & $0{,}844\pm0{,}019$ \\
+     & kNN & $k=1$, cosine & $0{,}690\pm0{,}015$ \\
+     & Random Forest & 600 cây, độ sâu 30, $\sqrt{d}$ thuộc tính, lá $\ge2$ & $0{,}723\pm0{,}022$ \\
+     & SVM tuyến tính & $C=0{,}01$ & $0{,}841\pm0{,}030$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+kNN tốt nhất với $k=1$ và khoảng cách cosine trên cả hai bộ: hướng của vector đặc trưng quan trọng hơn độ lớn, và các video cùng lớp thường có một ``bản gần giống'' trong tập huấn luyện. Logistic Regression tốt nhất ở $C=1$, giá trị lớn nhất của lưới, nên còn có thể thử $C$ lớn hơn.
+
+% =====================================================================
+\subsection{So sánh các thuật toán trên tập kiểm định}
+\label{subsec:res_fold0}
+
+Bảng~\ref{tab:res_fold0} so sánh các mô hình trên fold~0 bằng các chỉ số ở Mục~\ref{subsec:metrics}.
+
+\begin{table}[H]
+  \centering
+  \caption{Kết quả trên fold~0 (555 video). Thời gian huấn luyện trên fold 1--4, đơn vị giây.}
+  \label{tab:res_fold0}
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \begin{adjustbox}{max width=\textwidth}
+  \begin{tabular}{@{}llccccccr@{}}
+    \toprule
+    \textbf{Đặc trưng} & \textbf{Thuật toán} & \textbf{Macro-F1} & \textbf{Macro-P} & \textbf{Macro-R} & \textbf{Acc.} & \textbf{Top-5} & \textbf{AUC} & \textbf{Huấn luyện} \\
+    \midrule
+    \multirow{4}{*}{Đóng băng} & Logistic Regression & 0,680 & 0,697 & 0,689 & 0,807 & 0,908 & 0,986 & 0,9 \\
+     & kNN & 0,635 & 0,654 & 0,646 & 0,762 & 0,784 & 0,822 & 0,6 \\
+     & Random Forest & 0,597 & 0,634 & 0,600 & 0,755 & 0,834 & 0,938 & 67,0 \\
+     & SVM tuyến tính & \textbf{0,682} & 0,699 & 0,691 & 0,809 & 0,917 & 0,965 & 19,0 \\
+    \midrule
+    \multirow{5}{*}{Tinh chỉnh} & Logistic Regression & \textbf{0,824} & 0,841 & 0,828 & 0,905 & 0,973 & 0,999 & 0,7 \\
+     & kNN & 0,717 & 0,734 & 0,722 & 0,805 & 0,820 & 0,860 & 0,6 \\
+     & Random Forest & 0,664 & 0,694 & 0,670 & 0,836 & 0,930 & 0,987 & 47,3 \\
+     & SVM tuyến tính & 0,821 & 0,830 & 0,832 & 0,908 & 0,968 & 0,993 & 19,4 \\
+     & CNN-LSTM (giai đoạn B) & \textbf{0,859} & 0,879 & 0,864 & 0,915 & 0,969 & 0,998 & $\approx$1.900 (GPU) \\
+    \bottomrule
+  \end{tabular}
+  \end{adjustbox}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{Mô hình tuyến tính tốt nhất trên cả hai bộ đặc trưng.} Logistic Regression và SVM tuyến tính gần như ngang nhau, nhưng Logistic Regression huấn luyện nhanh hơn khoảng 20 lần và cho xác suất trực tiếp.
+  \item \textbf{Random Forest kém nhất về Macro-F1}, dù Accuracy không thấp. Mỗi lần tách, cây chỉ xét ngưỡng trên một chiều, trong khi thông tin của đặc trưng CNN phân tán trên hàng trăm chiều; Random Forest cũng có xu hướng ưu tiên các lớp nhiều mẫu, làm Macro-F1 thấp hơn Accuracy nhiều.
+  \item \textbf{kNN có Top-5 và ROC-AUC thấp bất thường.} Với $k=1$, kNN chỉ cho xác suất 0 hoặc 1, không xếp hạng được các lớp còn lại, nên Top-5 gần bằng Accuracy và AUC thấp. Đây là ví dụ cho thấy chỉ số xếp hạng phản ánh khía cạnh khác với chỉ số phân lớp.
+  \item \textbf{Đặc trưng tinh chỉnh cải thiện mọi thuật toán}: Macro-F1 tăng 0,14 với hai mô hình tuyến tính, 0,08 với kNN và 0,07 với Random Forest.
+\end{itemize}
+
+% =====================================================================
+\subsection{Kết quả CNN-LSTM}
+\label{subsec:res_cnnlstm}
+
+\begin{table}[H]
+  \centering
+  \caption{Kết quả các biến thể CNN-LSTM trên fold~0.}
+  \label{tab:res_cnnlstm}
+  \begin{adjustbox}{max width=\textwidth}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Biến thể} & \textbf{Epoch tốt nhất} & \textbf{Macro-F1} & \textbf{Accuracy} & \textbf{Thời gian huấn luyện} \\
+    \midrule
+    A0 (CNN đóng băng, đầu vào gốc) & 45 & 0,783 & 0,865 & 0,5 phút \\
+    A2 (CNN đóng băng, đầu vào chuyển động) & 34 & 0,775 & 0,858 & 0,4 phút \\
+    B (tinh chỉnh CNN) & 13 & \textbf{0,859} & \textbf{0,915} & 31,7 phút \\
+    \bottomrule
+  \end{tabular}
+  \end{adjustbox}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{models/cnn_lstm_curves.png}
+  \caption{Đường cong huấn luyện của CNN-LSTM. Trái: Macro-F1 trên fold~0 theo epoch. Phải: loss huấn luyện (nét liền) và loss trên fold~0 (nét đứt).}
+  \label{fig:cnnlstm_curves}
+\end{figure}
+
+\begin{itemize}
+  \item Trên cùng đặc trưng đóng băng, \textbf{A0 hơn SVM 0,10 Macro-F1} (0,783 so với 0,682): BiLSTM với attention khai thác thứ tự thời gian, và tăng cường dữ liệu giúp giảm quá khớp.
+  \item Ở giai đoạn A, loss huấn luyện ($\approx1{,}35$) cao hơn loss trên fold~0 ($\approx0{,}83$) vì lúc huấn luyện có che khung, nhiễu, dropout, label smoothing và trọng số lớp, còn loss kiểm định tính trên dữ liệu sạch. Macro-F1 đi ngang từ khoảng epoch 30.
+  \item Ở giai đoạn B, Macro-F1 hai epoch đầu thấp hơn mức của A0 vì CNN bắt đầu thay đổi đúng lúc tốc độ học đạt cực đại sau khởi động; từ epoch 3 mô hình vượt hẳn giai đoạn A, loss kiểm định giảm còn 0,58 và không có dấu hiệu quá khớp.
+\end{itemize}
+
+% =====================================================================
+\subsection{Kết quả trên tập kiểm tra độc lập}
+\label{subsec:res_private}
+
+Bảng~\ref{tab:res_private} tổng hợp Macro-F1 do AIChallenge chấm trên tập private (2.859 video) và so sánh với fold~0. Ảnh chụp các bài nộp và mã ID tương ứng trên AIChallenge được đặt ở Phụ lục~\ref{app:submissions}.
+
+\begin{table}[H]
+  \centering
+  \caption{Macro-F1 trên fold~0 và trên tập private test.}
+  \label{tab:res_private}
+  \small
+  \begin{tabular}{@{}llccc@{}}
+    \toprule
+    \textbf{Đặc trưng} & \textbf{Mô hình} & \textbf{Fold~0} & \textbf{Private} & \textbf{Chênh lệch} \\
+    \midrule
+    \multirow{6}{*}{Đóng băng} & Logistic Regression & 0,680 & 0,340 & $-0{,}34$ \\
+     & kNN & 0,635 & 0,195 & $-0{,}44$ \\
+     & Random Forest & 0,597 & 0,153 & $-0{,}44$ \\
+     & SVM tuyến tính & 0,682 & 0,297 & $-0{,}39$ \\
+     & CNN-LSTM A0 & 0,783 & 0,415 & $-0{,}37$ \\
+     & CNN-LSTM A2 & 0,775 & 0,440 & $-0{,}34$ \\
+    \midrule
+    \multirow{5}{*}{Tinh chỉnh} & Logistic Regression & 0,824 & 0,662 & $-0{,}16$ \\
+     & kNN & 0,717 & 0,509 & $-0{,}21$ \\
+     & Random Forest & 0,664 & 0,439 & $-0{,}23$ \\
+     & SVM tuyến tính & 0,821 & 0,641 & $-0{,}18$ \\
+     & CNN-LSTM B & \textbf{0,859} & \textbf{0,687} & $-0{,}17$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph*{Khoảng cách giữa fold~0 và tập private} Mọi mô hình đều giảm điểm khi chuyển sang tập private, nhưng mức giảm khác nhau rõ rệt: các mô hình dùng đặc trưng đóng băng giảm 0,34--0,44, còn các mô hình dùng đặc trưng tinh chỉnh chỉ giảm 0,16--0,23. Nhóm đã loại trừ lỗi kỹ thuật: phép kiểm tra 156 video trùng train (Mục~\ref{subsec:eval_design}) đúng 98,7--100\% với mọi mô hình, nhãn đúng dạng Unicode, và SVM tuyến tính chạy lại trong khung so sánh chung cho đúng điểm của SVM ban đầu (0,2969). Giải thích hợp lý nhất là \emph{video kiểm tra khác video huấn luyện} (người ký hiệu, góc quay, ánh sáng, bối cảnh). Fold~0 được chia ngẫu nhiên từ cùng tập train, nên video của cùng một người có thể nằm ở cả phần huấn luyện lẫn phần kiểm định; dữ liệu không có thông tin người ký hiệu để chia theo người, vì vậy fold~0 đo khả năng trên video ``giống train'' nhiều hơn là trên video mới.
+
+\paragraph*{Bằng chứng từ phân bố dự đoán} Nếu các lớp trong tập private tương đối đều, mỗi lớp có khoảng 29 video. SVM trên đặc trưng đóng băng dồn 147 video vào lớp \textit{Nặng}, 35\% dự đoán rơi vào 10 lớp và 9 lớp không được đoán lần nào; kNN đóng băng còn dồn 368 video vào một lớp. Ngược lại, CNN-LSTM B dự đoán đủ 100 lớp, lớp nhiều nhất 99 video, 10 lớp nhiều nhất chiếm 23\%. Khi gặp video lạ, đặc trưng đóng băng lệch khỏi vùng đã học và nhiều video rơi vào vùng quyết định của cùng vài lớp.
+
+\paragraph*{Ba kết quả chính}
+\begin{enumerate}
+  \item \textbf{Bộ đặc trưng quyết định nhiều hơn thuật toán.} Đổi từ đặc trưng đóng băng sang đặc trưng tinh chỉnh làm Macro-F1 private của mọi thuật toán cổ điển tăng 0,29--0,34; trong khi trên cùng một bộ đặc trưng, chênh lệch giữa thuật toán tốt nhất và kém nhất là 0,19--0,22.
+  \item \textbf{Thứ hạng thuật toán ổn định}: tuyến tính > kNN > Random Forest trên cả fold~0 và private. kNN và Random Forest giảm mạnh hơn khi gặp video mới vì dựa vào vùng lân cận hoặc ngưỡng trên từng chiều của dữ liệu huấn luyện, nên nhạy hơn khi phân bố đặc trưng dịch chuyển.
+  \item \textbf{Khi đặc trưng đã tốt, phần mô hình hoá thời gian đóng góp ít hơn.} Trên đặc trưng đóng băng, CNN-LSTM A0 hơn Logistic Regression 0,075 Macro-F1 private; trên đặc trưng tinh chỉnh, CNN-LSTM B chỉ hơn 0,025. Lưu ý đặc trưng tinh chỉnh được tạo từ chính CNN của CNN-LSTM B, nên Logistic Regression ở đây tái sử dụng biểu diễn đã học chứ không phải một mô hình độc lập.
+\end{enumerate}
+Ngoài ra, đầu vào chuyển động (A2) không giúp trên fold~0 (0,775 so với 0,783) nhưng tốt hơn A0 2,5 điểm private (0,440 so với 0,415): bỏ phần tĩnh của khung hình làm mô hình ít phụ thuộc bối cảnh hơn, một khác biệt mà fold~0 không phát hiện được.
+
+% =====================================================================
+\subsection{Diễn giải mô hình}
+\label{subsec:res_explain}
+
+\paragraph*{Mức độ quan trọng của nhóm đặc trưng} Bảng~\ref{tab:res_perm} áp dụng phương pháp hoán vị (Mục~\ref{subsec:permutation}) cho hai nửa của vector F2, với mô hình tốt nhất của mỗi bộ đặc trưng trên fold~0 (5 lần lặp).
+
+\begin{table}[H]
+  \centering
+  \caption{Macro-F1 trên fold~0 giảm đi khi xáo trộn từng nhóm đặc trưng.}
+  \label{tab:res_perm}
+  \begin{tabular}{@{}llcc@{}}
+    \toprule
+    \textbf{Đặc trưng} & \textbf{Mô hình} & \textbf{Xáo trộn nửa trung bình} & \textbf{Xáo trộn nửa độ lệch chuẩn} \\
+    & & \textbf{(hình dáng)} & \textbf{(chuyển động)} \\
+    \midrule
+    Đóng băng & SVM tuyến tính & $0{,}307\pm0{,}012$ & $0{,}515\pm0{,}011$ \\
+    Tinh chỉnh & Logistic Regression & $0{,}406\pm0{,}026$ & $0{,}517\pm0{,}020$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Xáo trộn nửa \emph{độ lệch chuẩn} làm Macro-F1 giảm khoảng 0,51 ở cả hai mô hình, nhiều hơn nửa \emph{trung bình}: mô hình dựa vào mức độ thay đổi qua thời gian nhiều hơn tư thế trung bình, phù hợp với bản chất ký hiệu là một động tác. Sau khi tinh chỉnh, nửa trung bình cũng quan trọng hơn (giảm 0,41 so với 0,31), cho thấy CNN đã học được hình dạng bàn tay có ích cho phân lớp.
+
+\paragraph*{Sai số theo từng lớp} Khi đổi sang đặc trưng tinh chỉnh, Logistic Regression tăng F1 ở 56 lớp, giảm ở 10 lớp và giữ nguyên ở 34 lớp trên fold~0. Bảng~\ref{tab:res_perclass} liệt kê các lớp được lợi nhiều nhất (chỉ xét lớp có ít nhất 3 video ở fold~0, vì lớp ít video có F1 dao động mạnh).
+
+\begin{table}[H]
+  \centering
+  \caption{Các lớp được lợi nhiều nhất khi tinh chỉnh CNN (Logistic Regression, fold~0).}
+  \label{tab:res_perclass}
+  \small
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Lớp} & \textbf{Số video} & \textbf{F1 đóng băng} & \textbf{F1 tinh chỉnh} & \textbf{Chênh lệch} \\
+    \midrule
+    Đầu & 7 & 0,471 & 1,000 & +0,529 \\
+    Bạn thân & 3 & 0,500 & 1,000 & +0,500 \\
+    Uống & 4 & 0,286 & 0,750 & +0,464 \\
+    Đẹp & 3 & 0,000 & 0,400 & +0,400 \\
+    Xe đạp & 3 & 0,400 & 0,800 & +0,400 \\
+    Thức dậy & 10 & 0,600 & 0,947 & +0,347 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{models/cnn_lstm_B_fold0_per_class_f1.png}
+  \caption{F1 từng lớp của CNN-LSTM giai đoạn B trên fold~0, sắp xếp giảm dần; đường nét đứt là Macro-F1.}
+  \label{fig:cnnlstm_perclass}
+\end{figure}
+
+\paragraph*{Các cặp lớp hay nhầm} Với CNN-LSTM B trên fold~0, các cặp nhầm nhiều nhất là \textit{Mua}$\rightarrow$\textit{Sử dụng} (3 video), \textit{Ăn}$\rightarrow$\textit{Khóc}, \textit{Chào}$\rightarrow$\textit{Đầu}, \textit{Dạy dỗ}$\rightarrow$\textit{Khai báo}, \textit{Rẽ phải}$\rightarrow$\textit{Rẽ trái} (2 video mỗi cặp). Nhiều cặp có cùng vị trí tay hoặc cùng hình dạng bàn tay và chỉ khác hướng chuyển động, như \textit{Rẽ phải} và \textit{Rẽ trái} là hai động tác gần như đối xứng gương. Đây cũng là lý do nhóm không dùng phép lật ngang khi tăng cường dữ liệu.
+
+% =====================================================================
+% =====================================================================
+\subsection{Thảo luận}
+\label{subsec:discussion}
+
+\paragraph*{Vì sao đặc trưng quan trọng hơn thuật toán} Đặc trưng ImageNet đóng băng mô tả cả khung hình (nền, trang phục, khuôn mặt, ánh sáng), nên các bộ phân lớp học được cả những ``tín hiệu bối cảnh'' không liên quan đến động tác; khi bối cảnh thay đổi ở tập kiểm tra, các tín hiệu này mất tác dụng. Tinh chỉnh CNN trên video ký hiệu với tăng cường dữ liệu buộc đặc trưng tập trung vào phần thay đổi giữa các video cùng lớp, tức bàn tay và chuyển động, nên khoảng cách giữa kiểm định và kiểm tra giảm một nửa.
+
+\paragraph*{Đánh đổi giữa chất lượng và chi phí} Logistic Regression trên đặc trưng tinh chỉnh đạt 0,662 Macro-F1 private, huấn luyện khoảng 1 giây trên CPU; CNN-LSTM B đạt 0,687 nhưng cần khoảng 32 phút GPU. Khi đã có một CNN tinh chỉnh tốt, một bộ phân lớp tuyến tính đơn giản là lựa chọn hợp lý về chi phí.
+
+\paragraph*{Hạn chế}
+\begin{itemize}
+  \item \textbf{Tập kiểm định chưa phản ánh dữ liệu mới.} Dữ liệu không có thông tin người ký hiệu nên không chia được theo người; điểm fold~0 lạc quan và không phát hiện được một số khác biệt (ví dụ A2 so với A0).
+  \item \textbf{Fold~0 nhỏ}: mỗi lớp chỉ có 1--10 video nên F1 từng lớp dao động mạnh.
+  \item \textbf{Đánh giá trên tập private nhiều lần.} Nhóm đã nộp 11 mô hình khác nhau lên tập private; nếu chọn mô hình cuối theo điểm private thì có nguy cơ khớp với chính tập kiểm tra. Nhóm chọn CNN-LSTM B dựa trên cả fold~0 và private, và mọi điểm private đều được báo cáo đầy đủ.
+  \item \textbf{Đặc trưng tinh chỉnh không độc lập với CNN-LSTM B} và có rò rỉ khi cross-validation (Mục~\ref{subsec:features}).
+  \item \textbf{Lưới tham số còn hẹp}: Logistic Regression tốt nhất ở biên $C=1$; CNN-LSTM B chưa được huấn luyện lại trên toàn bộ train vì chi phí GPU.
+\end{itemize}

@@ -24,6 +24,11 @@
   {}
 \titlespacing*{\paragraph}
   {0pt}{1.5ex}{1ex}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {Chương~\thesection.}
+  {0.5em}
+  {}
 
 % Encodings
 \usepackage{gensymb,textcomp}
@@ -53,7 +58,7 @@
 \ocoursename{KHAI PHÁ DỮ LIỆU}
 \oreporttype{BÁO CÁO BÀI TẬP LỚN}
 \title{\LARGE NHẬN DIỆN NGÔN NGỮ KÝ HIỆU\\CHO NGƯỜI KHIẾM THÍNH TỪ VIDEO}
-\oadvisor{TODO}                      % TODO: tên giảng viên hướng dẫn
+\oadvisor{Bùi Tiến Đức}
 \oreportplace{TP. Hồ Chí Minh}
 \oreporttime{tháng 11/2026}
 
@@ -76,7 +81,7 @@
 \begin{document}
 \coverpage%
 
-\section*{Danh sách thành viên \& Phân công công việc}
+\section*{Danh sách thành viên}
 \begin{center}
   \begin{tabular}{>{\stepcounter{memberrowno}\thememberrowno}llcc}
     \toprule
@@ -84,28 +89,12 @@
     \midrule
         & Trần Duy Phước Nghĩa & 2412275 & 100\% \\
         & Ngô Diệu Vy          & 2414045 & 100\% \\  
-        & Đinh Quốc Thịnh      & TODO    & 100\% \\
+        & Đinh Quốc Thịnh      & 2413309 & 100\% \\
     \bottomrule
   \end{tabular}
 \end{center}
 
-\vspace{1em}
-\begin{center}
-  \begin{tabular}{p{0.52\textwidth}lc}
-    \toprule
-    \textbf{Công việc} & \textbf{Thành viên} & \textbf{Hạn} \\
-    \midrule
-    Giới thiệu, tổng quan dữ liệu, kết luận           & Thịnh     & 3/11, 23/11 \\
-    Cơ sở lý thuyết                                   & Thịnh     & 6/11 \\
-    Phân tích dữ liệu (EDA)                           & Nghĩa     & 8/11 \\
-    Tiền xử lý dữ liệu                                & Vy        & 15/11 \\
-    Mô hình SVM, CNN-LSTM                             & Vy        & 22/11 \\
-    Mô hình Vision Transformer                        & Thịnh     & 22/11 \\
-    Demo Streamlit (giao diện; suy luận, load model)  & Vy, Nghĩa & 27/11 \\
-    Dựng báo cáo LaTeX                                & Nghĩa     & 30/11 \\
-    \bottomrule
-  \end{tabular}
-\end{center}
+
 
 \newpage
 \tableofcontents
@@ -114,23 +103,29 @@
 \listoftables
 \newpage
 
-\input{chapters/01_gioi_thieu}
+\input{chapters/01_mo_dau}
 \newpage
 \input{chapters/02_co_so_ly_thuyet}
 \newpage
-\input{chapters/03_du_lieu}
+\input{chapters/03_phuong_phap}
 \newpage
-\input{chapters/04_mo_hinh}
+\input{chapters/04_ket_qua}
 \newpage
-\input{chapters/05_thuc_nghiem}
+\input{chapters/05_ket_luan}
 \newpage
-\input{chapters/06_demo}
-\newpage
-\input{chapters/07_ket_luan}
+\input{chapters/ke_khai_ai}
 \newpage
 
 \bibliographystyle{plain}
 \bibliography{refs}
-\nocite{*}
+
+\newpage
+\appendix
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {Phụ lục~\thesection.}
+  {0.5em}
+  {}
+\input{chapters/phu_luc}
 
 \end{document}

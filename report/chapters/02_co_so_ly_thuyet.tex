@@ -1,4 +1,203 @@
-% Chương 2 – Cơ sở lý thuyết (qthinh)
-\section{Cơ sở lý thuyết và tổng quan tài liệu}
+% =====================================================================
+% Chương 2 – Cơ sở lý thuyết
+% =====================================================================
+\section{Cơ sở lý thuyết}
 \label{sec:theory}
-% TODO (qthinh)
+
+\subsection{Quy trình khai phá dữ liệu}
+\label{subsec:crispdm}
+
+Khám phá tri thức trong cơ sở dữ liệu (KDD) là quá trình tìm ra các mẫu có giá trị, mới và hiểu được từ dữ liệu, gồm các bước làm sạch, tích hợp, chọn lọc, biến đổi dữ liệu, khai phá, đánh giá mẫu và trình bày tri thức~\cite{han2022}. Trong thực hành, quy trình CRISP-DM~\cite{wirth2000crispdm} tổ chức các bước này thành sáu giai đoạn:
+\begin{enumerate}
+  \item \textbf{Hiểu bài toán}: xác định mục tiêu nghiệp vụ, chuyển thành bài toán khai phá dữ liệu và tiêu chí thành công.
+  \item \textbf{Hiểu dữ liệu}: thu thập dữ liệu, mô tả, phân tích khám phá và kiểm tra chất lượng.
+  \item \textbf{Chuẩn bị dữ liệu}: làm sạch, biến đổi, chọn lọc và xây dựng đặc trưng để có tập dữ liệu cho mô hình.
+  \item \textbf{Mô hình hoá}: chọn thuật toán, tìm siêu tham số và huấn luyện mô hình.
+  \item \textbf{Đánh giá}: đo kết quả theo tiêu chí đã đặt, giải thích mô hình và quyết định có dùng được hay không.
+  \item \textbf{Triển khai}: đưa mô hình vào sử dụng và tổng kết kết quả.
+\end{enumerate}
+
+
+% ---------------------------------------------------------------------
+\subsection{Mạng nơ-ron tích chập và học chuyển giao}
+\label{subsec:cnn}
+
+\paragraph*{Phép tích chập} Mạng nơ-ron tích chập (CNN) học đặc trưng ảnh bằng các bộ lọc trượt trên ảnh. Với ảnh đầu vào $X$ và bộ lọc $K$ kích thước $k\times k$, giá trị tại vị trí $(i,j)$ của bản đồ đặc trưng là
+\begin{equation}
+  (X * K)_{i,j} = \sum_{u=0}^{k-1}\sum_{v=0}^{k-1} X_{i+u,\,j+v}\,K_{u,v} + b.
+\end{equation}
+Các lớp đầu học đặc trưng cấp thấp (cạnh, màu), các lớp sau tổ hợp chúng thành đặc trưng cấp cao (hình dạng bàn tay, khuôn mặt). Lớp gộp trung bình toàn cục (\textit{global average pooling}) cuối mạng biến bản đồ đặc trưng thành một vector cố định cho mỗi ảnh.
+
+\paragraph*{EfficientNet-B0} EfficientNet~\cite{tan2019efficientnet} xây dựng từ các khối MBConv: tích chập theo từng kênh (\textit{depthwise}) rẻ hơn tích chập thường nhiều lần, kèm cơ chế \textit{squeeze-and-excitation} tự đánh trọng số cho các kênh quan trọng. Bản B0 có khoảng 4,0 triệu tham số khi bỏ lớp phân loại, nhận ảnh $224\times224$ và cho ra vector 1.280 chiều cho mỗi khung hình.
+
+\paragraph*{Học chuyển giao} Các CNN huấn luyện trên ImageNet (1,2 triệu ảnh, 1.000 lớp) học được đặc trưng thị giác tổng quát, có thể dùng lại cho bài toán khác. Có hai cách dùng:
+\begin{itemize}
+  \item \textbf{Đóng băng} (\textit{feature extraction}): giữ nguyên trọng số CNN, chỉ dùng nó để trích đặc trưng rồi huấn luyện bộ phân lớp phía sau. Nhanh và cần ít dữ liệu, nhưng đặc trưng không chuyên biệt cho bài toán mới.
+  \item \textbf{Tinh chỉnh} (\textit{fine-tuning}): tiếp tục huấn luyện một phần hoặc toàn bộ CNN trên dữ liệu mới với tốc độ học nhỏ, để đặc trưng thích nghi với bài toán.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\subsection{Chuẩn hoá và phân tích thành phần chính}
+\label{subsec:pca}
+
+\paragraph*{Chuẩn hoá z-score} Mỗi thuộc tính $x_j$ được đưa về trung bình 0, độ lệch chuẩn 1: $x'_j = (x_j - \mu_j)/\sigma_j$, với $\mu_j,\sigma_j$ tính trên tập huấn luyện~\cite{han2022}. Bước này cần thiết cho các thuật toán dựa trên khoảng cách (kNN), lề (SVM) và cho PCA.
+
+\paragraph*{PCA} Phân tích thành phần chính~\cite{han2022} chiếu dữ liệu $d$ chiều xuống $k<d$ chiều sao cho giữ được nhiều phương sai nhất. Với ma trận dữ liệu đã chuẩn hoá $X\in\mathbb{R}^{n\times d}$, ma trận hiệp phương sai $\Sigma = \frac{1}{n-1}X^\top X$ được phân rã trị riêng $\Sigma = V\Lambda V^\top$, các trị riêng xếp giảm dần $\lambda_1\ge\cdots\ge\lambda_d$. Dữ liệu mới là $Z = XV_k$ với $V_k$ gồm $k$ vector riêng đầu tiên. Số thành phần $k$ được chọn là số nhỏ nhất thoả
+\begin{equation}
+  \frac{\sum_{i=1}^{k}\lambda_i}{\sum_{i=1}^{d}\lambda_i} \ge 0{,}95,
+\end{equation}
+tức giữ lại 95\% phương sai. PCA giảm nhiễu, giảm thời gian huấn luyện và giảm hiện tượng quá khớp khi số chiều lớn so với số mẫu.
+
+% ---------------------------------------------------------------------
+\subsection{Các thuật toán phân lớp}
+\label{subsec:classifiers}
+
+Cho tập huấn luyện $\{(\mathbf{x}_i, y_i)\}_{i=1}^n$ với $\mathbf{x}_i\in\mathbb{R}^d$ và $y_i\in\{1,\dots,K\}$, $K=100$.
+
+\subsubsection{Hồi quy logistic đa lớp}
+\label{subsubsec:logreg}
+
+Hồi quy logistic đa lớp (\textit{softmax regression}) gán cho mỗi lớp $c$ một vector trọng số $\mathbf{w}_c$ và tính xác suất
+\begin{equation}
+  P(y=c\mid\mathbf{x}) = \frac{\exp(\mathbf{w}_c^\top\mathbf{x}+b_c)}{\sum_{j=1}^{K}\exp(\mathbf{w}_j^\top\mathbf{x}+b_j)}.
+\end{equation}
+Tham số được học bằng cách cực tiểu hoá cross-entropy có điều chuẩn L2:
+\begin{equation}
+  \min_{\mathbf{W},\mathbf{b}}\ \frac{1}{2}\|\mathbf{W}\|^2 - C\sum_{i=1}^{n} \omega_{y_i}\log P(y=y_i\mid\mathbf{x}_i),
+\end{equation}
+với $C$ điều khiển mức điều chuẩn ($C$ nhỏ thì mô hình đơn giản hơn) và $\omega_c$ là trọng số lớp. Biên quyết định giữa hai lớp là siêu phẳng, nên đây là mô hình tuyến tính đơn giản, nhanh và cho xác suất trực tiếp; nhóm dùng làm \textbf{mô hình cơ sở (baseline)}.
+
+\subsubsection{k láng giềng gần nhất}
+\label{subsubsec:knn}
+
+kNN~\cite{han2022} không học tham số mà lưu toàn bộ dữ liệu huấn luyện. Để phân loại $\mathbf{x}$, thuật toán tìm $k$ mẫu gần nhất $N_k(\mathbf{x})$ và chọn lớp có tổng trọng số lớn nhất:
+\begin{equation}
+  \hat{y} = \arg\max_{c} \sum_{i\in N_k(\mathbf{x})} \alpha_i\,\mathbb{1}[y_i=c],
+\end{equation}
+với $\alpha_i=1$ (trọng số đều) hoặc $\alpha_i = 1/d(\mathbf{x},\mathbf{x}_i)$ (trọng số theo khoảng cách). Khoảng cách có thể là euclid $d(\mathbf{x},\mathbf{z})=\|\mathbf{x}-\mathbf{z}\|_2$ hoặc cosine $d(\mathbf{x},\mathbf{z}) = 1-\frac{\mathbf{x}^\top\mathbf{z}}{\|\mathbf{x}\|\,\|\mathbf{z}\|}$. Trong không gian nhiều chiều, khoảng cách giữa các điểm có xu hướng gần bằng nhau (\textit{lời nguyền số chiều}), làm khái niệm ``gần nhất'' kém ý nghĩa~\cite{han2022}.
+
+\subsubsection{Cây quyết định và Random Forest}
+\label{subsubsec:rf}
+
+Cây quyết định chia dữ liệu đệ quy theo ngưỡng trên từng thuộc tính, chọn phép chia làm giảm nhiều nhất độ vẩn đục. Với độ vẩn đục Gini của một nút có tỷ lệ lớp $p_c$:
+\begin{equation}
+  \mathrm{Gini} = 1-\sum_{c=1}^{K}p_c^2.
+\end{equation}
+Random Forest~\cite{han2022} kết hợp nhiều cây: mỗi cây học trên một mẫu bootstrap của dữ liệu, và tại mỗi nút chỉ xét một tập con ngẫu nhiên các thuộc tính (thường $\sqrt{d}$). Dự đoán cuối cùng là trung bình xác suất của các cây. Việc lấy trung bình nhiều cây ít tương quan làm giảm phương sai so với một cây đơn lẻ.
+
+\subsubsection{Máy vector hỗ trợ}
+\label{subsubsec:svm}
+
+SVM~\cite{han2022} tìm siêu phẳng $\mathbf{w}^\top\mathbf{x}+b=0$ tách hai lớp với lề lớn nhất. Khi dữ liệu không tách được hoàn toàn, bài toán lề mềm là
+\begin{equation}
+  \min_{\mathbf{w},b,\boldsymbol{\xi}}\ \frac{1}{2}\|\mathbf{w}\|^2 + C\sum_{i=1}^{n}\xi_i
+  \quad\text{với}\quad y_i(\mathbf{w}^\top\mathbf{x}_i+b)\ge 1-\xi_i,\ \ \xi_i\ge 0,
+\end{equation}
+với $y_i\in\{-1,+1\}$. Tham số $C$ cân bằng giữa lề rộng và số điểm vi phạm lề. Dạng đối ngẫu chỉ phụ thuộc vào tích vô hướng giữa các mẫu, nên có thể thay bằng hàm nhân (\textit{kernel}), ví dụ RBF $K(\mathbf{x},\mathbf{z})=\exp(-\gamma\|\mathbf{x}-\mathbf{z}\|^2)$, để tạo biên phi tuyến. Với $K$ lớp, SVM tuyến tính dùng chiến lược \emph{một-đấu-phần-còn-lại}: huấn luyện $K$ bộ phân lớp nhị phân và chọn lớp có điểm quyết định $\mathbf{w}_c^\top\mathbf{x}+b_c$ lớn nhất.
+
+\paragraph*{Trọng số lớp} Để giảm ảnh hưởng của mất cân bằng lớp, lỗi trên mẫu lớp $c$ được nhân với $\omega_c = N/(K\,n_c)$ (Mục~\ref{subsec:pp_weights}), nên lớp ít mẫu có trọng số lớn hơn.
+
+% ---------------------------------------------------------------------
+\subsection{Mạng LSTM và cơ chế attention}
+\label{subsec:lstm}
+
+\paragraph*{LSTM} Mạng hồi quy xử lý chuỗi $\mathbf{x}_1,\dots,\mathbf{x}_T$ bằng cách cập nhật trạng thái ẩn $\mathbf{h}_t$ từ $\mathbf{h}_{t-1}$ và $\mathbf{x}_t$. Mạng hồi quy thường gặp hiện tượng gradient triệt tiêu với chuỗi dài; LSTM~\cite{hochreiter1997lstm} khắc phục bằng một ô nhớ $\mathbf{c}_t$ và ba cổng:
+\begin{align}
+  \mathbf{f}_t &= \sigma(W_f[\mathbf{h}_{t-1},\mathbf{x}_t]+\mathbf{b}_f), \quad
+  \mathbf{i}_t = \sigma(W_i[\mathbf{h}_{t-1},\mathbf{x}_t]+\mathbf{b}_i), \quad
+  \mathbf{o}_t = \sigma(W_o[\mathbf{h}_{t-1},\mathbf{x}_t]+\mathbf{b}_o), \\
+  \mathbf{c}_t &= \mathbf{f}_t\odot\mathbf{c}_{t-1} + \mathbf{i}_t\odot\tanh(W_c[\mathbf{h}_{t-1},\mathbf{x}_t]+\mathbf{b}_c), \qquad
+  \mathbf{h}_t = \mathbf{o}_t\odot\tanh(\mathbf{c}_t).
+\end{align}
+Cổng quên $\mathbf{f}_t$ quyết định giữ lại bao nhiêu thông tin cũ, cổng vào $\mathbf{i}_t$ quyết định ghi thêm bao nhiêu thông tin mới, cổng ra $\mathbf{o}_t$ quyết định phần nào của ô nhớ được đưa ra. \textbf{BiLSTM} chạy hai LSTM theo hai chiều thời gian và nối trạng thái: $\mathbf{h}_t=[\overrightarrow{\mathbf{h}}_t;\overleftarrow{\mathbf{h}}_t]$, nên mỗi khung được biểu diễn với ngữ cảnh cả trước và sau nó.
+
+\paragraph*{Attention} Thay vì chỉ lấy trạng thái cuối hoặc trung bình đều các khung, cơ chế attention~\cite{bahdanau2015attention} học trọng số cho từng khung:
+\begin{equation}
+  e_t = \mathbf{v}^\top\tanh(W\mathbf{h}_t+\mathbf{b}), \qquad
+  \alpha_t = \frac{\exp(e_t)}{\sum_{s=1}^{T}\exp(e_s)}, \qquad
+  \mathbf{z} = \sum_{t=1}^{T}\alpha_t\mathbf{h}_t.
+\end{equation}
+Vector $\mathbf{z}$ đại diện cho cả video; các khung chứa động tác chính sẽ có $\alpha_t$ lớn.
+
+\paragraph*{Huấn luyện} Mạng được huấn luyện bằng cross-entropy với \textit{label smoothing}: nhãn đúng nhận xác suất mục tiêu $1-\varepsilon$, phần $\varepsilon$ còn lại chia đều cho các lớp khác, giúp mô hình bớt tự tin quá mức. Bộ tối ưu AdamW tách phần suy giảm trọng số khỏi bước cập nhật gradient.
+
+% ---------------------------------------------------------------------
+\subsection{Đánh giá mô hình phân lớp}
+\label{subsec:metrics}
+
+\subsubsection{Ma trận nhầm lẫn và các chỉ số cho bài toán hai lớp}
+\label{subsubsec:binary_metrics}
+
+Với bài toán hai lớp (dương/âm), mỗi dự đoán thuộc một trong bốn trường hợp của \textbf{ma trận nhầm lẫn} (Bảng~\ref{tab:confusion}): dương thật (TP), âm giả (FN), dương giả (FP) và âm thật (TN).
+
+\begin{table}[H]
+  \centering
+  \caption{Ma trận nhầm lẫn cho bài toán hai lớp.}
+  \label{tab:confusion}
+  \begin{tabular}{@{}llcc@{}}
+    \toprule
+    & & \multicolumn{2}{c}{\textbf{Lớp dự đoán}} \\
+    & & Dương & Âm \\
+    \midrule
+    \multirow{2}{*}{\textbf{Lớp thật}} & Dương & TP (dương thật) & FN (âm giả) \\
+                                      & Âm    & FP (dương giả)  & TN (âm thật) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Từ đó định nghĩa các chỉ số~\cite{han2022}:
+\begin{align}
+  \text{Accuracy}  &= \frac{TP+TN}{TP+TN+FP+FN}, \label{eq:accuracy}\\[2pt]
+  \text{Precision} &= \frac{TP}{TP+FP}, \label{eq:precision}\\[2pt]
+  \text{Recall}    &= \frac{TP}{TP+FN}, \label{eq:recall}\\[2pt]
+  F_1 &= 2\times\frac{\text{Precision}\times\text{Recall}}{\text{Precision}+\text{Recall}}. \label{eq:f1}
+\end{align}
+\textbf{Accuracy}~\eqref{eq:accuracy} là tỷ lệ dự đoán đúng trên toàn bộ mẫu. \textbf{Precision}~\eqref{eq:precision} trả lời câu hỏi ``trong các mẫu được dự đoán là dương, bao nhiêu mẫu đúng là dương'', còn \textbf{Recall}~\eqref{eq:recall} trả lời ``trong các mẫu thật sự dương, mô hình tìm ra được bao nhiêu''. \textbf{F1-Score}~\eqref{eq:f1} là trung bình điều hoà của Precision và Recall; F1 chỉ cao khi cả hai cùng cao, nên phạt các mô hình chỉ tốt một phía. Cả bốn chỉ số nằm trong $[0,1]$, càng cao càng tốt.
+
+\subsubsection{Mở rộng cho bài toán nhiều lớp}
+\label{subsubsec:multiclass_metrics}
+
+Với $K=100$ lớp, ma trận nhầm lẫn $C$ có kích thước $K\times K$, trong đó $C_{ij}$ là số video lớp thật $i$ bị dự đoán là lớp $j$. Khi xét riêng lớp $c$, coi lớp $c$ là ``dương'' và 99 lớp còn lại là ``âm'' (\textit{một-đấu-phần-còn-lại}):
+\begin{equation}
+  TP_c = C_{cc}, \qquad FP_c = \sum_{i\ne c} C_{ic}, \qquad FN_c = \sum_{j\ne c} C_{cj},
+\end{equation}
+rồi áp dụng~\eqref{eq:precision}--\eqref{eq:f1} để được $\text{Precision}_c$, $\text{Recall}_c$ và $F_{1,c}$. Các chỉ số tổng hợp là
+\begin{align}
+  \text{Accuracy} &= \frac{\sum_{c=1}^{K} C_{cc}}{N}, \label{eq:accuracy_multi}\\
+  \text{Macro-}F_1 &= \frac{1}{K}\sum_{c=1}^{K}F_{1,c}, \qquad
+  \text{Macro-Precision} = \frac{1}{K}\sum_{c=1}^{K}\text{Precision}_c, \qquad
+  \text{Macro-Recall} = \frac{1}{K}\sum_{c=1}^{K}\text{Recall}_c, \label{eq:macro_f1}
+\end{align}
+với $N$ là tổng số mẫu. Công thức~\eqref{eq:accuracy_multi} là dạng tổng quát của~\eqref{eq:accuracy}: với hai lớp, tổng đường chéo $C_{11}+C_{22}$ chính là $TP+TN$.
+
+\paragraph*{Vì sao chọn Macro-F1} Dữ liệu huấn luyện mất cân bằng (5--51 video mỗi lớp, Mục~\ref{subsec:eda_class}). Accuracy bị chi phối bởi các lớp nhiều mẫu: mô hình bỏ qua hoàn toàn vài lớp hiếm vẫn có thể đạt Accuracy cao. Macro-F1~\eqref{eq:macro_f1} lấy trung bình đều trên 100 lớp, nên mỗi lớp đóng góp như nhau dù có ít hay nhiều video. Đây cũng là chỉ số chính thức của cuộc thi.
+
+\paragraph*{Ví dụ tính toán} Trên tập kiểm định (fold~0, $N=555$ video), mô hình CNN-LSTM giai đoạn B dự đoán đúng 508 video, nên theo~\eqref{eq:accuracy_multi}, $\text{Accuracy}=508/555\approx0{,}915$. Xét riêng lớp \textit{Rẽ phải} có 3 video: mô hình đoán đúng 1 video, 2 video còn lại bị nhầm thành \textit{Rẽ trái}, và không có video lớp khác bị đoán thành \textit{Rẽ phải}. Do đó $TP=1$, $FN=2$, $FP=0$, và
+\[
+  \text{Precision}=\frac{1}{1+0}=1, \qquad
+  \text{Recall}=\frac{1}{1+2}=\frac{1}{3}, \qquad
+  F_1 = 2\times\frac{1\times\frac{1}{3}}{1+\frac{1}{3}} = 0{,}5.
+\]
+Precision bằng 1 nhưng Recall chỉ $1/3$: mô hình ``thận trọng'' với lớp này. F1 bằng 0,5 phản ánh đúng sự mất cân đối đó, trong khi trung bình cộng thông thường của Precision và Recall là $0{,}67$ sẽ đánh giá quá cao.
+
+\subsubsection{Top-$k$ Accuracy và ROC-AUC}
+\label{subsubsec:topk_auc}
+
+\textbf{Top-$k$ Accuracy} là tỷ lệ mẫu có nhãn đúng nằm trong $k$ lớp có điểm cao nhất; với ứng dụng gợi ý (hiển thị 5 từ khả năng nhất cho người dùng chọn), Top-5 phản ánh trải nghiệm thực tế hơn Top-1.
+
+\textbf{ROC-AUC}: với mỗi lớp $c$, đường ROC vẽ tỷ lệ dương thật $\text{TPR}=\frac{TP}{TP+FN}$ theo tỷ lệ dương giả $\text{FPR}=\frac{FP}{FP+TN}$ khi thay đổi ngưỡng quyết định; AUC là diện tích dưới đường này, bằng xác suất mô hình chấm điểm một mẫu dương cao hơn một mẫu âm chọn ngẫu nhiên. Với nhiều lớp, nhóm lấy trung bình AUC một-đấu-phần-còn-lại của 100 lớp. AUC đánh giá khả năng \emph{xếp hạng} của điểm số, không phụ thuộc vào một ngưỡng cụ thể.
+
+\subsubsection{Cross-validation và tìm siêu tham số}
+\label{subsubsec:cv}
+
+\textbf{k-fold cross-validation} chia dữ liệu huấn luyện thành $k$ phần; lần lượt dùng mỗi phần làm tập kiểm định và $k-1$ phần còn lại để huấn luyện, rồi lấy trung bình điểm của $k$ lần~\cite{han2022}. Khi chia \emph{phân tầng} (\textit{stratified}), mỗi phần giữ tỷ lệ lớp giống toàn bộ dữ liệu. \textbf{GridSearchCV} thử mọi tổ hợp trong lưới siêu tham số và chọn tổ hợp có điểm cross-validation cao nhất; \textbf{RandomizedSearchCV} chỉ thử một số tổ hợp ngẫu nhiên, tiết kiệm thời gian khi lưới lớn~\cite{sklearn}. Toàn bộ các bước biến đổi (chuẩn hoá, PCA) phải nằm trong \textit{pipeline} và được học lại trên phần huấn luyện của từng lần chia, để thông tin từ phần kiểm định không rò rỉ vào mô hình.
+
+% ---------------------------------------------------------------------
+\subsection{Diễn giải mô hình bằng mức độ quan trọng hoán vị}
+\label{subsec:permutation}
+
+Mức độ quan trọng hoán vị (\textit{permutation importance})~\cite{sklearn} đo mức độ một mô hình đã huấn luyện phụ thuộc vào một thuộc tính (hoặc một nhóm thuộc tính) $G$: xáo trộn ngẫu nhiên giá trị của $G$ giữa các mẫu trong tập kiểm định, phá vỡ liên hệ giữa $G$ và nhãn, rồi đo điểm giảm đi bao nhiêu:
+\begin{equation}
+  I(G) = s(f, X, y) - \frac{1}{R}\sum_{r=1}^{R} s\big(f, X^{(G,r)}, y\big),
+\end{equation}
+với $s$ là chỉ số đánh giá (ở đây là Macro-F1), $X^{(G,r)}$ là dữ liệu sau lần xáo trộn thứ $r$. $I(G)$ càng lớn thì mô hình càng dựa vào $G$. Phương pháp này không phụ thuộc vào loại mô hình và không cần huấn luyện lại.

@@ -16,11 +16,11 @@
 \subsection{Tiền xử lý dữ liệu}
 \label{sec:preprocess}
 
-Mục này trình bày các bước biến dữ liệu thô thành đầu vào sạch và thống nhất cho mọi mô hình ở Chương~\ref{sec:model}. Mỗi bước xuất phát từ một vấn đề đã phát hiện ở bước EDA (Bảng~\ref{tab:eda_reco}). Nhóm dùng Python với \texttt{pandas}, \texttt{numpy}, \texttt{OpenCV} và \texttt{scikit-learn}; mã nguồn gồm hai phần:
+Mục này trình bày các bước biến dữ liệu thô thành đầu vào sạch và thống nhất cho mọi mô hình ở Mục~\ref{sec:model}. Mỗi bước xuất phát từ một vấn đề đã phát hiện ở bước EDA (Bảng~\ref{tab:eda_reco}). Nhóm dùng Python với \texttt{pandas}, \texttt{numpy}, \texttt{OpenCV} và \texttt{scikit-learn}; mã nguồn gồm hai phần:
 
 \begin{itemize}
   \item \textbf{Notebook làm sạch} \texttt{processing/data\_processing.ipynb}: chạy \emph{một lần} trên toàn bộ tập train để kiểm tra, loại bỏ và đánh dấu dữ liệu lỗi, chia tập kiểm định và tính trọng số lớp. Kết quả được lưu thành một bảng chỉ mục (\textit{manifest}) dùng chung cho cả nhóm.
-  \item \textbf{Module dùng chung} \texttt{processing/preprocess.py}: các phép biến đổi áp dụng \emph{mỗi lần} mô hình đọc một video (bỏ khung đơn sắc, lấy mẫu khung, tăng cường, chuẩn hoá). Mô hình SVM, CNN-LSTM, Vision Transformer và ứng dụng demo cùng gọi module này, nên dữ liệu ở huấn luyện, kiểm định, kiểm tra và demo được xử lý giống hệt nhau.
+  \item \textbf{Module dùng chung} \texttt{processing/preprocess.py}: các phép biến đổi áp dụng \emph{mỗi lần} mô hình đọc một video (bỏ khung đơn sắc, lấy mẫu khung, tăng cường, chuẩn hoá). Bước trích xuất đặc trưng, mô hình CNN-LSTM và ứng dụng demo cùng gọi module này, nên dữ liệu ở huấn luyện, kiểm định, kiểm tra và demo được xử lý giống hệt nhau.
 \end{itemize}
 
 Nhóm không lưu sẵn khung hình đã xử lý ra đĩa vì hai lý do: lưu 16 khung $224\times224\times3$ cho 2.772 video tốn khoảng 6,7~GB, và phép tăng cường cần tạo ra phiên bản khác nhau ở mỗi lần đọc. Mọi bước có yếu tố ngẫu nhiên đều cố định hạt giống \texttt{SEED = 42} để kết quả tái lập được.
@@ -29,7 +29,7 @@ Nhóm không lưu sẵn khung hình đã xử lý ra đĩa vì hai lý do: lưu 
 \subsubsection{Tổng quan quy trình}
 \label{subsec:pp_overview}
 
-Bảng~\ref{tab:pp_overview} liệt kê mười bước tiền xử lý theo thứ tự thực hiện và xếp mỗi bước vào nhóm tác vụ tiền xử lý dữ liệu tương ứng: làm sạch (\textit{data cleaning}), tích hợp (\textit{data integration}), thu gọn (\textit{data reduction}) và biến đổi dữ liệu (\textit{data transformation})~\cite{han2011}.
+Bảng~\ref{tab:pp_overview} liệt kê mười bước tiền xử lý theo thứ tự thực hiện và xếp mỗi bước vào nhóm tác vụ tiền xử lý dữ liệu tương ứng: làm sạch (\textit{data cleaning}), tích hợp (\textit{data integration}), thu gọn (\textit{data reduction}) và biến đổi dữ liệu (\textit{data transformation})~\cite{han2022}.
 
 \begin{table}[H]
   \centering
@@ -156,7 +156,7 @@ Khung đầu và khung cuối của chuỗi luôn là khung hợp lệ đầu ti
 \begin{equation}
   x'_c = \frac{x_c/255 - \mu_c}{\sigma_c}, \qquad \mu = (0{,}485;\ 0{,}456;\ 0{,}406), \quad \sigma = (0{,}229;\ 0{,}224;\ 0{,}225),
 \end{equation}
-với $\mu,\sigma$ là trung bình và độ lệch chuẩn của tập ImageNet. Nhóm dùng thống kê của ImageNet thay vì tính lại trên tập train vì các mô hình ở Chương~\ref{sec:model} dùng mạng trích đặc trưng đã huấn luyện sẵn trên ImageNet; đầu vào cần có cùng phân phối với dữ liệu mà mạng đó đã học. Kết quả của mỗi video là một tensor kích thước $16\times3\times224\times224$. Độ phân giải đã đồng nhất $224\times224$ (Bảng~\ref{tab:eda_res}) nên không cần đổi kích thước.
+với $\mu,\sigma$ là trung bình và độ lệch chuẩn của tập ImageNet. Nhóm dùng thống kê của ImageNet thay vì tính lại trên tập train vì các mô hình ở Mục~\ref{sec:model} dùng mạng trích đặc trưng đã huấn luyện sẵn trên ImageNet; đầu vào cần có cùng phân phối với dữ liệu mà mạng đó đã học. Kết quả của mỗi video là một tensor kích thước $16\times3\times224\times224$. Độ phân giải đã đồng nhất $224\times224$ (Bảng~\ref{tab:eda_res}) nên không cần đổi kích thước.
 
 % =====================================================================
 \subsubsection{Chia tập huấn luyện và kiểm định}

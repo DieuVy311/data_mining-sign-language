@@ -31,3 +31,6 @@ report/*.xdv
 
 # Log wandb offline
 wandb/
+
+# Bản nháp cũ của báo cáo
+report/chapters/_old/

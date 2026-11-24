@@ -1,0 +1,56 @@
+% =====================================================================
+% Chương 1 – Mở đầu
+% =====================================================================
+\section{Mở đầu}
+\label{sec:intro}
+
+\subsection{Đặt vấn đề}
+\label{subsec:problem}
+
+Ngôn ngữ ký hiệu là phương tiện giao tiếp chính của cộng đồng người khiếm thính. Tuy nhiên rất ít người nghe hiểu được ngôn ngữ này, và số phiên dịch viên ngôn ngữ ký hiệu còn hạn chế, nên người khiếm thính gặp khó khăn khi đi khám bệnh, làm thủ tục hành chính, học tập hay làm việc. Một hệ thống tự động nhận diện ký hiệu từ video có thể đóng vai trò cầu nối: người khiếm thính thực hiện ký hiệu trước camera, hệ thống trả về từ tương ứng dưới dạng văn bản.
+
+Khác với bài toán phân loại ảnh tĩnh, nhận diện ký hiệu từ video là bài toán \emph{không gian -- thời gian}: cùng một hình dạng bàn tay có thể mang nghĩa khác nhau tuỳ hướng chuyển động (ví dụ \textit{Rẽ trái} và \textit{Rẽ phải}), nên hệ thống phải nắm bắt được cả hình dáng trong từng khung lẫn sự thay đổi giữa các khung. Dữ liệu video còn có nhiều vấn đề chất lượng điển hình của dữ liệu thực tế: video trùng lặp, nhãn mâu thuẫn, khung hình nhiễu, phân bố lớp mất cân bằng và khác biệt giữa dữ liệu huấn luyện với dữ liệu sử dụng thật (người ký hiệu, góc quay, ánh sáng khác nhau).
+
+Vì vậy, bài toán phù hợp để áp dụng đầy đủ quy trình khai phá dữ liệu: hiểu và làm sạch dữ liệu, trích xuất đặc trưng từ dữ liệu phi cấu trúc (video), so sánh các thuật toán phân lớp, đánh giá khách quan và đóng gói thành ứng dụng.
+
+\subsection{Tổng quan tài liệu}
+\label{subsec:related}
+
+Các hướng tiếp cận nhận diện ngôn ngữ ký hiệu cấp độ từ (\textit{isolated sign language recognition}) gồm bốn hướng chính:
+
+\begin{itemize}
+  \item \textbf{Đặc trưng thủ công kết hợp học máy cổ điển.} Đặc trưng về hình dạng, quỹ đạo bàn tay được thiết kế bằng tay rồi đưa vào các bộ phân lớp như SVM, kNN hay mô hình Markov ẩn. Cách này dễ diễn giải nhưng phụ thuộc nhiều vào chất lượng đặc trưng và khó tổng quát hoá khi điều kiện quay thay đổi.
+  \item \textbf{Mạng tích chập kết hợp mạng hồi quy (CNN-RNN).} Một CNN trích đặc trưng không gian của từng khung, sau đó một mạng hồi quy như LSTM mô hình hoá chuỗi theo thời gian~\cite{donahue2015lrcn}. Hướng này tận dụng được các CNN đã học trước trên ImageNet thông qua học chuyển giao.
+  \item \textbf{Mạng tích chập 3D.} Các mô hình như I3D tích chập đồng thời theo không gian và thời gian, cho kết quả tốt trên các bộ dữ liệu lớn nhưng cần nhiều dữ liệu và tài nguyên tính toán.
+  \item \textbf{Dựa trên điểm khớp cơ thể và Transformer.} Tư thế cơ thể và bàn tay được ước lượng thành chuỗi toạ độ điểm khớp, sau đó phân loại bằng mạng đồ thị hoặc Transformer. Cách này loại bỏ được nền và trang phục nhưng phụ thuộc vào chất lượng bộ ước lượng tư thế.
+\end{itemize}
+
+Với quy mô dữ liệu của đề tài (khoảng 2.800 video huấn luyện cho 100 lớp) và tài nguyên GPU miễn phí giới hạn, nhóm chọn hướng \emph{trích xuất đặc trưng bằng CNN học trước} làm nền tảng chung, rồi so sánh các thuật toán phân lớp cổ điển của môn học với một mô hình CNN-LSTM. Cách tổ chức này đặt trọng tâm vào câu hỏi khai phá dữ liệu: \emph{biểu diễn dữ liệu (đặc trưng) hay thuật toán phân lớp quyết định chất lượng nhiều hơn?}
+
+\subsection{Mục đích và mục tiêu}
+\label{subsec:goals}
+
+\paragraph*{Mục đích} Xây dựng quy trình khai phá dữ liệu hoàn chỉnh để nhận diện 100 từ ngôn ngữ ký hiệu tiếng Việt từ video, làm cơ sở cho một ứng dụng hỗ trợ giao tiếp giữa người khiếm thính và người nghe; đồng thời rút ra hiểu biết về vai trò của tiền xử lý, biểu diễn đặc trưng và thuật toán phân lớp đối với dữ liệu video.
+
+\paragraph*{Mục tiêu cụ thể}
+\begin{enumerate}[label=(\arabic*)]
+  \item Phân tích khám phá và làm sạch dữ liệu: phát hiện, xử lý video trùng lặp, nhãn mâu thuẫn, video rỗng và khung hình nhiễu; xây dựng cách chia tập kiểm định không rò rỉ.
+  \item Trích xuất đặc trưng từ video bằng CNN học trước (EfficientNet-B0) ở hai dạng: đóng băng và đã tinh chỉnh trên dữ liệu ký hiệu.
+  \item Huấn luyện và so sánh năm mô hình: bốn thuật toán phân lớp cổ điển (Logistic Regression làm baseline, kNN, Random Forest, SVM tuyến tính) trên hai bộ đặc trưng, và mô hình học sâu CNN-LSTM; tinh chỉnh siêu tham số của các thuật toán cổ điển bằng GridSearchCV (Logistic Regression, kNN, SVM) và RandomizedSearchCV (Random Forest) với cross-validation 4 fold.
+  \item Đánh giá bằng nhiều chỉ số (Macro F1, Accuracy, Precision, Recall, Top-5 Accuracy, ROC-AUC) trên tập kiểm định và trên tập kiểm tra độc lập của cuộc thi; đặt mục tiêu Macro F1 trên tập kiểm tra private đạt ít nhất 0,6.
+  \item Diễn giải mô hình (mức độ quan trọng của nhóm đặc trưng, sai số theo từng lớp) và đóng gói thành ứng dụng demo bằng Streamlit.
+\end{enumerate}
+
+\subsection{Đối tượng và phạm vi nghiên cứu}
+\label{subsec:scope}
+
+\paragraph*{Đối tượng nghiên cứu} Video ngôn ngữ ký hiệu tiếng Việt cấp độ từ trong bộ dữ liệu của cuộc thi \textit{Olympic Trí tuệ Nhân tạo Sinh viên 2025 -- Vòng Sơ loại}~\cite{ptit2025}: 3.875 video huấn luyện có nhãn thuộc 100 lớp, cùng 1.630 video public test và 2.859 video private test không có nhãn. Mỗi video dài khoảng 1 giây, độ phân giải $224\times224$, ghi một người thực hiện một ký hiệu.
+
+\paragraph*{Phạm vi}
+\begin{itemize}
+  \item Bài toán \emph{phân loại} một video vào đúng một trong 100 lớp từ vựng; không xét nhận diện câu liên tục hay dịch ngược từ văn bản sang ký hiệu.
+  \item Chỉ dùng thông tin hình ảnh RGB của video; không dùng âm thanh, khẩu hình riêng hay cảm biến khác.
+  \item Đánh giá cuối cùng dựa trên Macro F1 do nền tảng AIChallenge chấm trên tập private test.
+  \item Huấn luyện trên GPU Tesla T4 của Kaggle, máy tính cá nhân.
+\end{itemize}
+
