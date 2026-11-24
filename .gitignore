@@ -34,3 +34,6 @@ wandb/
 
 # Bản nháp cũ của báo cáo
 report/chapters/_old/
+
+# Tài liệu nội bộ của nhóm
+docs/

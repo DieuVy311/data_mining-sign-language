@@ -37,7 +37,6 @@ Chi tiết và phân tích trong báo cáo `report/main.pdf`.
 | `models/classical/` | So sánh bốn thuật toán cổ điển trên hai bộ đặc trưng; permutation importance |
 | `demo/` | Ứng dụng Streamlit |
 | `report/` | Báo cáo LaTeX (pdfLaTeX + `-shell-escape`, cần gói `vntex`) |
-| `docs/` | Tài liệu nội bộ của nhóm |
 
 Mỗi notebook ghi kết quả (bảng chỉ số, hình, tệp nộp bài) vào thư mục `output/` bên cạnh.
 
